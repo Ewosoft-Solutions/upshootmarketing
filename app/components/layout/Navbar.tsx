@@ -11,9 +11,7 @@ import { cn } from '@/lib/utils';
 import { handleAnchorClick } from '@/lib/utils/scroll';
 import { ThemeToggle } from '@/app/components/ui/ThemeToggle';
 import { useTheme } from '@/app/components/providers/ThemeProvider';
-
-const LOGO_LIGHT = '/assets/logos/upshoot/upshoot.logo.lightmode.text.svg';
-const LOGO_DARK = '/assets/logos/upshoot/upshoot.logo.darkmode.text.svg';
+import { logos } from '@/lib/constants/assets';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -90,7 +88,7 @@ export function Navbar() {
       <div className='mx-auto flex h-20 max-w-7xl items-center justify-between px-6'>
         <Link href='/' className='text-xl font-bold'>
           <Image
-            src={theme === 'dark' ? LOGO_DARK : LOGO_LIGHT}
+            src={theme === 'dark' ? logos.dark : logos.light}
             alt='UpShoot Marketing'
             width={0}
             height={0}
@@ -99,21 +97,35 @@ export function Navbar() {
         </Link>
 
         <div className='hidden md:flex items-center gap-8'>
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => handleAnchorClick(e, link.href)}
-              className={cn(
-                'text-sm transition-colors cursor-pointer',
-                isActive(link.href)
-                  ? 'text-nav-text-active font-semibold'
-                  : 'text-nav-text-inactive font-normal hover:text-nav-text-active',
-              )}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const className = cn(
+              'text-sm transition-colors cursor-pointer',
+              isActive(link.href)
+                ? 'text-nav-text-active font-semibold'
+                : 'text-nav-text-inactive font-normal hover:text-nav-text-active',
+            );
+
+            // Use <a> with smooth scroll handler for hash links and the home "/" link
+            if (link.href.startsWith('#') || link.href === '/') {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleAnchorClick(e, link.href)}
+                  className={className}
+                >
+                  {link.label}
+                </a>
+              );
+            }
+
+            // Use Next.js Link for actual route navigation (e.g. /blog)
+            return (
+              <Link key={link.label} href={link.href} className={className}>
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         <div className='flex items-center gap-3'>

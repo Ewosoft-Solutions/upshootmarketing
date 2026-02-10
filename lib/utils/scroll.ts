@@ -23,8 +23,17 @@ export function handleAnchorClick(
   e: React.MouseEvent<HTMLAnchorElement>,
   href: string
 ) {
-  // Only handle hash links (in-page navigation)
-  if (href.startsWith('#')) {
+  if (href === '/') {
+    // Scroll to top for the Home link instead of reloading the page
+    e.preventDefault();
+    globalThis.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Clean up hash from the URL if present
+    if (globalThis.location.hash) {
+      globalThis.history.pushState(null, '', '/');
+    }
+  } else if (href.startsWith('#')) {
+    // Handle hash links (in-page navigation)
     e.preventDefault();
     const id = href.slice(1);
     scrollToSection(id);
