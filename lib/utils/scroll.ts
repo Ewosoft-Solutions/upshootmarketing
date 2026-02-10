@@ -30,6 +30,6 @@ export function handleAnchorClick(
     scrollToSection(id);
     
     // Update URL without triggering navigation
-    window.history.pushState(null, '', href);
+    globalThis.history.pushState(null, '', href);
   }
 }
