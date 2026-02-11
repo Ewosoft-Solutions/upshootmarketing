@@ -130,7 +130,7 @@ export function Navbar() {
 
         <div className='flex items-center gap-3'>
           <ThemeToggle />
-          <Button size='sm'>Get Started</Button>
+          <Button variant={'outline'} className='rounded-2xl'>Contact Us</Button>
         </div>
       </div>
     </nav>

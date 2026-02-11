@@ -115,7 +115,7 @@
   --footer-input-bg: oklch(0.2488 0.0015 17.3);
   --footer-input-text: oklch(1 0 89.9);
   --footer-input-placeholder: oklch(0.6175 0.0283 161.4);
-  --footer-social: #A09F9F;
+  --footer-social: oklch(0.7033 0.0012 17.2);
 }
 
 .dark {
@@ -165,7 +165,7 @@
   --footer-input-bg: oklch(0.2488 0.0015 17.3);
   --footer-input-text: oklch(1 0 89.9);
   --footer-input-placeholder: oklch(0.6175 0.0283 161.4);
-  --footer-social: #A09F9F;
+  --footer-social: oklch(0.7033 0.0012 17.2);
 }
 
 @layer base {
@@ -198,4 +198,5 @@
   .animate-shimmer {
     animation: shimmer 3s ease-in-out infinite;
   }
+
 }

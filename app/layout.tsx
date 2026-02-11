@@ -17,6 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "UpShoot Marketing - Modern B2B Marketing That Builds Trust and Drives Revenue",
   description: "We help companies build trust and convert high-value customers through strategic content, creative storytelling, and high-quality visuals.",
+  icons: {
+    icon: '/assets/icons/metadata/favicon.ico',
+    shortcut: '/assets/icons/metadata/favicon.ico',
+    apple: '/assets/icons/metadata/apple-icon.png',
+  },
 };
 
 export default function RootLayout({
