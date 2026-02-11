@@ -9,7 +9,6 @@ import { navLinks } from '@/lib/constants/nav-links';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { handleAnchorClick } from '@/lib/utils/scroll';
-import { ThemeToggle } from '@/app/components/ui/ThemeToggle';
 import { useTheme } from '@/app/components/providers/ThemeProvider';
 import { logos } from '@/lib/constants/assets';
 
@@ -129,7 +128,6 @@ export function Navbar() {
         </div>
 
         <div className='flex items-center gap-3'>
-          <ThemeToggle />
           <Button variant={'outline'} className='rounded-2xl'>Contact Us</Button>
         </div>
       </div>

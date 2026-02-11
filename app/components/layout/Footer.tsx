@@ -14,7 +14,16 @@ type IconProps = Readonly<{ className?: string }>;
 
 function InstagramIcon({ className }: IconProps) {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' className={className}>
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      className={className}
+    >
       <rect width='20' height='20' x='2' y='2' rx='5' ry='5' />
       <path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z' />
       <line x1='17.5' x2='17.51' y1='6.5' y2='6.5' />
@@ -24,7 +33,16 @@ function InstagramIcon({ className }: IconProps) {
 
 function TikTokIcon({ className }: IconProps) {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' className={className}>
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      className={className}
+    >
       <path d='M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5' />
     </svg>
   );
@@ -32,7 +50,16 @@ function TikTokIcon({ className }: IconProps) {
 
 function LinkedinIcon({ className }: IconProps) {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' className={className}>
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      className={className}
+    >
       <path d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z' />
       <rect width='4' height='12' x='2' y='9' />
       <circle cx='4' cy='4' r='2' />
@@ -65,7 +92,10 @@ export function Footer() {
   const footerLogo = logos.dark;
 
   return (
-    <footer id='contact' className='bg-footer-bg text-footer-text flex flex-col gap-8 md:gap-12 py-10 md:py-16'>
+    <footer
+      id='contact'
+      className='bg-footer-bg text-footer-text flex flex-col gap-8 md:gap-12 py-10 md:py-16'
+    >
       {/* Top row: CTA (left) + Links grid (right) */}
       <div className='container-px'>
         <div className='max-w-7xl mx-auto grid md:grid-cols-[3fr_2fr] gap-8 lg:gap-16'>
@@ -118,7 +148,7 @@ export function Footer() {
           </AnimatedSection>
 
           {/* Links + Newsletter grid */}
-          <div className='grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8'>
+          <div className='grid grid-cols-2 gap-5 md:gap-8'>
             {/* Company Links */}
             <div>
               <h3 className='font-semibold mb-2 md:mb-4 text-sm tracking-wide'>
@@ -140,26 +170,6 @@ export function Footer() {
             </div>
 
             {/* Resources - Column 1 */}
-            <div>
-              <h3 className='font-semibold mb-2 md:mb-4 text-sm tracking-wide'>
-                RESOURCES
-              </h3>
-              <ul className='space-y-1.5 md:space-y-2'>
-                {resourceLinks.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => handleAnchorClick(e, link.href)}
-                      className='text-footer-muted hover:text-footer-text transition-colors cursor-pointer text-sm'
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Resources - Column 2 */}
             <div>
               <h3 className='font-semibold mb-2 md:mb-4 text-sm tracking-wide'>
                 RESOURCES
@@ -208,7 +218,9 @@ export function Footer() {
                 placeholder='Email address'
                 className='rounded-2xl px-4 md:px-6 flex-1 border-footer-border bg-footer-input-bg text-footer-input-text placeholder:text-footer-input-placeholder'
               />
-              <Button variant="secondary" className="rounded-2xl">Subscribe</Button>
+              <Button variant='secondary' className='rounded-2xl'>
+                Subscribe
+              </Button>
             </div>
           </div>
         </div>

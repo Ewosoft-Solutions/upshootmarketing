@@ -173,7 +173,7 @@
 
 @media (min-width: 1024px) {
   :root {
-    --container-px: 80px; /* laptop+ */
+    --container-px: 64px; /* laptop+ */
   }
 }
 
