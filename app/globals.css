@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -61,14 +61,17 @@
 
 :root {
   --radius: 0.625rem;
-  
+
+  /* Container horizontal padding — single source of truth */
+  --container-px: 24px; /* mobile */
+
   /* Brand Colors - Customize these */
   --brand-primary: oklch(0.55 0.2 260); /* Purple/Blue accent */
   --brand-primary-foreground: oklch(1 0 0);
   --brand-accent: oklch(0.65 0.25 300); /* Secondary accent */
   --brand-dark: oklch(0.15 0.02 265); /* Dark background */
   --brand-darker: oklch(0.1 0.02 265); /* Even darker */
-  
+
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
@@ -168,6 +171,17 @@
   --footer-social: oklch(0.7033 0.0012 17.2);
 }
 
+@media (min-width: 1024px) {
+  :root {
+    --container-px: 80px; /* laptop+ */
+  }
+}
+
+/* Reusable container padding utility — change --container-px above to adjust globally */
+.container-px {
+  padding-inline: var(--container-px);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -175,7 +189,7 @@
   body {
     @apply bg-background text-foreground font-sans;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
@@ -198,5 +212,26 @@
   .animate-shimmer {
     animation: shimmer 3s ease-in-out infinite;
   }
+}
 
+/* Flip card 3D animation */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-face {
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
 }

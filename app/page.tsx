@@ -8,6 +8,7 @@ import { AboutSection } from '@/app/components/sections/AboutSection';
 import { ServicesSection } from '@/app/components/sections/ServicesSection';
 import { PortfolioSection } from '@/app/components/sections/PortfolioSection';
 import { ArticlesSection } from '@/app/components/sections/ArticlesSection';
+import { ClientsSection } from '@/app/components/sections/ClientsSection';
 import { CTASection } from '@/app/components/sections/CTASection';
 import { GetStartedModal } from '@/app/components/modals/GetStartedModal';
 
@@ -20,6 +21,7 @@ export default function HomePage() {
 
       <main>
         <HeroSection onGetStarted={() => setOpen(true)} />
+        <ClientsSection />
         <AboutSection />
         <ServicesSection />
         <PortfolioSection />

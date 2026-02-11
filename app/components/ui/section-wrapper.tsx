@@ -12,7 +12,7 @@ export function SectionWrapper({
   className,
 }: Readonly<SectionWrapperProps>) {
   return (
-    <section id={id} className={cn('py-24 px-6 scroll-mt-20', className)}>
+    <section id={id} className={cn('py-24 container-px scroll-mt-20', className)}>
       <div className='mx-auto max-w-7xl'>{children}</div>
     </section>
   );

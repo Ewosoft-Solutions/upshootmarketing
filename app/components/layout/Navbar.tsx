@@ -85,7 +85,7 @@ export function Navbar() {
           : 'bg-nav-bg border-transparent',
       )}
     >
-      <div className='mx-auto flex h-20 max-w-7xl items-center justify-between px-6'>
+      <div className='flex h-20 items-center justify-between container-px'>
         <Link href='/' className='text-xl font-bold'>
           <Image
             src={theme === 'dark' ? logos.dark : logos.light}

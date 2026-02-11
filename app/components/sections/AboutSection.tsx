@@ -5,7 +5,7 @@ import { Play } from 'lucide-react';
 
 export function AboutSection() {
   return (
-    <section id="about" className='py-24 px-6 bg-background'>
+    <section id="about" className='py-24 container-px bg-background'>
       <div className='max-w-7xl mx-auto'>
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           {/* Left: Content */}

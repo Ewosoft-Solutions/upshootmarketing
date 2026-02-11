@@ -67,7 +67,7 @@ export function Footer() {
   return (
     <footer id='contact' className='bg-footer-bg text-footer-text flex flex-col gap-8 md:gap-12 py-10 md:py-16'>
       {/* Top row: CTA (left) + Links grid (right) */}
-      <div className='px-6'>
+      <div className='container-px'>
         <div className='max-w-7xl mx-auto grid md:grid-cols-[3fr_2fr] gap-8 lg:gap-16'>
           {/* CTA Section */}
           <AnimatedSection animation='slideUp'>
@@ -183,7 +183,7 @@ export function Footer() {
       </div>
 
       {/* Middle row: Logo (left) + Be The First To Know (right) */}
-      <div className='px-6'>
+      <div className='container-px'>
         <div className='max-w-7xl mx-auto grid md:grid-cols-5 gap-5 md:gap-8 items-start'>
           <Link href='/' className='text-xl font-bold md:col-span-3'>
             <Image
@@ -215,7 +215,7 @@ export function Footer() {
       </div>
 
       {/* Bottom row: Copyright (left) + Social links (right) */}
-      <div className='border-t border-footer-border pt-6 md:pt-8 px-6'>
+      <div className='border-t border-footer-border pt-6 md:pt-8 container-px'>
         <div className='max-w-7xl mx-auto flex flex-col-reverse sm:flex-row items-center justify-between gap-4'>
           <p className='text-footer-muted text-sm'>
             © 2025. All rights reserved

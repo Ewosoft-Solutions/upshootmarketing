@@ -37,7 +37,7 @@ function getProjectDelay(index: number): 'none' | 'short' | 'medium' {
 
 export function PortfolioSection() {
   return (
-    <section id="portfolio" className='py-24 px-6 bg-muted/30'>
+    <section id="portfolio" className='py-24 container-px bg-muted/30'>
       <div className='max-w-7xl mx-auto'>
         <AnimatedSection animation="slideUp" className='text-center mb-16'>
           <h2 className='text-3xl md:text-5xl font-bold mb-4'>

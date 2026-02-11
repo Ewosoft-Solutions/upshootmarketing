@@ -49,7 +49,7 @@ function getArticleDelay(index: number): 'none' | 'short' | 'medium' | 'long' {
 
 export function ArticlesSection() {
   return (
-    <section id="blog" className='py-24 px-6 bg-background'>
+    <section id="blog" className='py-24 container-px bg-background'>
       <div className='max-w-7xl mx-auto'>
         <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4'>
           <AnimatedSection animation="slideRight">

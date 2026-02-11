@@ -1,50 +1,105 @@
 'use client';
 
-import { AnimatedSection } from '@/app/components/ui/animated-section';
-import { Badge } from '@/components/ui/badge';
+import { useRef } from 'react';
+import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-const clients = [
-  { id: 'marketing-solutions', name: 'Marketing Solutions', category: 'Marketing' },
-  { id: 'growth-partners', name: 'Growth Partners', category: 'Marketing' },
-  { id: 'business-growth-co', name: 'Business Growth Co', category: 'Business Growth' },
-  { id: 'scale-up-inc', name: 'Scale Up Inc', category: 'Business Growth' },
-  { id: 'brand-studio', name: 'Brand Studio', category: 'Branding' },
-  { id: 'creative-agency', name: 'Creative Agency', category: 'Branding' },
-  { id: 'digital-marketing-hub', name: 'Digital Marketing Hub', category: 'Marketing' },
-  { id: 'enterprise-solutions', name: 'Enterprise Solutions', category: 'Business Growth' },
+const clientLogos = [
+  {
+    id: 'chiropracticplus',
+    name: 'ChiropracticPlus',
+    src: '/assets/logos/clients/chiropracticplus.logo.svg',
+  },
+  { id: 'eems', name: 'EEMS', src: '/assets/logos/clients/eems.logo.svg' },
+  {
+    id: 'expressfunded',
+    name: 'ExpressFunded',
+    src: '/assets/logos/clients/expressfunded.logo.svg',
+  },
+  {
+    id: 'hivebly',
+    name: 'Hivebly',
+    src: '/assets/logos/clients/hivebly.logo.svg',
+  },
+  {
+    id: 'onemart',
+    name: 'OneMart',
+    src: '/assets/logos/clients/onemart.logo.svg',
+  },
+  {
+    id: 'sandersonyatching',
+    name: 'Sanderson Yatching',
+    src: '/assets/logos/clients/sandersonyatching.logo.svg',
+  },
 ];
 
-function getAnimationDelay(index: number): 'none' | 'short' | 'medium' | 'long' {
-  if (index === 0) return 'none';
-  if (index <= 2) return 'short';
-  if (index <= 4) return 'medium';
-  return 'long';
-}
+const SEPARATOR_SRC = '/assets/logos/clients/separator.logo.svg';
+
+/**
+ * Build a flat array of ticker items: [logo, sep, logo, sep, ..., logo]
+ * Separators only appear between logos, not after the last one.
+ */
+const tickerItems = clientLogos.flatMap((client, index) => [
+  { type: 'logo' as const, id: client.id, name: client.name, src: client.src },
+  ...(index < clientLogos.length - 1
+    ? [
+        {
+          type: 'separator' as const,
+          id: `${client.id}-sep`,
+          name: '',
+          src: SEPARATOR_SRC,
+        },
+      ]
+    : []),
+]);
 
 export function ClientsSection() {
+  const scrollTickerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollTickerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  // Map vertical scroll progress to horizontal translation:
+  // Start with items offscreen right, end with last item exiting left
+  const scrollX = useTransform(scrollYProgress, [0, 1], ['20%', '-80%']);
+
   return (
-    <section className='py-16 px-6 bg-muted/30'>
-      <div className='max-w-7xl mx-auto'>
-        <AnimatedSection animation="fade" className='text-center mb-12'>
-          <p className='text-sm text-muted-foreground mb-8'>Trusted by leading brands</p>
-          
-          <div className='flex flex-wrap justify-center gap-6 items-center'>
-            {clients.slice(0, 6).map((client, index) => (
-              <AnimatedSection
-                key={client.id}
-                animation="scale"
-                delay={getAnimationDelay(index)}
-              >
-                <Badge
-                  variant="outline"
-                  className="px-6 py-3 text-sm bg-card/80 backdrop-blur-sm hover:bg-card transition-colors"
-                >
-                  {client.category}
-                </Badge>
-              </AnimatedSection>
-            ))}
-          </div>
-        </AnimatedSection>
+    <section id='clients' className='relative'>
+      <div
+        ref={scrollTickerRef}
+        className='relative h-[80vh] md:h-[120vh] lg:h-[150vh]'
+      >
+        <div className='sticky top-1/2 -translate-y-1/2 w-screen overflow-hidden'>
+          {/* Fade edges */}
+          <div className='pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-linear-to-r from-background to-transparent' />
+          <div className='pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-linear-to-l from-background to-transparent' />
+
+          <motion.div className='flex items-center' style={{ x: scrollX }}>
+            {tickerItems.map((item) =>
+              item.type === 'logo' ? (
+                <Image
+                  key={`scroll-${item.id}`}
+                  src={item.src}
+                  alt={item.name}
+                  width={0}
+                  height={72}
+                  className='h-12 w-auto shrink-0 mr-6 md:mr-12 md:h-[72px]'
+                  style={{ width: 'auto' }}
+                />
+              ) : (
+                <Image
+                  key={`scroll-${item.id}`}
+                  src={item.src}
+                  alt=''
+                  width={36}
+                  height={36}
+                  className='h-6 w-6 shrink-0 mr-6 md:mr-12 md:h-9 md:w-9'
+                />
+              ),
+            )}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
