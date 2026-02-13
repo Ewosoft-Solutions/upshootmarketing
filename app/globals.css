@@ -224,7 +224,15 @@
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+/* Desktop hover behavior */
+@media (hover: hover) and (pointer: fine) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* JavaScript-controlled flip for touch devices and explicit toggling */
+.flip-card-inner.flip-card-flipped {
   transform: rotateY(180deg);
 }
 

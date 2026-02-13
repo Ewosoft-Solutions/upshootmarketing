@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface HeroCard {
   front: string;
@@ -28,10 +29,20 @@ const heroCards: HeroCard[] = [
   },
 ];
 
-function FlipCard({ front, back, alt }: Readonly<HeroCard>) {
+interface FlipCardProps extends HeroCard {
+  isFlipped: boolean;
+  onFlip: () => void;
+}
+
+function FlipCard({ front, back, alt, isFlipped, onFlip }: Readonly<FlipCardProps>) {
   return (
-    <div className='flip-card aspect-4/3'>
-      <div className='flip-card-inner relative w-full h-full'>
+    <button 
+      type='button'
+      className='flip-card aspect-4/3 cursor-pointer w-full'
+      onClick={onFlip}
+      aria-label={`Flip card for ${alt}`}
+    >
+      <div className={`flip-card-inner relative w-full h-full ${isFlipped ? 'flip-card-flipped' : ''}`}>
         <div className='flip-card-face flip-card-front absolute inset-0 rounded-[24px] overflow-hidden'>
           <Image
             src={front}
@@ -51,11 +62,17 @@ function FlipCard({ front, back, alt }: Readonly<HeroCard>) {
           />
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 
 export function FlipCardGrid() {
+  const [flippedCard, setFlippedCard] = useState<string | null>(null);
+
+  const handleCardFlip = (cardAlt: string) => {
+    setFlippedCard((current) => (current === cardAlt ? null : cardAlt));
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -64,7 +81,12 @@ export function FlipCardGrid() {
       className='mt-20 mb-32 w-full grid grid-cols-1 md:grid-cols-3 gap-6'
     >
       {heroCards.map((card) => (
-        <FlipCard key={card.alt} {...card} />
+        <FlipCard 
+          key={card.alt} 
+          {...card} 
+          isFlipped={flippedCard === card.alt}
+          onFlip={() => handleCardFlip(card.alt)}
+        />
       ))}
     </motion.div>
   );
