@@ -5,7 +5,7 @@ import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 
 export function CTASection() {
   return (
-    <section className='py-24 container-px bg-muted/40'>
+    <section className='py-24 container-px'>
       <div className='max-w-4xl mx-auto text-center'>
         <AnimatedSection animation='slideUp'>
           <h2 className='text-3xl md:text-5xl font-bold mb-6'>
