@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { cn } from '@/lib/utils';
@@ -44,47 +45,94 @@ const teamMembers = [
   },
 ];
 
+function TeamMemberCircle({ src, alt, bg, className, delay = 0 }: Readonly<{
+  src: string;
+  alt: string;
+  bg: string;
+  className?: string;
+  delay?: number;
+}>) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{
+        duration: 0.5,
+        delay,
+        ease: [0.34, 1.56, 0.64, 1],
+      }}
+      className={cn('relative rounded-full overflow-hidden', bg, className)}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className='object-cover object-top'
+        sizes='(max-width: 768px) 80px, 192px'
+      />
+    </motion.div>
+  );
+}
+
+const topRow = teamMembers.slice(0, 3);
+const bottomRow = teamMembers.slice(3);
+
 export function CTASection() {
   return (
     <section className='py-24 container-px'>
       <div className='relative max-w-6xl mx-auto'>
-        {/* Team member circles — hidden on small screens */}
+        {/* Desktop: absolute positioned oblique circle */}
         <div className='hidden md:block'>
-          {teamMembers.map((member) => (
-            <div
+          {teamMembers.map((member, i) => (
+            <TeamMemberCircle
               key={member.src}
-              className={cn(
-                'absolute rounded-full overflow-hidden',
-                member.bg,
-                member.className,
-              )}
-            >
-              <Image
-                src={member.src}
-                alt={member.alt}
-                fill
-                className='object-cover object-top'
-                sizes='(max-width: 1024px) 144px, 192px'
-              />
-            </div>
+              {...member}
+              delay={i * 0.12}
+              className={cn('absolute', member.className)}
+            />
+          ))}
+        </div>
+
+        {/* Mobile: top row of 3 */}
+        <div className='flex md:hidden justify-center items-end gap-4 mb-8'>
+          {topRow.map((member, i) => (
+            <TeamMemberCircle
+              key={member.src}
+              {...member}
+              delay={i * 0.12}
+              className={cn('size-20', i === 1 && '-mb-3')}
+            />
           ))}
         </div>
 
         {/* Centered content */}
-        <div className='relative z-10 max-w-xl mx-auto text-center py-16 md:py-32'>
+        <div className='relative z-10 max-w-xl mx-auto text-center md:py-32'>
           <AnimatedSection animation='slideUp'>
             <h2 className='text-3xl md:text-5xl font-bold mb-6'>
               Become Part of our Team
             </h2>
             <p className='text-muted-foreground text-lg leading-relaxed mx-auto mb-10'>
               We help our clients with the work beyond (& sometimes behind) the
-              splashy ad campaigns and viral moments. We leverage content to help
-              our clients consistently bring their unique perspective to the
-              world, and educate, engage, and inspire like-minded people around
-              it
+              splashy ad campaigns and viral moments. We leverage content to
+              help our clients consistently bring their unique perspective to
+              the world, and educate, engage, and inspire like-minded people
+              around it
             </p>
             <ShimmerButton>Join the Team</ShimmerButton>
           </AnimatedSection>
+        </div>
+
+        {/* Mobile: bottom row of 3 */}
+        <div className='flex md:hidden justify-center items-start gap-4 mt-10'>
+          {bottomRow.map((member, i) => (
+            <TeamMemberCircle
+              key={member.src}
+              {...member}
+              delay={(i + 3) * 0.12}
+              className={cn('size-20', i === 1 && '-mt-3')}
+            />
+          ))}
         </div>
       </div>
     </section>
