@@ -11,7 +11,7 @@ const articles = [
     title: '15 Awesome Rebrand Examples That Tell a Great Brand Story',
     date: 'December 12, 2024',
     tags: ['Brand Strategy', 'Marketing'],
-    imageUrl: '',
+    imageUrl: '/assets/images/sections/articles/article-1.jpg',
     href: '/blog',
   },
   {
@@ -19,7 +19,7 @@ const articles = [
     title: 'Everything You Need to Know About AI Marketing + 75 AI Prompts',
     date: 'December 12, 2024',
     tags: ['Branding', 'AI Marketing'],
-    imageUrl: '',
+    imageUrl: '/assets/images/sections/articles/article-2.jpg',
     href: '/blog',
   },
   {
@@ -27,7 +27,7 @@ const articles = [
     title: 'How to Look Like a Million-Dollar Brand on a Startup Budget',
     date: 'December 12, 2024',
     tags: ['Content Marketing', 'Content Design'],
-    imageUrl: '',
+    imageUrl: '/assets/images/sections/articles/article-3.jpg',
     href: '/blog',
   },
   {
@@ -35,7 +35,7 @@ const articles = [
     title: 'Strategy Content Studio vs. Production Shop',
     date: 'December 12, 2024',
     tags: ['Ads Marketing', 'B2B Marketing'],
-    imageUrl: '',
+    imageUrl: '/assets/images/sections/articles/article-4.jpg',
     href: '/blog',
   },
 ];

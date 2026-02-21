@@ -28,7 +28,7 @@ export function ArticleCard({ title, date, tags, imageUrl, href, className }: Re
         className="block space-y-4"
       >
         {/* Image */}
-        <div className="aspect-16/10 overflow-hidden rounded-lg bg-muted relative">
+        <div className="aspect-8/7 overflow-hidden rounded-lg bg-muted relative">
           {imageUrl ? (
             <Image
               src={imageUrl}
