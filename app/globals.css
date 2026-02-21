@@ -68,7 +68,7 @@
   /* Brand Colors - Customize these */
   --brand-primary: oklch(0.55 0.2 260); /* Purple/Blue accent */
   --brand-primary-foreground: oklch(1 0 0);
-  --brand-accent: oklch(0.65 0.25 300); /* Secondary accent */
+  --brand-accent: oklch(0.129 0.042 264.695); /* Secondary accent */
   --brand-dark: oklch(0.15 0.02 265); /* Dark background */
   --brand-darker: oklch(0.1 0.02 265); /* Even darker */
 
@@ -82,7 +82,7 @@
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.9642 0 0.899);
   --muted-foreground: oklch(0.7033 0.0012 17.2);
-  --accent: var(--brand-accent);
+  --accent: oklch(0.129 0.042 264.695);
   --accent-foreground: oklch(0.984 0.003 247.858);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.929 0.013 255.508);
@@ -134,7 +134,7 @@
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);
   --muted-foreground: oklch(0.706 0.003 17); /* #A09F9F */
-  --accent: var(--brand-accent);
+  --accent: oklch(0.129 0.042 264.695);
   --accent-foreground: oklch(0.984 0.003 247.858);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -188,7 +188,6 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    overflow-x: hidden;
   }
 
   html {

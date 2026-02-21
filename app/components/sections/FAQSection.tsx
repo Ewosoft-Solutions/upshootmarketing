@@ -86,9 +86,7 @@ export function FAQSection() {
             {/* Left column */}
             <AnimatedSection animation='slideRight' duration='slow'>
               <h2 className='text-3xl md:text-5xl font-bold mb-6'>
-                Frequently Asked
-                <br />
-                Questions
+                Frequently Asked Questions
               </h2>
               <p className='text-muted-foreground mb-8 max-w-md'>
                 Everything about Upshoot Marketing. Have more questions, contact

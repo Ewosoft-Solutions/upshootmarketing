@@ -6,9 +6,9 @@ import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 export function ServicesSection() {
   return (
     <section id='services' className='py-24 container-px bg-muted/40'>
-      <div className='max-w-7xl mx-auto grid md:grid-cols-2 gap-14'>
+      <div className='max-w-7xl mx-auto grid lg:grid-cols-2 gap-14'>
         <AnimatedSection animation='slideRight' duration='slow'>
-          <h2 className='text-3xl md:text-5xl font-bold mb-8 text-balance md:leading-14'>
+          <h2 className='text-3xl lg:text-5xl font-bold mb-8 text-balance lg:leading-14'>
             We Build Brands brick by brick through good content.
           </h2>
           <ShimmerButton size='default'>Our Services</ShimmerButton>

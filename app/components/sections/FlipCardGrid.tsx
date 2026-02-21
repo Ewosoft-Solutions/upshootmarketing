@@ -78,7 +78,7 @@ export function FlipCardGrid() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className='mt-20 mb-32 w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto'
+      className='mt-20 w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto'
     >
       {heroCards.map((card) => (
         <FlipCard 

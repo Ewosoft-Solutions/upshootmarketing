@@ -11,37 +11,37 @@ const teamMembers = [
     src: '/assets/images/sections/cta/person-1.png',
     alt: 'Team Member 1',
     bg: 'bg-emerald-400',
-    className: 'top-[5%] left-[8%] size-32 md:size-40',
+    className: 'top-[5%] left-[8%] size-32 lg:size-40',
   },
   {
     src: '/assets/images/sections/cta/person-2.png',
     alt: 'Team Member 2',
     bg: 'bg-sky-400',
-    className: 'top-[3%] right-[6%] size-36 md:size-44',
+    className: 'top-[3%] right-[6%] size-36 lg:size-44',
   },
   {
     src: '/assets/images/sections/cta/person-3.png',
     alt: 'Team Member 3',
     bg: 'bg-amber-400',
-    className: 'top-[42%] left-[0%] size-28 md:size-36',
+    className: 'top-[42%] left-[0%] size-28 lg:size-36',
   },
   {
     src: '/assets/images/sections/cta/person-4.png',
     alt: 'Team Member 4',
     bg: 'bg-amber-400',
-    className: 'top-[40%] right-[0%] size-24 md:size-32',
+    className: 'top-[40%] right-[0%] size-24 lg:size-32',
   },
   {
     src: '/assets/images/sections/cta/person-5.png',
     alt: 'Team Member 5',
     bg: 'bg-sky-400',
-    className: 'bottom-[2%] left-[18%] size-36 md:size-48',
+    className: 'bottom-[2%] left-[18%] size-36 lg:size-48',
   },
   {
     src: '/assets/images/sections/cta/person-6.png',
     alt: 'Team Member 6',
     bg: 'bg-pink-400',
-    className: 'bottom-[5%] right-[18%] size-32 md:size-40',
+    className: 'bottom-[5%] right-[18%] size-32 lg:size-40',
   },
 ];
 
@@ -83,7 +83,7 @@ export function CTASection() {
     <section className='py-24 container-px'>
       <div className='relative max-w-6xl mx-auto'>
         {/* Desktop: absolute positioned oblique circle */}
-        <div className='hidden md:block'>
+        <div className='hidden lg:block'>
           {teamMembers.map((member, i) => (
             <TeamMemberCircle
               key={member.src}
@@ -95,7 +95,7 @@ export function CTASection() {
         </div>
 
         {/* Mobile: top row of 3 */}
-        <div className='flex md:hidden justify-center items-end gap-4 mb-8'>
+        <div className='flex lg:hidden justify-center items-end gap-4 mb-8'>
           {topRow.map((member, i) => (
             <TeamMemberCircle
               key={member.src}
@@ -107,9 +107,9 @@ export function CTASection() {
         </div>
 
         {/* Centered content */}
-        <div className='relative z-10 max-w-xl mx-auto text-center md:py-32'>
+        <div className='relative z-10 max-w-xl mx-auto text-center lg:py-32'>
           <AnimatedSection animation='slideUp'>
-            <h2 className='text-3xl md:text-5xl font-bold mb-6'>
+            <h2 className='text-3xl lg:text-4xl font-bold mb-6'>
               Become Part of our Team
             </h2>
             <p className='text-muted-foreground text-lg leading-relaxed mx-auto mb-10'>
@@ -124,7 +124,7 @@ export function CTASection() {
         </div>
 
         {/* Mobile: bottom row of 3 */}
-        <div className='flex md:hidden justify-center items-start gap-4 mt-10'>
+        <div className='flex lg:hidden justify-center items-start gap-4 mt-10'>
           {bottomRow.map((member, i) => (
             <TeamMemberCircle
               key={member.src}
