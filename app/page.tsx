@@ -10,6 +10,7 @@ import { PortfolioSection } from '@/app/components/sections/PortfolioSection';
 import { ArticlesSection } from '@/app/components/sections/ArticlesSection';
 import { ClientsSection } from '@/app/components/sections/ClientsSection';
 import { CTASection } from '@/app/components/sections/CTASection';
+import { FAQSection } from '@/app/components/sections/FAQSection';
 import { GetStartedModal } from '@/app/components/modals/GetStartedModal';
 
 export default function HomePage() {
@@ -27,6 +28,7 @@ export default function HomePage() {
         <ServicesSection />
         <CTASection />
         <ArticlesSection />
+        <FAQSection />
       </main>
 
       <Footer />
