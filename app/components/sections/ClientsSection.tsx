@@ -70,7 +70,7 @@ export function ClientsSection() {
         ref={scrollTickerRef}
         className='relative h-[80vh] md:h-[120vh] lg:h-[150vh]'
       >
-        <div className='sticky top-1/2 -translate-y-1/2 w-screen overflow-hidden'>
+        <div className='sticky top-1/2 -translate-y-1/2 w-full overflow-hidden'>
           {/* Fade edges */}
           <div className='pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-linear-to-r from-background to-transparent' />
           <div className='pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-linear-to-l from-background to-transparent' />

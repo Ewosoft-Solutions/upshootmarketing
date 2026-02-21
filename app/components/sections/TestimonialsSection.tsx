@@ -46,7 +46,7 @@ const testimonials: Testimonial[] = [
 
 function TestimonialCard({ testimonial }: Readonly<{ testimonial: Testimonial }>) {
   return (
-    <div className='shrink-0 w-[340px] rounded-xl bg-background p-6 mx-3'>
+    <div className='shrink-0 w-[min(340px,85vw)] rounded-xl bg-background p-6 mx-3'>
       <p className='text-sm leading-relaxed text-foreground mb-6'>
         {testimonial.quote}
       </p>
