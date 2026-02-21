@@ -13,18 +13,18 @@ interface HeroCard {
 // Reorder this array to change the display order of cards
 const heroCards: HeroCard[] = [
   {
-    front: '/assets/images/hero-section/marketing.front.png',
-    back: '/assets/images/hero-section/marketing.back.png',
+    front: '/assets/images/hero-section/marketing-front.png',
+    back: '/assets/images/hero-section/marketing-back.png',
     alt: 'Marketing',
   },
   {
-    front: '/assets/images/hero-section/business-growth.front.png',
-    back: '/assets/images/hero-section/business-growth.back.png',
+    front: '/assets/images/hero-section/business-growth-front.png',
+    back: '/assets/images/hero-section/business-growth-back.png',
     alt: 'Business Growth',
   },
   {
-    front: '/assets/images/hero-section/branding.front.png',
-    back: '/assets/images/hero-section/branding.back.png',
+    front: '/assets/images/hero-section/branding-front.png',
+    back: '/assets/images/hero-section/branding-back.png',
     alt: 'Branding',
   },
 ];
