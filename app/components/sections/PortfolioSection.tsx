@@ -1,6 +1,7 @@
 'use client';
 
 import { AnimatedSection } from '@/app/components/ui/animated-section';
+import { Carousel } from '@/app/components/ui/carousel';
 import { ProjectCard } from '@/app/components/ui/project-card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -10,34 +11,49 @@ const projects = [
     id: 'greathub-1',
     title: 'The GreatHub',
     description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
-    imageUrl: '',
+    imageUrl: '/assets/images/sections/portfolio/project-1.jpg',
     href: '#',
   },
   {
     id: 'greathub-2',
     title: 'The GreatHub',
     description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
-    imageUrl: '',
+    imageUrl: '/assets/images/sections/portfolio/project-2.jpg',
     href: '#',
   },
   {
     id: 'greathub-3',
     title: 'The GreatHub',
     description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
-    imageUrl: '',
+    imageUrl: '/assets/images/sections/portfolio/project-3.jpg',
+    href: '#',
+  },
+  {
+    id: 'greathub-1',
+    title: 'The GreatHub',
+    description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
+    imageUrl: '/assets/images/sections/portfolio/project-1.jpg',
+    href: '#',
+  },
+  {
+    id: 'greathub-2',
+    title: 'The GreatHub',
+    description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
+    imageUrl: '/assets/images/sections/portfolio/project-2.jpg',
+    href: '#',
+  },
+  {
+    id: 'greathub-3',
+    title: 'The GreatHub',
+    description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
+    imageUrl: '/assets/images/sections/portfolio/project-3.jpg',
     href: '#',
   },
 ];
 
-function getProjectDelay(index: number): 'none' | 'short' | 'medium' {
-  if (index === 0) return 'none';
-  if (index === 1) return 'short';
-  return 'medium';
-}
-
 export function PortfolioSection() {
   return (
-    <section id="portfolio" className='py-24 container-px bg-muted/30'>
+    <section id="portfolio" className='py-24 container-px'>
       <div className='max-w-7xl mx-auto'>
         <AnimatedSection animation="slideUp" className='text-center mb-16'>
           <h2 className='text-3xl md:text-5xl font-bold mb-4'>
@@ -48,17 +64,18 @@ export function PortfolioSection() {
           </p>
         </AnimatedSection>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {projects.map((project, index) => (
-            <AnimatedSection
-              key={project.id}
-              animation="slideUp"
-              delay={getProjectDelay(index)}
-            >
-              <ProjectCard {...project} />
-            </AnimatedSection>
+        <Carousel
+          options={{ loop: true, align: 'start' }}
+          autoplay
+          autoplayDelay={4000}
+          showControls={false}
+          containerClassName='-ml-4'
+          slideClassName='flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4'
+        >
+          {projects.map((project) => (
+            <ProjectCard key={project.id} {...project} />
           ))}
-        </div>
+        </Carousel>
 
         <AnimatedSection animation="fade" delay="long" className='text-center mt-12'>
           <Button variant="ghost" className='group'>

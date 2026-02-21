@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export function AboutSection() {
   return (
-    <section id='about' className='py-24 container-px bg-background'>
+    <section id='about' className='pt-24 container-px bg-background'>
       <div className='max-w-7xl mx-auto'>
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           {/* Left: Content */}
@@ -63,7 +63,7 @@ export function AboutSection() {
       </div>
       <div className='relative left-1/2 -translate-x-1/2 w-screen mt-32 md:mt-40'>
         <Image
-          src='/assets/images/about-section/about-divider.svg'
+          src='/assets/images/sections/about/divider.svg'
           alt='About Section Divider'
           width={0}
           height={0}

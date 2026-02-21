@@ -16,6 +16,8 @@ interface CarouselProps {
   showControls?: boolean;
   showDots?: boolean;
   className?: string;
+  slideClassName?: string;
+  containerClassName?: string;
 }
 
 export function Carousel({
@@ -26,6 +28,8 @@ export function Carousel({
   showControls = true,
   showDots = true,
   className,
+  slideClassName,
+  containerClassName,
 }: Readonly<CarouselProps>) {
   const plugins = autoplay ? [Autoplay({ delay: autoplayDelay, stopOnInteraction: false })] : [];
   const [emblaRef, emblaApi] = useEmblaCarousel(options, plugins);
@@ -68,9 +72,9 @@ export function Carousel({
   return (
     <div className={cn('relative', className)}>
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+        <div className={cn('flex', containerClassName)}>
           {Children.map(children, (child) => (
-            <div className="flex-[0_0_100%] min-w-0">
+            <div className={cn('min-w-0', slideClassName ?? 'flex-[0_0_100%]')}>
               {child}
             </div>
           ))}

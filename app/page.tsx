@@ -23,8 +23,8 @@ export default function HomePage() {
         <HeroSection onGetStarted={() => setOpen(true)} />
         <ClientsSection />
         <AboutSection />
-        <ServicesSection />
         <PortfolioSection />
+        <ServicesSection />
         <ArticlesSection />
         <CTASection />
       </main>

@@ -1,10 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowRight, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
+import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { handleAnchorClick } from '@/lib/utils/scroll';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -109,42 +109,9 @@ export function Footer() {
               <br />
               Contact us and lets talk about your brand
             </p>
-            <motion.div
-              animate={{
-                scale: [1, 1.04, 1],
-                boxShadow: [
-                  '0 0 0 0 rgba(255, 255, 255, 0)',
-                  '0 0 20px 4px rgba(255, 255, 255, 0.15)',
-                  '0 0 0 0 rgba(255, 255, 255, 0)',
-                ],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className='rounded-4xl inline-block'
-            >
-              <Button
-                size='lg'
-                className='group relative overflow-hidden text-base px-8 py-6 rounded-4xl flex items-center justify-center gap-2 bg-footer-text text-footer-bg hover:bg-footer-text/90'
-              >
-                {/* Shimmer overlay — inverted: dark sweep on light button in light mode, light sweep in dark mode */}
-                <span className='pointer-events-none absolute inset-0 animate-shimmer'>
-                  <span className='absolute inset-0 -skew-x-12 bg-linear-to-r from-transparent via-black/15 dark:via-white/20 to-transparent' />
-                </span>
-                Contact us
-                <motion.span
-                  className='inline-flex'
-                  whileHover={{ x: 5 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                >
-                  <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />
-                </motion.span>
-              </Button>
-            </motion.div>
+            <ShimmerButton colorVariant='inverted'>
+              Contact us
+            </ShimmerButton>
           </AnimatedSection>
 
           {/* Links + Newsletter grid */}
