@@ -212,6 +212,17 @@
   .animate-shimmer {
     animation: shimmer 3s ease-in-out infinite;
   }
+
+}
+
+/* Marquee / ticker animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Flip card 3D animation */
