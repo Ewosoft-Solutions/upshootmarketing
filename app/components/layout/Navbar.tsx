@@ -84,7 +84,8 @@ export function Navbar() {
           : 'bg-nav-bg border-transparent',
       )}
     >
-      <div className='flex h-20 items-center justify-between container-px'>
+      <div className='container-px'>
+      <div className='flex h-20 items-center justify-between max-w-7xl mx-auto'>
         <Link href='/' className='text-xl font-bold'>
           <Image
             src={theme === 'dark' ? logos.dark : logos.light}
@@ -130,6 +131,7 @@ export function Navbar() {
         <div className='flex items-center gap-3'>
           <Button variant={'outline'} className='rounded-2xl'>Contact Us</Button>
         </div>
+      </div>
       </div>
     </nav>
   );
