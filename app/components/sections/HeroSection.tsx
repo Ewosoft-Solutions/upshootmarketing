@@ -12,7 +12,7 @@ export function HeroSection({ onGetStarted }: Readonly<HeroSectionProps>) {
   return (
     <section
       id='home'
-      className='relative flex flex-col min-h-screen items-center justify-center container-px pt-48 md:pt-32'
+      className='relative flex flex-col min-h-screen items-center justify-center container-px pt-32 md:pt-32'
     >
       <div className='max-w-5xl mx-auto text-center'>
         <motion.div

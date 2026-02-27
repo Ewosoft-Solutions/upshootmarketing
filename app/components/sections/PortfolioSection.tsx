@@ -53,7 +53,7 @@ const projects = [
 
 export function PortfolioSection() {
   return (
-    <section id="portfolio" className='py-24 container-px'>
+    <section id="portfolio" className='py-16 md:py-24 container-px'>
       <div className='max-w-7xl mx-auto'>
         <AnimatedSection animation="slideUp" className='text-center mb-16'>
           <h2 className='text-3xl md:text-5xl font-bold mb-4'>

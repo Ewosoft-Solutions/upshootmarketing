@@ -80,7 +80,7 @@ export function FAQSection() {
 
   return (
     <section id='faq' className='container-px bg-background'>
-      <div className='border-t border-border py-24'>
+      <div className='border-t border-border py-16 md:py-24'>
         <div className='max-w-7xl mx-auto'>
           <div className='grid lg:grid-cols-2 gap-12 lg:gap-20'>
             {/* Left column */}

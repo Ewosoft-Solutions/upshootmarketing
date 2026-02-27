@@ -49,35 +49,37 @@ function getArticleDelay(index: number): 'none' | 'short' | 'medium' | 'long' {
 
 export function ArticlesSection() {
   return (
-    <section id="blog" className='py-24 container-px bg-background'>
-      <div className='max-w-7xl mx-auto'>
-        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4'>
-          <AnimatedSection animation="slideRight">
-            <h2 className='text-3xl md:text-5xl font-bold'>
-              Featured Articles
-            </h2>
-          </AnimatedSection>
-          
-          <AnimatedSection animation="slideLeft">
-            <Button variant="ghost" className='group' asChild>
-              <a href="/blog">
-                View more Articles
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Button>
-          </AnimatedSection>
-        </div>
-
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
-          {articles.map((article, index) => (
-            <AnimatedSection
-              key={article.id}
-              animation="slideUp"
-              delay={getArticleDelay(index)}
-            >
-              <ArticleCard {...article} />
+    <section id="blog" className='container-px bg-background'>
+      <div className='border-t border-border py-16 md:py-24'>
+        <div className='max-w-7xl mx-auto'>
+          <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4'>
+            <AnimatedSection animation="slideRight">
+              <h2 className='text-3xl md:text-5xl font-bold'>
+                Featured Articles
+              </h2>
             </AnimatedSection>
-          ))}
+            
+            <AnimatedSection animation="slideLeft">
+              <Button variant="ghost" className='group' asChild>
+                <a href="/blog">
+                  View more Articles
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
+            </AnimatedSection>
+          </div>
+
+          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
+            {articles.map((article, index) => (
+              <AnimatedSection
+                key={article.id}
+                animation="slideUp"
+                delay={getArticleDelay(index)}
+              >
+                <ArticleCard {...article} />
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -80,7 +80,7 @@ const bottomRow = teamMembers.slice(3);
 
 export function CTASection() {
   return (
-    <section className='py-24 container-px'>
+    <section className='py-16 md:py-24 container-px'>
       <div className='relative max-w-6xl mx-auto'>
         {/* Desktop: absolute positioned oblique circle */}
         <div className='hidden lg:block'>

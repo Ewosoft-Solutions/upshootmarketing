@@ -21,11 +21,11 @@ export function ArticleCard({ title, date, tags, imageUrl, href, className }: Re
     <motion.div
       whileHover={{ y: -5 }}
       transition={{ duration: 0.2 }}
-      className={cn('group', className)}
+      className={cn('group h-full', className)}
     >
       <Component
         {...(href && { href })}
-        className="block space-y-4"
+        className="flex h-full flex-col gap-4"
       >
         {/* Image */}
         <div className="aspect-8/7 overflow-hidden rounded-lg bg-muted relative">
@@ -45,9 +45,9 @@ export function ArticleCard({ title, date, tags, imageUrl, href, className }: Re
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex gap-2 overflow-x-auto whitespace-nowrap">
           {tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="text-xs">
+            <Badge key={tag} variant="secondary" className="shrink-0 text-xs">
               {tag}
             </Badge>
           ))}
@@ -59,7 +59,7 @@ export function ArticleCard({ title, date, tags, imageUrl, href, className }: Re
         </h3>
 
         {/* Date */}
-        <p className="text-sm text-muted-foreground">{date}</p>
+        <p className="mt-auto text-sm text-muted-foreground">{date}</p>
       </Component>
     </motion.div>
   );

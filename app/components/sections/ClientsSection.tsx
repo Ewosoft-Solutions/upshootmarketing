@@ -76,7 +76,7 @@ function TickerStrip({ copyIndex }: Readonly<{ copyIndex: number }>) {
 
 export function ClientsSection() {
   return (
-    <section id='clients' className='relative py-10 mt-16 overflow-hidden'>
+    <section id='clients' className='relative py-8 md:py-10 mt-10 md:mt-16 overflow-hidden'>
       <div className='relative'>
         {/* Fade edges */}
         <div className='pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-linear-to-r from-background to-transparent' />

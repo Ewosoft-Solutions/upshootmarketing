@@ -93,7 +93,7 @@ function MarqueeRow({
 
 export function TestimonialsSection() {
   return (
-    <section id='testimonials' className='py-24 bg-muted/50 overflow-hidden'>
+    <section id='testimonials' className='py-16 md:py-24 bg-muted/50 overflow-hidden'>
       <div className='container-px'>
         <div className='max-w-7xl mx-auto mb-12'>
           <AnimatedSection animation='slideUp'>
