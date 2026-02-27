@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Navbar } from '@/app/components/layout/Navbar';
-import { Footer } from '@/app/components/layout/Footer';
 import { HeroSection } from '@/app/components/sections/HeroSection';
 import { AboutSection } from '@/app/components/sections/AboutSection';
 import { ServicesSection } from '@/app/components/sections/ServicesSection';
@@ -19,8 +17,6 @@ export default function HomePage() {
 
   return (
     <>
-      <Navbar />
-
       <main>
         <HeroSection onGetStarted={() => setOpen(true)} />
         <ClientsSection />
@@ -32,8 +28,6 @@ export default function HomePage() {
         <FAQSection />
         <TestimonialsSection />
       </main>
-
-      <Footer />
 
       <GetStartedModal open={open} onOpenChange={setOpen} />
     </>

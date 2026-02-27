@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/app/components/providers/ThemeProvider";
+import { Navbar } from '@/app/components/layout/Navbar';
+import { Footer } from '@/app/components/layout/Footer';
 import "./globals.css";
 
 const outfit = Outfit({
@@ -34,7 +36,9 @@ export default function RootLayout({
       <body className="antialiased">
 
         <ThemeProvider>
+          <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

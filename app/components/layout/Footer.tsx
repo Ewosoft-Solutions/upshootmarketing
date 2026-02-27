@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
-import { handleAnchorClick } from '@/lib/utils/scroll';
 import Link from 'next/link';
 import Image from 'next/image';
 import { logos } from '@/lib/constants/assets';
@@ -75,16 +74,16 @@ const socialLinks = [
 ];
 
 const companyLinks = [
-  { label: 'Who We Are', href: '#about' },
-  { label: 'Get In Touch', href: '#contact' },
-  { label: 'Get Featured', href: '#' },
-  { label: 'Join The Team', href: '#' },
+  { label: 'Who We Are', href: '/about-us' },
+  { label: 'Get In Touch', href: '/contact-us' },
+  { label: 'Get Featured', href: '/get-featured' },
+  { label: 'Join The Team', href: '/join-team' },
 ];
 
 const resourceLinks = [
-  { label: 'FAQs', href: '#' },
-  { label: 'Terms of Service', href: '#' },
-  { label: 'Privacy policy', href: '#' },
+  { label: 'FAQs', href: '/faqs' },
+  { label: 'Terms of Service', href: '/terms-of-service' },
+  { label: 'Privacy policy', href: '/privacy-policy' },
 ];
 
 export function Footer() {
@@ -124,13 +123,12 @@ export function Footer() {
               <ul className='space-y-1.5 md:space-y-2'>
                 {companyLinks.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
-                      onClick={(e) => handleAnchorClick(e, link.href)}
                       className='text-footer-muted hover:text-footer-text transition-colors cursor-pointer text-sm'
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -144,13 +142,12 @@ export function Footer() {
               <ul className='space-y-1.5 md:space-y-2'>
                 {resourceLinks.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
-                      onClick={(e) => handleAnchorClick(e, link.href)}
                       className='text-footer-muted hover:text-footer-text transition-colors cursor-pointer text-sm'
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

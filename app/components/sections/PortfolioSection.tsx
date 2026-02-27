@@ -5,6 +5,7 @@ import { Carousel } from '@/app/components/ui/carousel';
 import { ProjectCard } from '@/app/components/ui/project-card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const projects = [
   {
@@ -12,42 +13,42 @@ const projects = [
     title: 'The GreatHub',
     description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
     imageUrl: '/assets/images/sections/portfolio/project-1.jpg',
-    href: '#',
+    href: '/portfolio/video-editing',
   },
   {
     id: 'greathub-2',
     title: 'The GreatHub',
     description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
     imageUrl: '/assets/images/sections/portfolio/project-2.jpg',
-    href: '#',
+    href: '/portfolio/graphics-design',
   },
   {
     id: 'greathub-3',
     title: 'The GreatHub',
     description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
     imageUrl: '/assets/images/sections/portfolio/project-3.jpg',
-    href: '#',
+    href: '/portfolio/branding',
   },
   {
     id: 'greathub-4',
     title: 'The GreatHub',
     description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
     imageUrl: '/assets/images/sections/portfolio/project-1.jpg',
-    href: '#',
+    href: '/portfolio/social-media-management',
   },
   {
     id: 'greathub-5',
     title: 'The GreatHub',
     description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
     imageUrl: '/assets/images/sections/portfolio/project-2.jpg',
-    href: '#',
+    href: '/portfolio/content-strategy-ideation',
   },
   {
     id: 'greathub-6',
     title: 'The GreatHub',
     description: 'Great Hub is a Saas website template designed to give Saas companies a visual edge in the market',
     imageUrl: '/assets/images/sections/portfolio/project-3.jpg',
-    href: '#',
+    href: '/portfolio/meta-ads',
   },
 ];
 
@@ -78,9 +79,11 @@ export function PortfolioSection() {
         </Carousel>
 
         <AnimatedSection animation="fade" delay="long" className='text-center mt-12'>
-          <Button variant="ghost" className='group'>
-            View All Projects
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <Button variant="ghost" className='group' asChild>
+            <Link href='/portfolio'>
+              View All Projects
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </Button>
         </AnimatedSection>
       </div>
