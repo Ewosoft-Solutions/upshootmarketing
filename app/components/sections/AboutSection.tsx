@@ -62,7 +62,7 @@ export function AboutSection() {
             </AnimatedSection>
           </div>
         </div>
-        <div className='relative -mx-[var(--container-px)] mt-20 md:mt-40'>
+        <div className='relative -mx-(--container-px) mt-20 md:mt-40'>
           <Image
             src='/assets/images/sections/about/divider.svg'
             alt='About Section Divider'
