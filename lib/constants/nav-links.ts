@@ -4,5 +4,5 @@ export const navLinks = [
   { label: 'Our Services', href: '/services' },
   { label: 'Pricing & Package', href: '/pricing' },
   { label: 'Our Portfolio', href: '/portfolio' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Pitch Deck', href: 'https://pitchdeck.upshootmarketing.com' },
 ];

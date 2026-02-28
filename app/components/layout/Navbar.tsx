@@ -52,6 +52,8 @@ export function Navbar() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
+  const isExternalLink = (href: string) => href.startsWith('http://') || href.startsWith('https://');
+
   return (
     <nav
       className={cn(
@@ -84,7 +86,13 @@ export function Navbar() {
               );
 
               return (
-                <Link key={link.label} href={link.href} className={className}>
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={className}
+                  target={isExternalLink(link.href) ? '_blank' : undefined}
+                  rel={isExternalLink(link.href) ? 'noopener noreferrer' : undefined}
+                >
                   {link.label}
                 </Link>
               );
@@ -145,6 +153,8 @@ export function Navbar() {
                       <Link
                         href={link.href}
                         className={className}
+                        target={isExternalLink(link.href) ? '_blank' : undefined}
+                        rel={isExternalLink(link.href) ? 'noopener noreferrer' : undefined}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {link.label}
