@@ -63,18 +63,18 @@ export function Navbar() {
     >
       <div className='container-px'>
         <div className='mx-auto flex h-20 max-w-7xl items-center justify-between'>
-          <Link href='/' className='text-xl font-bold'>
+          <Link href='/' className='inline-flex shrink-0'>
             <Image
               src={theme === 'dark' ? logos.dark : logos.light}
               alt='UpShoot Marketing'
               width={170}
               height={40}
-              className='h-10 w-[170px] object-contain'
+              className='h-10 w-auto max-w-[170px] object-contain'
               priority
             />
           </Link>
 
-          <div className='hidden items-center gap-8 md:flex'>
+          <div className='hidden items-center gap-8 lg:flex'>
             {navLinks.map((link) => {
               const className = cn(
                 'cursor-pointer text-sm transition-colors',
@@ -92,14 +92,14 @@ export function Navbar() {
           </div>
 
           <div className='flex items-center gap-3'>
-            <Button variant={'outline'} className='hidden rounded-2xl md:inline-flex'>Contact Us</Button>
+            <Button variant={'outline'} className='hidden rounded-2xl lg:inline-flex'>Contact Us</Button>
             <button
               type='button'
               aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isMobileMenuOpen}
               aria-controls='mobile-nav-menu'
               onClick={() => setIsMobileMenuOpen((previousValue) => !previousValue)}
-              className='relative inline-flex h-6 w-6 items-center justify-center text-nav-text-active transition-colors md:hidden'
+              className='relative inline-flex h-6 w-6 items-center justify-center text-nav-text-active transition-colors lg:hidden'
             >
               <span className='sr-only'>Toggle menu</span>
               <motion.span
