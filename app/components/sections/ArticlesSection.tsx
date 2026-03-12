@@ -2,8 +2,7 @@
 
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArticleCard } from '@/app/components/ui/article-card';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { SectionLinkButton } from '@/app/components/ui/section-link-button';
 
 const articles = [
   {
@@ -60,12 +59,7 @@ export function ArticlesSection() {
             </AnimatedSection>
             
             <AnimatedSection animation="slideLeft">
-              <Button variant="ghost" className='group' asChild>
-                <a href="/blog">
-                  View more Articles
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
+              <SectionLinkButton href='/blog'>View more Articles</SectionLinkButton>
             </AnimatedSection>
           </div>
 

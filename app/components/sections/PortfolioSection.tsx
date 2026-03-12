@@ -3,9 +3,7 @@
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { Carousel } from '@/app/components/ui/carousel';
 import { ProjectCard } from '@/app/components/ui/project-card';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { SectionLinkButton } from '@/app/components/ui/section-link-button';
 
 const projects = [
   {
@@ -79,12 +77,7 @@ export function PortfolioSection() {
         </Carousel>
 
         <AnimatedSection animation="fade" delay="long" className='text-center mt-12'>
-          <Button variant="ghost" className='group' asChild>
-            <Link href='/portfolio'>
-              View All Projects
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
+          <SectionLinkButton href='/portfolio'>View All Projects</SectionLinkButton>
         </AnimatedSection>
       </div>
     </section>
