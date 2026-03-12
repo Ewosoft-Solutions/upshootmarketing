@@ -121,7 +121,7 @@ export default function AboutUsPage() {
                 <p className='text-3xl font-semibold md:text-4xl'>
                   {stats[1].value}+
                 </p>
-                <p className='mt-1'>{stats[1].label}</p>
+                <p className='mt-1 text-muted-foreground'>{stats[1].label}</p>
               </article>
 
               <article className='order-5 relative min-h-52 overflow-hidden rounded-2xl border border-border md:order-0 md:col-start-3 md:row-start-2 md:row-span-2'>
@@ -138,7 +138,7 @@ export default function AboutUsPage() {
                 <p className='text-3xl font-semibold md:text-4xl'>
                   {stats[0].value}+
                 </p>
-                <p className='mt-1'>{stats[0].label}</p>
+                <p className='mt-1 text-muted-foreground'>{stats[0].label}</p>
               </article>
             </div>
           </div>
