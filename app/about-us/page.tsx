@@ -117,7 +117,7 @@ export default function AboutUsPage() {
                 />
               </article>
 
-              <article className='order-4 rounded-2xl border border-border bg-stat-2 p-8 text-left md:order-0 md:col-start-3 md:row-start-1'>
+              <article className='order-4 rounded-2xl border border-border bg-brand-blue/25 p-8 text-left md:order-0 md:col-start-3 md:row-start-1'>
                 <p className='text-3xl font-semibold md:text-4xl'>
                   {stats[1].value}+
                 </p>
@@ -134,7 +134,7 @@ export default function AboutUsPage() {
                 />
               </article>
 
-              <article className='order-2 rounded-2xl border border-border bg-stat-1 p-8 text-left md:order-0 md:col-start-1 md:row-start-3'>
+              <article className='order-2 rounded-2xl border border-border bg-brand-green/25 p-8 text-left md:order-0 md:col-start-1 md:row-start-3'>
                 <p className='text-3xl font-semibold md:text-4xl'>
                   {stats[0].value}+
                 </p>

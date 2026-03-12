@@ -52,6 +52,10 @@
   --color-footer-social: var(--footer-social);
   --color-stat-1: var(--stat-1);
   --color-stat-2: var(--stat-2);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-green: var(--brand-green);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-pink: var(--brand-pink);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -73,6 +77,11 @@
   --brand-accent: oklch(0.129 0.042 264.695); /* Secondary accent */
   --brand-dark: oklch(0.15 0.02 265); /* Dark background */
   --brand-darker: oklch(0.1 0.02 265); /* Even darker */
+  --brand-blue: #49a7ff;
+  --brand-green: #3bc89c;
+  --brand-yellow: #fdbc28;
+  --brand-pink: #ed80b8;
+  --pricing-accent-opacity: 50%;
 
   --card: oklch(0.9581 0 0.899);
   --card-foreground: oklch(0.129 0.042 264.695);
