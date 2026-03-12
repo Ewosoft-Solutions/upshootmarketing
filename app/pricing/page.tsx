@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
+import { AnimatedSection } from '@/app/components/ui/animated-section';
 
 interface PricingPackage {
   name: string;
@@ -66,22 +67,25 @@ export default function PricingPage() {
   return (
     <main className='container-px pb-20 pt-32 md:pt-36'>
       <section className='mx-auto max-w-7xl space-y-10'>
-        <div className='space-y-3'>
+        <AnimatedSection animation='slideUp' duration='slow'>
+          <div className='space-y-3'>
           <h1 className='text-4xl font-bold md:text-6xl'>Pricing & Packages</h1>
           <p className='text-muted-foreground'>
             We offer flexible content marketing packages designed to help brands
             grow with clarity, consistency, and impact.
           </p>
-        </div>
+          </div>
+        </AnimatedSection>
 
-        <div className='grid gap-6 md:grid-cols-2 xl:grid-cols-3'>
+        <AnimatedSection animation='slideUp' duration='slow' delay='short'>
+          <div className='grid gap-6 md:grid-cols-2 xl:grid-cols-3'>
           {pricingPackages.map((entry) => (
             <article
               key={entry.name}
-              className='flex h-full flex-col overflow-hidden rounded-2xl border border-border shadow-sm'
+              className='group flex h-full flex-col overflow-hidden rounded-2xl border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'
             >
               <div className='p-6'>
-                <div className={`${entry.accentClassName} p-6 rounded-2xl`}>
+                <div className={`${entry.accentClassName} rounded-2xl p-6 transition-transform duration-300 group-hover:scale-[1.01]`}>
                   <span className='inline-flex rounded-xl bg-white px-4 py-1 font-medium text-foreground'>
                     {entry.name}
                   </span>
@@ -121,7 +125,8 @@ export default function PricingPage() {
               </div>
             </article>
           ))}
-        </div>
+          </div>
+        </AnimatedSection>
       </section>
     </main>
   );

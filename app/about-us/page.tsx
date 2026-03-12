@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Play } from 'lucide-react';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
+import { AnimatedSection } from '@/app/components/ui/animated-section';
 
 const aboutParagraphs = [
   'UpShoot Marketing is a B2B marketing agency helping brands grow faster through content that connects, converts, and drives real results.',
@@ -70,20 +71,21 @@ export default function AboutUsPage() {
     <main className='container-px pb-20 pt-32 md:pt-36'>
       <section className='mx-auto max-w-7xl space-y-16'>
         <div className='grid items-center gap-10 lg:grid-cols-2'>
-          <div>
+          <AnimatedSection animation='slideRight' duration='slow'>
             <h1 className='text-4xl font-bold md:text-6xl'>About Us</h1>
             <div className='mt-6 space-y-4 text-muted-foreground leading-relaxed'>
               {aboutParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className='relative aspect-video overflow-hidden rounded-xl bg-muted'>
+          <AnimatedSection animation='slideLeft' duration='slow'>
+            <div className='group relative aspect-video overflow-hidden rounded-xl bg-muted'>
             <div className='absolute inset-0 bg-linear-to-br from-primary/25 to-accent/25' />
             <div className='absolute inset-0 flex items-center justify-center px-6 text-center'>
               <div>
-                <span className='mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm'>
+                <span className='mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110'>
                   <Play className='ml-1 h-8 w-8 fill-white text-white' />
                 </span>
                 <p className='font-medium text-white'>
@@ -91,10 +93,12 @@ export default function AboutUsPage() {
                 </p>
               </div>
             </div>
-          </div>
+            </div>
+          </AnimatedSection>
         </div>
 
-        <div className='relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-muted/40'>
+        <AnimatedSection animation='slideUp' duration='slow'>
+          <div className='relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-muted/40'>
           <div className='container-px py-12 md:py-16'>
             <div className='mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3'>
               <article className='order-1 relative min-h-52 overflow-hidden rounded-2xl border border-border md:order-0 md:col-start-1 md:row-start-1 md:row-span-2'>
@@ -102,7 +106,7 @@ export default function AboutUsPage() {
                   src={aboutPhotoTiles[0].src}
                   alt={aboutPhotoTiles[0].alt}
                   fill
-                  className='object-cover'
+                  className='object-cover transition-transform duration-500 hover:scale-105'
                   sizes='(min-width: 1024px) 20vw, 100vw'
                 />
               </article>
@@ -112,12 +116,12 @@ export default function AboutUsPage() {
                   src={aboutPhotoTiles[1].src}
                   alt={aboutPhotoTiles[1].alt}
                   fill
-                  className='object-cover'
+                  className='object-cover transition-transform duration-500 hover:scale-105'
                   sizes='(min-width: 1024px) 20vw, 100vw'
                 />
               </article>
 
-              <article className='order-4 rounded-2xl border border-border bg-brand-blue/25 p-8 text-left md:order-0 md:col-start-3 md:row-start-1'>
+              <article className='order-4 rounded-2xl border border-border bg-brand-blue/25 p-8 text-left transition-transform duration-300 hover:-translate-y-1 md:order-0 md:col-start-3 md:row-start-1'>
                 <p className='text-3xl font-semibold md:text-4xl'>
                   {stats[1].value}+
                 </p>
@@ -129,12 +133,12 @@ export default function AboutUsPage() {
                   src={aboutPhotoTiles[2].src}
                   alt={aboutPhotoTiles[2].alt}
                   fill
-                  className='object-cover'
+                  className='object-cover transition-transform duration-500 hover:scale-105'
                   sizes='(min-width: 1024px) 20vw, 100vw'
                 />
               </article>
 
-              <article className='order-2 rounded-2xl border border-border bg-brand-green/25 p-8 text-left md:order-0 md:col-start-1 md:row-start-3'>
+              <article className='order-2 rounded-2xl border border-border bg-brand-green/25 p-8 text-left transition-transform duration-300 hover:-translate-y-1 md:order-0 md:col-start-1 md:row-start-3'>
                 <p className='text-3xl font-semibold md:text-4xl'>
                   {stats[0].value}+
                 </p>
@@ -142,9 +146,11 @@ export default function AboutUsPage() {
               </article>
             </div>
           </div>
-        </div>
+          </div>
+        </AnimatedSection>
 
-        <div className='space-y-8'>
+        <AnimatedSection animation='slideUp' duration='normal' delay='short'>
+          <div className='space-y-8'>
           <div className='flex flex-col items-start justify-between gap-4 rounded-2xl md:flex-row md:items-center'>
             <h2 className='text-2xl font-semibold md:text-3xl'>
               Why our Clients choose us
@@ -157,7 +163,7 @@ export default function AboutUsPage() {
             {clientReasons.map((reason, index) => (
               <article
                 key={`${reason.title}-${index.toString()}`}
-                className='rounded-2xl border border-card bg-card p-6'
+                className='rounded-2xl border border-card bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md'
               >
                 <h2 className='text-xl font-semibold'>{reason.title}</h2>
                 <p className='mt-3 text-muted-foreground'>
@@ -166,7 +172,8 @@ export default function AboutUsPage() {
               </article>
             ))}
           </div>
-        </div>
+          </div>
+        </AnimatedSection>
       </section>
     </main>
   );
