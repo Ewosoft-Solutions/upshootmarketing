@@ -93,7 +93,7 @@ export function Footer() {
   return (
     <footer
       id='contact'
-      className='bg-footer-bg text-footer-text flex flex-col gap-8 md:gap-12 py-10 md:py-16'
+      className='bg-footer-bg text-footer-text flex flex-col gap-12 md:gap-16 py-10 md:py-16'
     >
       {/* Top row: CTA (left) + Links grid (right) */}
       <div className='container-px'>
@@ -108,13 +108,11 @@ export function Footer() {
               <br />
               Contact us and lets talk about your brand
             </p>
-            <ShimmerButton colorVariant='inverted'>
-              Contact us
-            </ShimmerButton>
+            <ShimmerButton colorVariant='inverted'>Contact us</ShimmerButton>
           </AnimatedSection>
 
           {/* Links + Newsletter grid */}
-          <div className='grid grid-cols-2 gap-5 md:gap-8'>
+          <div className='grid grid-cols-2 gap-5 md:gap-8 pt-4 md:pt-0'>
             {/* Company Links */}
             <div>
               <h3 className='font-semibold mb-2 md:mb-4 text-base tracking-wide'>
@@ -180,9 +178,12 @@ export function Footer() {
               <Input
                 type='email'
                 placeholder='Email address'
-                className='rounded-2xl px-4 md:px-6 flex-1 border-footer-border bg-footer-input-bg text-footer-input-text placeholder:text-footer-input-placeholder'
+                className='rounded-full py-4 md:py-5 px-4 md:px-5 flex-1 border-footer-border bg-footer-input-bg text-footer-input-text placeholder:text-footer-input-placeholder'
               />
-              <Button variant='secondary' className='rounded-2xl'>
+              <Button
+                variant='secondary'
+                className='rounded-full py-4 md:py-5 px-6 md:px-8'
+              >
                 Subscribe
               </Button>
             </div>

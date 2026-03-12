@@ -17,17 +17,17 @@ const stats = [
 const aboutPhotoTiles = [
   {
     key: 'p1',
-    src: '/assets/images/sections/hero/marketing.front.png',
+    src: '/assets/images/pages/about/stats-pic-1.jpg',
     alt: 'Marketing campaign visual',
   },
   {
     key: 'p2',
-    src: '/assets/images/sections/hero/business-growth.front.png',
+    src: '/assets/images/pages/about/stats-pic-2.jpg',
     alt: 'Business growth visual',
   },
   {
     key: 'p3',
-    src: '/assets/images/sections/hero/branding.front.png',
+    src: '/assets/images/pages/about/stats-pic-3.jpg',
     alt: 'Branding visual',
   },
 ];
