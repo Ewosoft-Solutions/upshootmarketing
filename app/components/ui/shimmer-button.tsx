@@ -4,11 +4,17 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { type ReactNode, type ComponentProps } from 'react';
+import {
+  cloneElement,
+  isValidElement,
+  type ReactElement,
+  type ReactNode,
+  type ComponentProps,
+} from 'react';
 
 const colorVariants = {
   primary: {
-    button: '',
+    button: 'bg-primary text-primary-foreground hover:bg-primary/90',
     shimmer: 'bg-linear-to-r from-transparent via-white/20 dark:via-black/15 to-transparent',
     glow: [
       '0 0 0 0 rgba(0, 0, 0, 0)',
@@ -53,6 +59,7 @@ export function ShimmerButton({
   ...buttonProps
 }: Readonly<ShimmerButtonProps>) {
   const colors = colorVariants[colorVariant];
+  const usesAsChild = buttonProps.asChild === true;
 
   const defaultIcon = (
     <motion.span
@@ -65,24 +72,59 @@ export function ShimmerButton({
   );
   const trailingIcon = icon === undefined ? defaultIcon : icon;
 
-  const button = (
-    <Button
-      size='lg'
-      className={cn(
-        'group relative overflow-hidden rounded-4xl flex items-center justify-center gap-2',
-        sizeVariants[size],
-        colors.button,
-        className,
-      )}
-      {...buttonProps}
-    >
-      <span className='pointer-events-none absolute inset-0 animate-shimmer'>
-        <span className={cn('absolute inset-0 -skew-x-12', colors.shimmer)} />
-      </span>
-      {children}
-      {trailingIcon}
-    </Button>
-  );
+  let button: ReactNode;
+
+  if (usesAsChild) {
+    if (!isValidElement(children)) {
+      throw new Error('ShimmerButton with asChild expects a single React element child.');
+    }
+
+    const childElement = children as ReactElement<{
+      className?: string;
+      children?: ReactNode;
+    }>;
+
+    const childClassName = childElement.props.className;
+
+    button = cloneElement(
+      childElement,
+      {
+        className: cn(
+          'group relative inline-flex overflow-hidden rounded-4xl items-center justify-center gap-2',
+          sizeVariants[size],
+          colors.button,
+          className,
+          childClassName,
+        ),
+      },
+      <>
+        <span className='pointer-events-none absolute inset-0 animate-shimmer'>
+          <span className={cn('absolute inset-0 -skew-x-12', colors.shimmer)} />
+        </span>
+        {childElement.props.children}
+        {trailingIcon}
+      </>,
+    );
+  } else {
+    button = (
+      <Button
+        size='lg'
+        className={cn(
+          'group relative overflow-hidden rounded-4xl flex items-center justify-center gap-2',
+          sizeVariants[size],
+          colors.button,
+          className,
+        )}
+        {...buttonProps}
+      >
+        <span className='pointer-events-none absolute inset-0 animate-shimmer'>
+          <span className={cn('absolute inset-0 -skew-x-12', colors.shimmer)} />
+        </span>
+        {children}
+        {trailingIcon}
+      </Button>
+    );
+  }
 
   if (!pulse) return button;
 
