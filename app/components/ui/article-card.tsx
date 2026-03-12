@@ -59,7 +59,7 @@ export function ArticleCard({ title, date, tags, imageUrl, href, className }: Re
         </h3>
 
         {/* Date */}
-        <p className="mt-auto text-sm text-muted-foreground">{date}</p>
+        <p className="mt-auto text-base text-muted-foreground">{date}</p>
       </Component>
     </motion.div>
   );

@@ -30,7 +30,7 @@ export function PortfolioCategoryCard({ category }: Readonly<PortfolioCategoryCa
           <h2 className='text-xl font-semibold text-foreground'>{category.title}</h2>
           <ArrowUpRight className='h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5' />
         </div>
-        <p className='text-sm text-muted-foreground'>{category.description}</p>
+        <p className='text-base text-muted-foreground'>{category.description}</p>
       </div>
     </Link>
   );

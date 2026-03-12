@@ -62,7 +62,7 @@ export function ServicesSection() {
                 <service.icon className='w-6 h-6 text-primary' />
               </div>
               <h3 className='text-xl font-semibold mb-2'>{service.title}</h3>
-              <p className='text-muted-foreground text-sm'>{service.description}</p>
+              <p className='text-muted-foreground text-base'>{service.description}</p>
             </motion.div>
           ))}
         </motion.div>

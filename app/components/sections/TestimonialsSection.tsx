@@ -47,7 +47,7 @@ const testimonials: Testimonial[] = [
 function TestimonialCard({ testimonial }: Readonly<{ testimonial: Testimonial }>) {
   return (
     <div className='shrink-0 w-[min(340px,85vw)] rounded-xl bg-background p-6 mx-3'>
-      <p className='text-sm leading-relaxed text-foreground mb-6'>
+      <p className='text-base leading-relaxed text-foreground mb-6'>
         {testimonial.quote}
       </p>
       <div className='flex items-center gap-3'>
@@ -59,8 +59,8 @@ function TestimonialCard({ testimonial }: Readonly<{ testimonial: Testimonial }>
           className='rounded-full object-cover w-10 h-10'
         />
         <div>
-          <p className='text-sm font-semibold'>{testimonial.name}</p>
-          <p className='text-xs text-muted-foreground'>{testimonial.role}</p>
+          <p className='text-base font-semibold'>{testimonial.name}</p>
+          <p className='text-sm text-muted-foreground'>{testimonial.role}</p>
         </div>
       </div>
     </div>

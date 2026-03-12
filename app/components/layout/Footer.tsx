@@ -117,7 +117,7 @@ export function Footer() {
           <div className='grid grid-cols-2 gap-5 md:gap-8'>
             {/* Company Links */}
             <div>
-              <h3 className='font-semibold mb-2 md:mb-4 text-sm tracking-wide'>
+              <h3 className='font-semibold mb-2 md:mb-4 text-base tracking-wide'>
                 COMPANY
               </h3>
               <ul className='space-y-1.5 md:space-y-2'>
@@ -125,7 +125,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className='text-footer-muted hover:text-footer-text transition-colors cursor-pointer text-sm'
+                      className='text-footer-muted hover:text-footer-text transition-colors cursor-pointer text-base'
                     >
                       {link.label}
                     </Link>
@@ -136,7 +136,7 @@ export function Footer() {
 
             {/* Resources - Column 1 */}
             <div>
-              <h3 className='font-semibold mb-2 md:mb-4 text-sm tracking-wide'>
+              <h3 className='font-semibold mb-2 md:mb-4 text-base tracking-wide'>
                 RESOURCES
               </h3>
               <ul className='space-y-1.5 md:space-y-2'>
@@ -144,7 +144,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className='text-footer-muted hover:text-footer-text transition-colors cursor-pointer text-sm'
+                      className='text-footer-muted hover:text-footer-text transition-colors cursor-pointer text-base'
                     >
                       {link.label}
                     </Link>
@@ -170,10 +170,10 @@ export function Footer() {
           </Link>
 
           <div className='md:col-span-2'>
-            <h3 className='font-semibold mb-2 md:mb-4 text-sm tracking-wide'>
+            <h3 className='font-semibold mb-2 md:mb-4 text-base tracking-wide'>
               BE THE FIRST TO KNOW
             </h3>
-            <p className='text-footer-muted text-sm mb-3 md:mb-4'>
+            <p className='text-footer-muted text-base mb-3 md:mb-4'>
               Be the first to read our Articles and News Letter
             </p>
             <div className='flex gap-2'>
@@ -193,7 +193,7 @@ export function Footer() {
       {/* Bottom row: Copyright (left) + Social links (right) */}
       <div className='border-t border-footer-border pt-6 md:pt-8 container-px'>
         <div className='max-w-7xl mx-auto flex flex-col-reverse sm:flex-row items-center justify-between gap-4'>
-          <p className='text-footer-muted text-sm'>
+          <p className='text-footer-muted text-base'>
             © 2025. All rights reserved
           </p>
 

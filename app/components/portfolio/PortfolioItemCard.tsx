@@ -36,7 +36,7 @@ export function PortfolioItemCard({ item, onOpen }: Readonly<PortfolioItemCardPr
 
       <div className='space-y-2 p-5'>
         <h3 className='text-lg font-semibold text-foreground'>{item.title}</h3>
-        <p className='line-clamp-2 text-sm text-muted-foreground'>{item.description}</p>
+        <p className='line-clamp-2 text-base text-muted-foreground'>{item.description}</p>
       </div>
     </button>
   );

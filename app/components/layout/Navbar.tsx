@@ -79,7 +79,7 @@ export function Navbar() {
           <div className='hidden items-center gap-8 lg:flex'>
             {navLinks.map((link) => {
               const className = cn(
-                'cursor-pointer text-sm transition-colors',
+                'cursor-pointer transition-colors',
                 isActive(link.href)
                   ? 'text-nav-text-active font-semibold'
                   : 'text-nav-text-inactive font-normal hover:text-nav-text-active',
@@ -142,7 +142,7 @@ export function Navbar() {
               <ul className='flex flex-col gap-4 px-1'>
                 {navLinks.map((link) => {
                   const className = cn(
-                    'cursor-pointer text-sm transition-colors',
+                    'cursor-pointer transition-colors',
                     isActive(link.href)
                       ? 'text-nav-text-active font-semibold'
                       : 'text-nav-text-inactive font-normal hover:text-nav-text-active',
@@ -163,7 +163,7 @@ export function Navbar() {
                   );
                 })}
               </ul>
-              <Button variant={'outline'} className='mt-4 w-full rounded-2xl'>Contact Us</Button>
+              <Button variant={'outline'} className='mt-4 w-full rounded-2xl text-base'>Contact Us</Button>
             </motion.div>
           ) : null}
         </AnimatePresence>
