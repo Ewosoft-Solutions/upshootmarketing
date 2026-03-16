@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
-import { SectionLinkButton } from '@/app/components/ui/section-link-button';
+import { ArrowLinkButton } from '@/app/components/ui/section-link-button';
 
 interface ServiceCard {
   title: string;
@@ -103,9 +103,9 @@ export default function ServicesPage() {
               <div className='mx-auto max-w-7xl space-y-6'>
                 <div className='flex flex-col items-start justify-between gap-4 md:flex-row md:items-center'>
                   <h2 className='text-3xl font-semibold'>What we do</h2>
-                  <SectionLinkButton href='/portfolio'>
+                  <ArrowLinkButton href='/portfolio'>
                     See our Portfolio
-                  </SectionLinkButton>
+                  </ArrowLinkButton>
                 </div>
 
                 <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-4'>

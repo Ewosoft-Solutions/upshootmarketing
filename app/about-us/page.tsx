@@ -1,8 +1,7 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { Play } from 'lucide-react';
-import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
+import { ArrowLinkButton } from '../components/ui/section-link-button';
 
 const aboutParagraphs = [
   'UpShoot Marketing is a B2B marketing agency helping brands grow faster through content that connects, converts, and drives real results.',
@@ -155,9 +154,10 @@ export default function AboutUsPage() {
               <h2 className='text-2xl font-semibold md:text-3xl'>
                 Why our Clients choose us
               </h2>
-              <ShimmerButton asChild size='default' colorVariant='primary'>
-                <Link href='/pricing'>See our Package</Link>
-              </ShimmerButton>
+
+              <ArrowLinkButton href='/pricing'>
+                See our Packages
+              </ArrowLinkButton>
             </div>
             <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-3'>
               {clientReasons.map((reason, index) => (

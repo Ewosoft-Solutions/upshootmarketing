@@ -2,7 +2,7 @@
 
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArticleCard } from '@/app/components/ui/article-card';
-import { SectionLinkButton } from '@/app/components/ui/section-link-button';
+import { ArrowLinkButton } from '@/app/components/ui/section-link-button';
 
 const articles = [
   {
@@ -59,7 +59,7 @@ export function ArticlesSection() {
             </AnimatedSection>
             
             <AnimatedSection animation="slideLeft">
-              <SectionLinkButton href='/blog'>View more Articles</SectionLinkButton>
+              <ArrowLinkButton href='/blog'>View more Articles</ArrowLinkButton>
             </AnimatedSection>
           </div>
 

@@ -4,17 +4,17 @@ import { type ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-interface SectionLinkButtonProps {
+interface ArrowLinkButtonProps {
   href: string;
   children: ReactNode;
   className?: string;
 }
 
-export function SectionLinkButton({
+export function ArrowLinkButton({
   href,
   children,
   className,
-}: Readonly<SectionLinkButtonProps>) {
+}: Readonly<ArrowLinkButtonProps>) {
   return (
     <Button variant='ghost' className={cn('group', className)} asChild>
       <Link href={href}>

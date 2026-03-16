@@ -3,7 +3,7 @@
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { Carousel } from '@/app/components/ui/carousel';
 import { ProjectCard } from '@/app/components/ui/project-card';
-import { SectionLinkButton } from '@/app/components/ui/section-link-button';
+import { ArrowLinkButton } from '@/app/components/ui/section-link-button';
 
 const projects = [
   {
@@ -77,7 +77,7 @@ export function PortfolioSection() {
         </Carousel>
 
         <AnimatedSection animation="fade" delay="long" className='text-center mt-12'>
-          <SectionLinkButton href='/portfolio'>View All Projects</SectionLinkButton>
+          <ArrowLinkButton href='/portfolio'>View All Projects</ArrowLinkButton>
         </AnimatedSection>
       </div>
     </section>
