@@ -1,33 +1,14 @@
-'use client';
+import type { Metadata } from 'next';
+import { HomePageClient } from '@/app/components/pages/HomePageClient';
+import { createPageMetadata } from '@/lib/seo';
 
-import { useState } from 'react';
-import { HeroSection } from '@/app/components/sections/HeroSection';
-import { AboutSection } from '@/app/components/sections/AboutSection';
-import { ServicesSection } from '@/app/components/sections/ServicesSection';
-import { PortfolioSection } from '@/app/components/sections/PortfolioSection';
-import { ClientsSection } from '@/app/components/sections/ClientsSection';
-import { CTASection } from '@/app/components/sections/CTASection';
-import { FAQSection } from '@/app/components/sections/FAQSection';
-import { TestimonialsSection } from '@/app/components/sections/TestimonialsSection';
-import { GetStartedModal } from '@/app/components/modals/GetStartedModal';
+export const metadata: Metadata = createPageMetadata({
+  title: 'Modern B2B Marketing That Builds Trust and Drives Revenue',
+  description:
+    'We help companies build trust and convert high-value customers through strategic content, creative storytelling, and high-quality visuals.',
+  path: '/',
+});
 
 export default function HomePage() {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <main>
-        <HeroSection onGetStarted={() => setOpen(true)} />
-        <ClientsSection />
-        <AboutSection />
-        <PortfolioSection />
-        <ServicesSection />
-        <CTASection />
-        <FAQSection />
-        <TestimonialsSection />
-      </main>
-
-      <GetStartedModal open={open} onOpenChange={setOpen} />
-    </>
-  );
+  return <HomePageClient />;
 }

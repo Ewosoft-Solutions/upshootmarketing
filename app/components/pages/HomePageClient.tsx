@@ -1,0 +1,33 @@
+'use client';
+
+import { useState } from 'react';
+import { HeroSection } from '@/app/components/sections/HeroSection';
+import { AboutSection } from '@/app/components/sections/AboutSection';
+import { ServicesSection } from '@/app/components/sections/ServicesSection';
+import { PortfolioSection } from '@/app/components/sections/PortfolioSection';
+import { ClientsSection } from '@/app/components/sections/ClientsSection';
+import { CTASection } from '@/app/components/sections/CTASection';
+import { FAQSection } from '@/app/components/sections/FAQSection';
+import { TestimonialsSection } from '@/app/components/sections/TestimonialsSection';
+import { GetStartedModal } from '@/app/components/modals/GetStartedModal';
+
+export function HomePageClient() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <main>
+        <HeroSection onGetStarted={() => setOpen(true)} />
+        <ClientsSection />
+        <AboutSection />
+        <PortfolioSection />
+        <ServicesSection />
+        <CTASection />
+        <FAQSection />
+        <TestimonialsSection />
+      </main>
+
+      <GetStartedModal open={open} onOpenChange={setOpen} />
+    </>
+  );
+}

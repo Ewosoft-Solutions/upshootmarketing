@@ -1,8 +1,10 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArrowLinkButton } from '@/app/components/ui/arrow-link-button';
+import { createPageMetadata } from '@/lib/seo';
 
 interface ServiceCard {
   title: string;
@@ -64,6 +66,13 @@ const approachSteps: readonly ApproachStep[] = [
       'Our creative teams deliver engaging content that grabs attention and drives leads.',
   },
 ];
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'B2B Marketing Services',
+  description:
+    'Discover UpShoot Marketing services including content strategy, brand identity, content creation, and AI-powered marketing solutions.',
+  path: '/services',
+});
 
 export default function ServicesPage() {
   return (

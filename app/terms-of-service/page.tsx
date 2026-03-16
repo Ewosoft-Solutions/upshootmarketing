@@ -1,3 +1,13 @@
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Terms of Service',
+  description:
+    'Read the terms governing the use of UpShoot Marketing services and website.',
+  path: '/terms-of-service',
+});
+
 export default function TermsOfServicePage() {
   return (
     <main className='container-px pb-20 pt-32 md:pt-36'>

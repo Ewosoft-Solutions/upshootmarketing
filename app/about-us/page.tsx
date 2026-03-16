@@ -1,7 +1,9 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Play } from 'lucide-react';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArrowLinkButton } from '../components/ui/arrow-link-button';
+import { createPageMetadata } from '@/lib/seo';
 
 const aboutParagraphs = [
   'UpShoot Marketing is a B2B marketing agency helping brands grow faster through content that connects, converts, and drives real results.',
@@ -64,6 +66,13 @@ const clientReasons = [
       'Our research highlights strengths, uncovers gaps, and identifies opportunities to improve your online visibility.',
   },
 ];
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'About UpShoot Marketing',
+  description:
+    'Learn how UpShoot Marketing helps B2B brands grow through strategic content, creative storytelling, and measurable performance outcomes.',
+  path: '/about-us',
+});
 
 export default function AboutUsPage() {
   return (

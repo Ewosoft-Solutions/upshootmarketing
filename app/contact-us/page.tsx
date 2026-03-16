@@ -1,4 +1,13 @@
+import type { Metadata } from 'next';
 import { CTASection } from '@/app/components/sections/CTASection';
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Contact UpShoot Marketing',
+  description:
+    'Get in touch with UpShoot Marketing to discuss your goals and get a tailored growth and content strategy.',
+  path: '/contact-us',
+});
 
 export default function ContactUsPage() {
   return (

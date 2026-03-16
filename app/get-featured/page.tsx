@@ -1,4 +1,13 @@
+import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Get Featured',
+  description:
+    'Submit your brand story to be considered for a feature by UpShoot Marketing.',
+  path: '/get-featured',
+});
 
 export default function GetFeaturedPage() {
   return (

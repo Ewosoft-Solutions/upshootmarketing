@@ -1,3 +1,13 @@
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Privacy Policy',
+  description:
+    'Review how UpShoot Marketing collects, uses, and protects visitor and client information.',
+  path: '/privacy-policy',
+});
+
 export default function PrivacyPolicyPage() {
   return (
     <main className='container-px pb-20 pt-32 md:pt-36'>

@@ -1,7 +1,9 @@
+import type { Metadata } from 'next';
 import { Check } from 'lucide-react';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { cn } from '@/lib/utils';
+import { createPageMetadata } from '@/lib/seo';
 
 interface PricingPackage {
   name: string;
@@ -60,6 +62,13 @@ const pricingPackages: readonly PricingPackage[] = [
     ],
   },
 ];
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Pricing and Packages',
+  description:
+    'Explore flexible B2B content marketing packages from UpShoot Marketing built to improve visibility, engagement, and lead generation.',
+  path: '/pricing',
+});
 
 export default function PricingPage() {
   return (

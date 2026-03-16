@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PortfolioCategoryItems } from '@/app/components/portfolio/PortfolioCategoryItems';
 import { ArrowLinkButton } from '@/app/components/ui/arrow-link-button';
@@ -8,6 +9,7 @@ import {
   isPortfolioCategorySlug,
   portfolioCategories,
 } from '@/lib/constants/portfolio-content';
+import { createPageMetadata } from '@/lib/seo';
 
 interface PortfolioCategoryPageProps {
   params: Promise<{ category: string }>;
@@ -17,6 +19,29 @@ export function generateStaticParams() {
   return portfolioCategories.map((category) => ({
     category: category.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: Readonly<PortfolioCategoryPageProps>): Promise<Metadata> {
+  const resolvedParams = await params;
+  const categorySlug = resolvedParams.category;
+
+  if (!isPortfolioCategorySlug(categorySlug)) {
+    return createPageMetadata({
+      title: 'Portfolio Category',
+      description: 'Explore our portfolio work.',
+      path: '/portfolio',
+    });
+  }
+
+  const category = getPortfolioCategoryBySlug(categorySlug);
+
+  return createPageMetadata({
+    title: `${category.title} Portfolio`,
+    description: category.description,
+    path: `/portfolio/${category.slug}`,
+  });
 }
 
 export default async function PortfolioCategoryPage({
