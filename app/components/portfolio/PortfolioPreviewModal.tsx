@@ -18,7 +18,7 @@ export function PortfolioPreviewModal({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className='h-[92vh] max-w-[95vw] gap-4 border-border bg-background p-4 sm:p-6'
+        className='w-auto max-w-[95vw] gap-4 border-border bg-background p-4 sm:max-w-[92vw] sm:p-6'
         showCloseButton
       >
         {item ? (
@@ -27,14 +27,15 @@ export function PortfolioPreviewModal({
               <DialogTitle>{item.title}</DialogTitle>
             </DialogHeader>
 
-            <div className='relative h-full min-h-0 w-full overflow-hidden rounded-xl bg-black/90'>
+            <div className='mx-auto w-fit max-w-full overflow-hidden rounded-xl bg-black/90'>
               {item.mediaType === 'image' ? (
                 <Image
                   src={item.mediaSrc}
                   alt={item.title}
-                  fill
-                  className='object-contain'
-                  sizes='95vw'
+                  width={1600}
+                  height={900}
+                  className='h-auto max-h-[78vh] w-auto max-w-full object-contain'
+                  sizes='(max-width: 768px) 92vw, (max-width: 1280px) 88vw, 1100px'
                 />
               ) : null}
 
@@ -43,7 +44,7 @@ export function PortfolioPreviewModal({
                   src={item.mediaSrc}
                   controls
                   autoPlay
-                  className='h-full w-full object-contain'
+                  className='h-auto max-h-[78vh] w-auto max-w-full object-contain'
                 >
                   <track kind='captions' />
                 </video>
@@ -55,7 +56,7 @@ export function PortfolioPreviewModal({
                   title={item.title}
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                   allowFullScreen
-                  className='h-full w-full'
+                  className='aspect-video h-auto w-[min(92vw,1100px)] max-w-full'
                 />
               ) : null}
             </div>

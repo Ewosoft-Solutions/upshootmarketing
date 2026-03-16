@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
-import { ArrowLinkButton } from '@/app/components/ui/section-link-button';
+import { ArrowLinkButton } from '@/app/components/ui/arrow-link-button';
 
 interface ServiceCard {
   title: string;

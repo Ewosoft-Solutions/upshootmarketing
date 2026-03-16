@@ -2,7 +2,7 @@
 
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArticleCard } from '@/app/components/ui/article-card';
-import { ArrowLinkButton } from '@/app/components/ui/section-link-button';
+import { ArrowLinkButton } from '@/app/components/ui/arrow-link-button';
 
 const articles = [
   {
@@ -48,17 +48,17 @@ function getArticleDelay(index: number): 'none' | 'short' | 'medium' | 'long' {
 
 export function ArticlesSection() {
   return (
-    <section id="blog" className='container-px bg-background'>
+    <section id='blog' className='container-px bg-background'>
       <div className='border-t border-border py-16 md:py-24'>
         <div className='max-w-7xl mx-auto'>
           <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4'>
-            <AnimatedSection animation="slideRight">
+            <AnimatedSection animation='slideRight'>
               <h2 className='text-3xl md:text-5xl font-bold'>
                 Featured Articles
               </h2>
             </AnimatedSection>
-            
-            <AnimatedSection animation="slideLeft">
+
+            <AnimatedSection animation='slideLeft'>
               <ArrowLinkButton href='/blog'>View more Articles</ArrowLinkButton>
             </AnimatedSection>
           </div>
@@ -67,7 +67,7 @@ export function ArticlesSection() {
             {articles.map((article, index) => (
               <AnimatedSection
                 key={article.id}
-                animation="slideUp"
+                animation='slideUp'
                 delay={getArticleDelay(index)}
               >
                 <ArticleCard {...article} />
