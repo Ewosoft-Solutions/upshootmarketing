@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
-export const siteUrl = configuredSiteUrl ?? 'https://upshootmarketing.com';
+export const siteUrl = configuredSiteUrl ?? 'https://www.upshootmarketing.com';
 export const siteName = 'UpShoot Marketing';
-export const defaultOgImagePath = '/assets/images/pages/about/stats-pic-1.jpg';
+export const defaultOgImagePath = '/opengraph-image.png';
 
 interface PageMetadataInput {
   title: string;
