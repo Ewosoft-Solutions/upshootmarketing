@@ -34,8 +34,8 @@ const colorVariants = {
 } as const;
 
 const sizeVariants = {
-  default: 'text-base px-6 py-4',
-  lg: 'text-lg px-8 py-6',
+  default: 'text-base px-6 py-2',
+  lg: 'text-lg px-8 py-3.5',
 } as const;
 
 type ColorVariant = keyof typeof colorVariants;

@@ -1,14 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { FlipCardGrid } from '@/app/components/sections/FlipCardGrid';
 
-interface HeroSectionProps {
-  onGetStarted?: () => void;
-}
-
-export function HeroSection({ onGetStarted }: Readonly<HeroSectionProps>) {
+export function HeroSection() {
   return (
     <section
       id='home'
@@ -28,8 +25,8 @@ export function HeroSection({ onGetStarted }: Readonly<HeroSectionProps>) {
           </p>
 
           <div className='mt-10 flex justify-center'>
-            <ShimmerButton onClick={onGetStarted}>
-              Get Started
+            <ShimmerButton asChild>
+              <Link href='/get-started'>Get Started</Link>
             </ShimmerButton>
           </div>
         </motion.div>

@@ -100,7 +100,9 @@ export function Navbar() {
           </div>
 
           <div className='flex items-center gap-3'>
-            <Button variant={'outline'} className='hidden rounded-2xl lg:inline-flex'>Contact Us</Button>
+            <Button asChild variant={'outline'} className='hidden rounded-2xl lg:inline-flex'>
+              <Link href='/contact-us'>Contact Us</Link>
+            </Button>
             <button
               type='button'
               aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
@@ -163,7 +165,11 @@ export function Navbar() {
                   );
                 })}
               </ul>
-              <Button variant={'outline'} className='mt-4 w-full rounded-2xl text-base'>Contact Us</Button>
+              <Button asChild variant={'outline'} className='mt-4 w-full rounded-2xl text-base'>
+                <Link href='/contact-us' onClick={() => setIsMobileMenuOpen(false)}>
+                  Contact Us
+                </Link>
+              </Button>
             </motion.div>
           ) : null}
         </AnimatePresence>

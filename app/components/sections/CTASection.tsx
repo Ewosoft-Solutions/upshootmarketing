@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
@@ -119,7 +120,9 @@ export function CTASection() {
               the world, and educate, engage, and inspire like-minded people
               around it
             </p>
-            <ShimmerButton>Join the Team</ShimmerButton>
+            <ShimmerButton asChild>
+              <Link href='/join-team'>Join the Team</Link>
+            </ShimmerButton>
           </AnimatedSection>
         </div>
 

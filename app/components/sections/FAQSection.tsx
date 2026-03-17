@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -92,7 +93,9 @@ export function FAQSection() {
                 Everything about Upshoot Marketing. Have more questions, contact
                 us.
               </p>
-              <ShimmerButton pulse={false}>Contact Us</ShimmerButton>
+              <ShimmerButton pulse={false} asChild>
+                <Link href='/contact-us'>Contact Us</Link>
+              </ShimmerButton>
             </AnimatedSection>
 
             {/* Right column */}

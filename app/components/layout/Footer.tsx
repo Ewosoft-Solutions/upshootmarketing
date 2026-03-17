@@ -108,7 +108,9 @@ export function Footer() {
               <br />
               Contact us and lets talk about your brand
             </p>
-            <ShimmerButton colorVariant='inverted'>Contact us</ShimmerButton>
+            <ShimmerButton colorVariant='inverted' asChild>
+              <Link href='/contact-us'>Contact us</Link>
+            </ShimmerButton>
           </AnimatedSection>
 
           {/* Links + Newsletter grid */}
