@@ -2,6 +2,7 @@
 
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import Image from 'next/image';
+import { typography } from '@/lib/typography';
 
 const AVATAR_FALLBACK = '/assets/images/sections/testimonials/avatar-placeholder.svg';
 
@@ -47,7 +48,7 @@ const testimonials: Testimonial[] = [
 function TestimonialCard({ testimonial }: Readonly<{ testimonial: Testimonial }>) {
   return (
     <div className='shrink-0 w-[min(340px,85vw)] rounded-xl bg-background p-6 mx-3'>
-      <p className='text-base leading-relaxed text-foreground mb-6'>
+      <p className={`${typography.card.description} leading-relaxed text-foreground mb-6`}>
         {testimonial.quote}
       </p>
       <div className='flex items-center gap-3'>
@@ -59,8 +60,8 @@ function TestimonialCard({ testimonial }: Readonly<{ testimonial: Testimonial }>
           className='rounded-full object-cover w-10 h-10'
         />
         <div>
-          <p className='text-base font-semibold'>{testimonial.name}</p>
-          <p className='text-sm text-muted-foreground'>{testimonial.role}</p>
+          <p className={`${typography.card.description} font-semibold`}>{testimonial.name}</p>
+          <p className={`${typography.card.descriptionSmall} text-muted-foreground`}>{testimonial.role}</p>
         </div>
       </div>
     </div>
@@ -97,7 +98,7 @@ export function TestimonialsSection() {
       <div className='container-px'>
         <div className='max-w-7xl mx-auto mb-12'>
           <AnimatedSection animation='slideUp'>
-            <h2 className='text-3xl md:text-5xl font-bold'>
+            <h2 className={`${typography.page.sectionTitle} font-bold`}>
               What our Clients say
             </h2>
           </AnimatedSection>

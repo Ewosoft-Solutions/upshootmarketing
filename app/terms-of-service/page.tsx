@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/seo';
+import { typography } from '@/lib/typography';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Terms of Service',
@@ -12,7 +13,7 @@ export default function TermsOfServicePage() {
   return (
     <main className='container-px pb-20 pt-32 md:pt-36'>
       <article className='mx-auto max-w-4xl space-y-4'>
-        <h1 className='text-4xl font-bold md:text-6xl'>Terms of Service</h1>
+        <h1 className={`${typography.page.heroTitle} font-bold`}>Terms of Service</h1>
         <p className='text-muted-foreground'>
           These terms govern the use of Upshoot Marketing services and this website.
         </p>

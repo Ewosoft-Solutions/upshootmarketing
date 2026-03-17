@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { navLinks } from '@/lib/constants/nav-links';
 import { Button } from '@/components/ui/button';
+import { typography } from '@/lib/typography';
 import { cn } from '@/lib/utils';
 import { useTheme } from '@/app/components/providers/ThemeProvider';
 import { logos } from '@/lib/constants/assets';
@@ -165,7 +166,7 @@ export function Navbar() {
                   );
                 })}
               </ul>
-              <Button asChild variant={'outline'} className='mt-4 w-full rounded-2xl text-base'>
+              <Button asChild variant={'outline'} className={`mt-4 w-full rounded-2xl ${typography.nav.mobileButton}`}>
                 <Link href='/contact-us' onClick={() => setIsMobileMenuOpen(false)}>
                   Contact Us
                 </Link>

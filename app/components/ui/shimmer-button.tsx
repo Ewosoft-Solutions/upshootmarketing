@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { typography } from '@/lib/typography';
 import { cn } from '@/lib/utils';
 import {
   cloneElement,
@@ -34,8 +35,8 @@ const colorVariants = {
 } as const;
 
 const sizeVariants = {
-  default: 'text-base px-6 py-2',
-  lg: 'text-lg px-8 py-3.5',
+  default: `${typography.ui.button.default} px-6 py-2`,
+  lg: `${typography.ui.button.lg} px-8 py-3.5`,
 } as const;
 
 type ColorVariant = keyof typeof colorVariants;

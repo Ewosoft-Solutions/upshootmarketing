@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { typography } from '@/lib/typography';
 import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
@@ -36,7 +37,7 @@ export function ProjectCard({ title, description, imageUrl, href, className }: R
           />
         ) : (
           <div className='w-full h-full flex items-center justify-center bg-linear-to-br from-primary/20 to-accent/20'>
-            <span className='text-4xl font-bold text-muted-foreground/20'>
+            <span className={`${typography.card.placeholderInitial} font-bold text-muted-foreground/20`}>
               {title[0]}
             </span>
           </div>
@@ -56,7 +57,7 @@ export function ProjectCard({ title, description, imageUrl, href, className }: R
             </Button>
           )}
         </div>
-        <p className='text-lg font-semibold mb-4 line-clamp-2'>
+        <p className={`${typography.card.titleSmall} font-semibold mb-4 line-clamp-2`}>
           {description}
         </p>
       </div>

@@ -10,6 +10,7 @@ import {
   portfolioCategories,
 } from '@/lib/constants/portfolio-content';
 import { createPageMetadata } from '@/lib/seo';
+import { typography } from '@/lib/typography';
 
 interface PortfolioCategoryPageProps {
   params: Promise<{ category: string }>;
@@ -72,7 +73,7 @@ export default async function PortfolioCategoryPage({
             </div>
 
             <div className='space-y-3'>
-              <h1 className='text-4xl font-bold md:text-6xl'>
+              <h1 className={`${typography.page.heroTitle} font-bold`}>
                 {category.title}
               </h1>
               <p className='max-w-2xl text-muted-foreground'>

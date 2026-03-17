@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import type { PortfolioCategory } from '@/lib/constants/portfolio-content';
+import { typography } from '@/lib/typography';
 
 interface PortfolioCategoryCardProps {
   category: PortfolioCategory;
@@ -27,10 +28,10 @@ export function PortfolioCategoryCard({ category }: Readonly<PortfolioCategoryCa
 
       <div className='space-y-2 p-5'>
         <div className='flex items-center justify-between gap-3'>
-          <h2 className='text-xl font-semibold text-foreground'>{category.title}</h2>
+          <h2 className={`${typography.card.title} font-semibold text-foreground`}>{category.title}</h2>
           <ArrowUpRight className='h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5' />
         </div>
-        <p className='text-base text-muted-foreground'>{category.description}</p>
+        <p className={`${typography.card.description} text-muted-foreground`}>{category.description}</p>
       </div>
     </Link>
   );

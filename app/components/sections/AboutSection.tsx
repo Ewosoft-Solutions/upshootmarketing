@@ -3,6 +3,7 @@
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { Play } from 'lucide-react';
 import Image from 'next/image';
+import { typography } from '@/lib/typography';
 
 export function AboutSection() {
   return (
@@ -12,7 +13,7 @@ export function AboutSection() {
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             {/* Left: Content */}
             <AnimatedSection animation='slideRight' duration='slow'>
-              <h2 className='text-3xl md:text-5xl font-bold mb-6'>
+              <h2 className={`${typography.page.sectionTitle} font-bold mb-6`}>
                 About Upshoot Marketing
               </h2>
               <div className='space-y-4 text-muted-foreground leading-relaxed'>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/seo';
+import { typography } from '@/lib/typography';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Privacy Policy',
@@ -12,7 +13,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className='container-px pb-20 pt-32 md:pt-36'>
       <article className='mx-auto max-w-4xl space-y-4'>
-        <h1 className='text-4xl font-bold md:text-6xl'>Privacy Policy</h1>
+        <h1 className={`${typography.page.heroTitle} font-bold`}>Privacy Policy</h1>
         <p className='text-muted-foreground'>
           This page explains how Upshoot Marketing collects, uses, and protects user information.
         </p>

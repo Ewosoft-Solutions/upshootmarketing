@@ -4,6 +4,7 @@ import { Play } from 'lucide-react';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArrowLinkButton } from '../components/ui/arrow-link-button';
 import { createPageMetadata } from '@/lib/seo';
+import { typography } from '@/lib/typography';
 
 const aboutParagraphs = [
   'UpShoot Marketing is a B2B marketing agency helping brands grow faster through content that connects, converts, and drives real results.',
@@ -80,7 +81,7 @@ export default function AboutUsPage() {
       <section className='mx-auto max-w-7xl space-y-16'>
         <div className='grid items-center gap-10 lg:grid-cols-2'>
           <AnimatedSection animation='slideRight' duration='slow'>
-            <h1 className='text-4xl font-bold md:text-6xl'>About Us</h1>
+            <h1 className={`${typography.page.heroTitle} font-bold`}>About Us</h1>
             <div className='mt-6 space-y-4 text-muted-foreground leading-relaxed'>
               {aboutParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -130,7 +131,7 @@ export default function AboutUsPage() {
                 </article>
 
                 <article className='order-4 rounded-2xl border border-border bg-brand-blue/25 p-8 text-left transition-transform duration-300 hover:-translate-y-1 md:order-0 md:col-start-3 md:row-start-1'>
-                  <p className='text-3xl font-semibold md:text-4xl'>
+                  <p className={`${typography.card.statValue} font-semibold`}>
                     {stats[1].value}+
                   </p>
                   <p className='mt-1 text-muted-foreground'>{stats[1].label}</p>
@@ -147,7 +148,7 @@ export default function AboutUsPage() {
                 </article>
 
                 <article className='order-2 rounded-2xl border border-border bg-brand-green/25 p-8 text-left transition-transform duration-300 hover:-translate-y-1 md:order-0 md:col-start-1 md:row-start-3'>
-                  <p className='text-3xl font-semibold md:text-4xl'>
+                  <p className={`${typography.card.statValue} font-semibold`}>
                     {stats[0].value}+
                   </p>
                   <p className='mt-1 text-muted-foreground'>{stats[0].label}</p>
@@ -160,7 +161,7 @@ export default function AboutUsPage() {
         <AnimatedSection animation='slideUp' duration='normal' delay='short'>
           <div className='space-y-8'>
             <div className='flex flex-col items-start justify-between gap-4 rounded-2xl md:flex-row md:items-center'>
-              <h2 className='text-2xl font-semibold md:text-3xl'>
+              <h2 className={`${typography.page.subsectionTitle} font-semibold`}>
                 Why our Clients choose us
               </h2>
 
@@ -174,7 +175,7 @@ export default function AboutUsPage() {
                   key={`${reason.title}-${index.toString()}`}
                   className='rounded-2xl border border-card bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md'
                 >
-                  <h2 className='text-xl font-semibold'>{reason.title}</h2>
+                  <h2 className={`${typography.card.title} font-semibold`}>{reason.title}</h2>
                   <p className='mt-3 text-muted-foreground'>
                     {reason.description}
                   </p>

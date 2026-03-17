@@ -12,6 +12,7 @@ import {
   type FormOption,
 } from '@/app/components/forms/FormFields';
 import { Button } from '@/components/ui/button';
+import { typography } from '@/lib/typography';
 import { getStartedFormSchema, type GetStartedFormValues } from '@/lib/validation/form-schemas';
 
 const serviceOptions: ReadonlyArray<FormOption> = [
@@ -165,8 +166,14 @@ export function GetStartedForm() {
         <Button type='submit' disabled={submitState === 'submitting'} className='rounded-xl px-6'>
           {submitState === 'submitting' ? 'Submitting...' : 'Submit'}
         </Button>
-        {submitState === 'success' ? <p className='text-sm text-green-600'>Submitted successfully.</p> : null}
-        {submitState === 'error' ? <p className='text-sm text-destructive'>Could not submit. Please try again.</p> : null}
+        {submitState === 'success' ? (
+          <p className={`${typography.form.field.submitFeedback} text-green-600`}>Submitted successfully.</p>
+        ) : null}
+        {submitState === 'error' ? (
+          <p className={`${typography.form.field.submitFeedback} text-destructive`}>
+            Could not submit. Please try again.
+          </p>
+        ) : null}
       </div>
     </FormContainer>
   );

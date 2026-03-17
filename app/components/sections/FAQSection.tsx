@@ -6,6 +6,7 @@ import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
+import { typography } from '@/lib/typography';
 
 const faqs = [
   {
@@ -43,7 +44,7 @@ function FAQItem({
         onClick={onToggle}
         className='flex w-full items-center justify-between py-6 text-left cursor-pointer'
       >
-        <span className='text-lg font-medium pr-4'>{faq.question}</span>
+        <span className={`${typography.faq.question} font-medium pr-4`}>{faq.question}</span>
         <span className='shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center transition-colors'>
           {isOpen ? (
             <Minus className='w-5 h-5' />
@@ -86,7 +87,7 @@ export function FAQSection() {
           <div className='grid lg:grid-cols-2 gap-12 lg:gap-20'>
             {/* Left column */}
             <AnimatedSection animation='slideRight' duration='slow'>
-              <h2 className='text-3xl md:text-5xl font-bold mb-6'>
+              <h2 className={`${typography.page.sectionTitle} font-bold mb-6`}>
                 Frequently Asked Questions
               </h2>
               <p className='text-muted-foreground mb-8 max-w-md'>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
+import { typography } from '@/lib/typography';
 import { cn } from '@/lib/utils';
 
 const teamMembers = [
@@ -110,10 +111,10 @@ export function CTASection() {
         {/* Centered content */}
         <div className='relative z-10 max-w-xl mx-auto text-center lg:py-32'>
           <AnimatedSection animation='slideUp'>
-            <h2 className='text-3xl lg:text-4xl font-bold mb-6'>
+            <h2 className={`${typography.page.sectionTitle} font-bold mb-6`}>
               Become Part of our Team
             </h2>
-            <p className='text-muted-foreground text-lg leading-relaxed mx-auto mb-10'>
+            <p className={`text-muted-foreground ${typography.page.lead} mx-auto mb-10`}>
               We help our clients with the work beyond (& sometimes behind) the
               splashy ad campaigns and viral moments. We leverage content to
               help our clients consistently bring their unique perspective to

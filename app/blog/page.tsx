@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/seo';
+import { typography } from '@/lib/typography';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'B2B Marketing Blog',
@@ -12,7 +13,7 @@ const BlogPage = () => {
   return (
     <main className='container-px pb-20 pt-32 md:pt-36'>
       <section className='mx-auto max-w-7xl'>
-        <h1 className='text-4xl font-bold md:text-6xl'>Blog</h1>
+        <h1 className={`${typography.page.heroTitle} font-bold`}>Blog</h1>
       </section>
     </main>
   );

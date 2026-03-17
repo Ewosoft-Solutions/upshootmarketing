@@ -8,6 +8,7 @@ import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { logos } from '@/lib/constants/assets';
+import { typography } from '@/lib/typography';
 
 type IconProps = Readonly<{ className?: string }>;
 
@@ -100,10 +101,10 @@ export function Footer() {
         <div className='max-w-7xl mx-auto grid md:grid-cols-[3fr_2fr] gap-8 lg:gap-16'>
           {/* CTA Section */}
           <AnimatedSection animation='slideUp'>
-            <h2 className='text-2xl md:text-4xl font-medium mb-2 md:mb-4'>
+            <h2 className={`${typography.footer.ctaTitle} font-medium mb-2 md:mb-4`}>
               Ready to get started?
             </h2>
-            <p className='text-footer-muted text-base md:text-lg mb-5 md:mb-8'>
+            <p className={`text-footer-muted ${typography.footer.ctaDescription} mb-5 md:mb-8`}>
               Are you ready to take your Brand to the next level?
               <br />
               Contact us and lets talk about your brand
@@ -117,7 +118,7 @@ export function Footer() {
           <div className='grid grid-cols-2 gap-5 md:gap-8 pt-4 md:pt-0'>
             {/* Company Links */}
             <div>
-              <h3 className='font-semibold mb-2 md:mb-4 text-base tracking-wide'>
+              <h3 className={`font-semibold mb-2 md:mb-4 tracking-wide ${typography.footer.sectionHeading}`}>
                 COMPANY
               </h3>
               <ul className='space-y-1.5 md:space-y-2'>
@@ -125,7 +126,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className='text-footer-muted hover:text-footer-text transition-colors cursor-pointer text-base'
+                      className={`text-footer-muted hover:text-footer-text transition-colors cursor-pointer ${typography.footer.sectionLink}`}
                     >
                       {link.label}
                     </Link>
@@ -136,7 +137,7 @@ export function Footer() {
 
             {/* Resources - Column 1 */}
             <div>
-              <h3 className='font-semibold mb-2 md:mb-4 text-base tracking-wide'>
+              <h3 className={`font-semibold mb-2 md:mb-4 tracking-wide ${typography.footer.sectionHeading}`}>
                 RESOURCES
               </h3>
               <ul className='space-y-1.5 md:space-y-2'>
@@ -144,7 +145,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className='text-footer-muted hover:text-footer-text transition-colors cursor-pointer text-base'
+                      className={`text-footer-muted hover:text-footer-text transition-colors cursor-pointer ${typography.footer.sectionLink}`}
                     >
                       {link.label}
                     </Link>
@@ -159,7 +160,7 @@ export function Footer() {
       {/* Middle row: Logo (left) + Be The First To Know (right) */}
       <div className='container-px'>
         <div className='max-w-7xl mx-auto grid md:grid-cols-5 gap-5 md:gap-8 items-start'>
-          <Link href='/' className='text-xl font-bold md:col-span-3'>
+          <Link href='/' className={`${typography.footer.logoLabel} font-bold md:col-span-3`}>
             <Image
               src={footerLogo}
               alt='UpShoot Marketing'
@@ -170,10 +171,10 @@ export function Footer() {
           </Link>
 
           <div className='md:col-span-2'>
-            <h3 className='font-semibold mb-2 md:mb-4 text-base tracking-wide'>
+            <h3 className={`font-semibold mb-2 md:mb-4 tracking-wide ${typography.footer.sectionHeading}`}>
               BE THE FIRST TO KNOW
             </h3>
-            <p className='text-footer-muted text-base mb-3 md:mb-4'>
+            <p className={`text-footer-muted ${typography.footer.newsletterDescription} mb-3 md:mb-4`}>
               Be the first to read our Articles and News Letter
             </p>
             <div className='flex gap-2'>
@@ -196,7 +197,7 @@ export function Footer() {
       {/* Bottom row: Copyright (left) + Social links (right) */}
       <div className='border-t border-footer-border pt-6 md:pt-8 container-px'>
         <div className='max-w-7xl mx-auto flex flex-col-reverse sm:flex-row items-center justify-between gap-4'>
-          <p className='text-footer-muted text-base'>
+          <p className={`text-footer-muted ${typography.footer.copyright}`}>
             © 2025. All rights reserved
           </p>
 

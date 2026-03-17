@@ -3,6 +3,7 @@
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { motion } from 'framer-motion';
 import { getStaggerContainer, staggerItem } from '@/lib/animations/config';
+import { typography } from '@/lib/typography';
 import { Lightbulb, Video, TrendingUp, Palette } from 'lucide-react';
 
 const services = [
@@ -37,10 +38,10 @@ export function ServicesSection() {
     <section id="services" className='py-24 container-px bg-background'>
       <div className='max-w-7xl mx-auto'>
         <AnimatedSection animation="slideUp" className='text-center mb-16'>
-          <h2 className='text-3xl md:text-5xl font-bold mb-4'>
+          <h2 className={`${typography.page.sectionTitle} font-bold mb-4`}>
             Our Services
           </h2>
-          <p className='text-muted-foreground text-lg max-w-2xl mx-auto'>
+          <p className={`text-muted-foreground ${typography.page.lead} max-w-2xl mx-auto`}>
             We offer comprehensive marketing solutions to help your business grow and succeed
           </p>
         </AnimatedSection>
@@ -61,8 +62,8 @@ export function ServicesSection() {
               <div className='w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors'>
                 <service.icon className='w-6 h-6 text-primary' />
               </div>
-              <h3 className='text-xl font-semibold mb-2'>{service.title}</h3>
-              <p className='text-muted-foreground text-base'>{service.description}</p>
+              <h3 className={`${typography.card.title} font-semibold mb-2`}>{service.title}</h3>
+              <p className={`text-muted-foreground ${typography.card.description}`}>{service.description}</p>
             </motion.div>
           ))}
         </motion.div>

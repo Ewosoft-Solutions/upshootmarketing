@@ -3,6 +3,7 @@
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArticleCard } from '@/app/components/ui/article-card';
 import { ArrowLinkButton } from '@/app/components/ui/arrow-link-button';
+import { typography } from '@/lib/typography';
 
 const articles = [
   {
@@ -53,7 +54,7 @@ export function ArticlesSection() {
         <div className='max-w-7xl mx-auto'>
           <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4'>
             <AnimatedSection animation='slideRight'>
-              <h2 className='text-3xl md:text-5xl font-bold'>
+              <h2 className={`${typography.page.sectionTitle} font-bold`}>
                 Featured Articles
               </h2>
             </AnimatedSection>

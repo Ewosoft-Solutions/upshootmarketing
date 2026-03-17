@@ -4,6 +4,7 @@ import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { cn } from '@/lib/utils';
 import { createPageMetadata } from '@/lib/seo';
+import { typography } from '@/lib/typography';
 
 interface PricingPackage {
   name: string;
@@ -76,7 +77,7 @@ export default function PricingPage() {
       <section className='mx-auto max-w-7xl space-y-10'>
         <AnimatedSection animation='slideUp' duration='slow'>
           <div className='space-y-3'>
-            <h1 className='text-4xl font-bold md:text-6xl'>
+            <h1 className={`${typography.page.heroTitle} font-bold`}>
               Pricing & Packages
             </h1>
             <p className='text-muted-foreground'>
@@ -97,7 +98,7 @@ export default function PricingPage() {
                 )}
               >
                 {entry.popular && (
-                  <span className='absolute right-4 top-4 rounded-full bg-black px-3 py-1 text-xs font-semibold text-white'>
+                  <span className={`absolute right-4 top-4 rounded-full bg-black px-3 py-1 ${typography.card.badge} font-semibold text-white`}>
                     Most Popular
                   </span>
                 )}
@@ -112,18 +113,18 @@ export default function PricingPage() {
                       {entry.name}
                     </span>
                     <p className='mt-10 text-muted-foreground'>Starting from</p>
-                    <p className='text-5xl font-semibold tracking-tight text-foreground'>
+                    <p className={`${typography.card.price} font-semibold tracking-tight text-foreground`}>
                       {entry.priceLabel}
                     </p>
                   </div>
                 </div>
 
                 <div className='flex flex-1 flex-col p-6'>
-                  <p className='text-base text-foreground/90'>
+                  <p className={`${typography.card.description} text-foreground/90`}>
                     {entry.description}
                   </p>
 
-                  <ul className='mb-8 mt-6 space-y-3 text-base text-foreground/90'>
+                  <ul className={`mb-8 mt-6 space-y-3 ${typography.card.description} text-foreground/90`}>
                     {entry.features.map((feature) => {
                       const isInheritance = feature.startsWith('Everything in');
 

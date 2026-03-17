@@ -4,6 +4,7 @@ import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { Carousel } from '@/app/components/ui/carousel';
 import { ProjectCard } from '@/app/components/ui/project-card';
 import { ArrowLinkButton } from '@/app/components/ui/arrow-link-button';
+import { typography } from '@/lib/typography';
 
 const projects = [
   {
@@ -61,10 +62,10 @@ export function PortfolioSection() {
     <section id='portfolio' className='py-16 md:py-24 container-px'>
       <div className='max-w-7xl mx-auto'>
         <AnimatedSection animation='slideUp' className='text-center mb-16'>
-          <h2 className='text-3xl md:text-5xl font-bold mb-4'>
+          <h2 className={`${typography.page.sectionTitle} font-bold mb-4`}>
             Work that works
           </h2>
-          <p className='text-muted-foreground text-lg'>
+          <p className={`text-muted-foreground ${typography.page.lead}`}>
             Some of our favorite work, for some of our favorite clients
           </p>
         </AnimatedSection>

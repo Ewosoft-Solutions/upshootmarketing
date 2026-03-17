@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { PlayCircle } from 'lucide-react';
 import type { PortfolioItem } from '@/lib/constants/portfolio-content';
+import { typography } from '@/lib/typography';
 import { cn } from '@/lib/utils';
 
 interface PortfolioItemCardProps {
@@ -55,9 +56,9 @@ export function PortfolioItemCard({
               : 'opacity-0 md:translate-y-2 md:group-hover:translate-y-0 md:group-hover:opacity-100',
           )}
         >
-          <h3 className='text-lg font-semibold text-white'>{item.title}</h3>
-          <p className='line-clamp-2 text-sm text-white/90'>{item.description}</p>
-          <p className='mt-3 text-xs font-medium tracking-wide text-white/85 uppercase'>
+          <h3 className={`${typography.card.titleSmall} font-semibold text-white`}>{item.title}</h3>
+          <p className={`line-clamp-2 ${typography.portfolio.overlayDescription} text-white/90`}>{item.description}</p>
+          <p className={`mt-3 ${typography.portfolio.overlayCta} font-medium tracking-wide text-white/85 uppercase`}>
             {ctaLabel}
           </p>
         </div>

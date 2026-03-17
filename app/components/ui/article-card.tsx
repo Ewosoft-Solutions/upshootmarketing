@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
+import { typography } from '@/lib/typography';
 import { cn } from '@/lib/utils';
 
 interface ArticleCardProps {
@@ -39,7 +40,7 @@ export function ArticleCard({ title, date, tags, imageUrl, href, className }: Re
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-primary/10 to-accent/10">
-              <span className="text-4xl font-bold text-muted-foreground/20">{title[0]}</span>
+              <span className={`${typography.card.placeholderInitial} font-bold text-muted-foreground/20`}>{title[0]}</span>
             </div>
           )}
         </div>
@@ -47,19 +48,19 @@ export function ArticleCard({ title, date, tags, imageUrl, href, className }: Re
         {/* Tags */}
         <div className="flex gap-2 overflow-x-auto whitespace-nowrap">
           {tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="shrink-0 text-xs">
+            <Badge key={tag} variant="secondary" className={`shrink-0 ${typography.card.badge}`}>
               {tag}
             </Badge>
           ))}
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-semibold leading-tight group-hover:text-primary transition-colors">
+        <h3 className={`${typography.card.title} font-semibold leading-tight group-hover:text-primary transition-colors`}>
           {title}
         </h3>
 
         {/* Date */}
-        <p className="mt-auto text-base text-muted-foreground">{date}</p>
+        <p className={`mt-auto ${typography.card.description} text-muted-foreground`}>{date}</p>
       </Component>
     </motion.div>
   );

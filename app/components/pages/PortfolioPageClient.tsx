@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { portfolioCategories } from '@/lib/constants/portfolio-content';
+import { typography } from '@/lib/typography';
 
 const headingVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -47,7 +48,7 @@ export function PortfolioPageClient() {
           initial={shouldReduceMotion ? undefined : 'hidden'}
           animate={animationMode}
         >
-          <h1 className='text-4xl font-bold md:text-6xl'>Our Portfolio</h1>
+          <h1 className={`${typography.page.heroTitle} font-bold`}>Our Portfolio</h1>
           <p className='max-w-2xl text-muted-foreground'>Choose a Category.</p>
         </motion.div>
 
@@ -84,12 +85,12 @@ export function PortfolioPageClient() {
                   <div className='absolute inset-x-0 bottom-0 p-5'>
                     <div className='transition-transform duration-200 group-hover:-translate-y-5'>
                       <div className='flex items-center gap-1'>
-                        <h2 className='text-xl font-semibold text-white transition-all duration-200 group-hover:text-2xl'>
+                        <h2 className={`${typography.portfolio.overlayTitle} font-semibold text-white transition-all duration-200`}>
                           {category.title}
                         </h2>
                         <ArrowUpRight className='h-5 w-5 shrink-0 text-white/90 opacity-0 transition-all duration-200 md:group-hover:-translate-y-0.5 md:group-hover:translate-x-0.5 md:group-hover:opacity-100' />
                       </div>
-                      <p className='mt-1 line-clamp-2 max-h-0 overflow-hidden text-sm text-white/85 opacity-0 transition-all duration-200 group-hover:max-h-14 group-hover:opacity-100'>
+                      <p className={`mt-1 line-clamp-2 max-h-0 overflow-hidden ${typography.portfolio.overlayDescription} text-white/85 opacity-0 transition-all duration-200 group-hover:max-h-14 group-hover:opacity-100`}>
                         {category.description}
                       </p>
                     </div>

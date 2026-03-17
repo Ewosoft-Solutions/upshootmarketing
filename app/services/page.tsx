@@ -5,6 +5,7 @@ import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArrowLinkButton } from '@/app/components/ui/arrow-link-button';
 import { createPageMetadata } from '@/lib/seo';
+import { typography } from '@/lib/typography';
 
 interface ServiceCard {
   title: string;
@@ -82,7 +83,7 @@ export default function ServicesPage() {
           <AnimatedSection animation='slideRight' duration='slow'>
             <div className='space-y-6'>
               <div className='space-y-4'>
-                <h1 className='text-4xl font-bold md:text-6xl'>Our Services</h1>
+                <h1 className={`${typography.page.heroTitle} font-bold`}>Our Services</h1>
                 <p className='max-w-xl text-muted-foreground'>
                   We blend these areas of expertise to create brand storytelling
                   systems that earn attention, build trust, and drive leads
@@ -111,7 +112,7 @@ export default function ServicesPage() {
             <div className='container-px py-12 md:py-16'>
               <div className='mx-auto max-w-7xl space-y-6'>
                 <div className='flex flex-col items-start justify-between gap-4 md:flex-row md:items-center'>
-                  <h2 className='text-3xl font-semibold'>What we do</h2>
+                  <h2 className={`${typography.page.sectionTitle} font-semibold`}>What we do</h2>
                   <ArrowLinkButton href='/portfolio'>
                     See our Portfolio
                   </ArrowLinkButton>
@@ -133,10 +134,10 @@ export default function ServicesPage() {
                         />
                       </div>
                       <div className='space-y-4 p-5'>
-                        <h3 className='text-xl font-semibold'>
+                        <h3 className={`${typography.card.title} font-semibold`}>
                           {service.title}
                         </h3>
-                        <p className='text-sm leading-relaxed text-muted-foreground'>
+                        <p className={`${typography.card.descriptionSmall} leading-relaxed text-muted-foreground`}>
                           {service.description}
                         </p>
                       </div>
@@ -150,14 +151,14 @@ export default function ServicesPage() {
 
         <AnimatedSection animation='slideUp' duration='slow' delay='short'>
           <div className='space-y-6'>
-            <h2 className='text-3xl font-semibold'>Our Approach</h2>
+            <h2 className={`${typography.page.sectionTitle} font-semibold`}>Our Approach</h2>
             <div className='grid gap-4 md:grid-cols-3'>
               {approachSteps.map((step) => (
                 <article
                   key={step.title}
                   className='rounded-2xl border border-muted bg-muted/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md'
                 >
-                  <h3 className='text-2xl font-semibold'>{step.title}</h3>
+                  <h3 className={`${typography.card.titleLarge} font-semibold`}>{step.title}</h3>
                   <p className='mt-3 text-muted-foreground'>
                     {step.description}
                   </p>
