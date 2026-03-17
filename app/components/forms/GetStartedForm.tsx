@@ -32,6 +32,9 @@ export function GetStartedForm() {
     formState: { errors },
   } = useForm<GetStartedFormValues>({
     resolver: zodResolver(getStartedFormSchema),
+    mode: 'onChange',
+    reValidateMode: 'onChange',
+    criteriaMode: 'firstError',
     defaultValues: {
       firstName: '',
       lastName: '',
@@ -74,6 +77,7 @@ export function GetStartedForm() {
           required
           error={errors.firstName?.message}
           aria-invalid={Boolean(errors.firstName)}
+          maxLength={50}
           {...register('firstName')}
         />
         <TextInputField
@@ -83,6 +87,7 @@ export function GetStartedForm() {
           required
           error={errors.lastName?.message}
           aria-invalid={Boolean(errors.lastName)}
+          maxLength={50}
           {...register('lastName')}
         />
       </div>
@@ -96,6 +101,7 @@ export function GetStartedForm() {
           required
           error={errors.emailAddress?.message}
           aria-invalid={Boolean(errors.emailAddress)}
+          maxLength={254}
           {...register('emailAddress')}
         />
         <Controller
@@ -122,12 +128,14 @@ export function GetStartedForm() {
           id='companyName'
           label='Company Name'
           placeholder='Enter your company name'
+          maxLength={100}
           {...register('companyName')}
         />
         <TextInputField
           id='budget'
           label='Budget'
           placeholder='e.g. $500 - $5,000'
+          maxLength={40}
           {...register('budget')}
         />
       </div>
@@ -137,6 +145,7 @@ export function GetStartedForm() {
         label='Reference / Inspiration of what you want'
         rows={4}
         placeholder='Share links, references, or context'
+        maxLength={600}
         {...register('reference')}
       />
 
@@ -148,6 +157,7 @@ export function GetStartedForm() {
         required
         error={errors.goals?.message}
         aria-invalid={Boolean(errors.goals)}
+        maxLength={1200}
         {...register('goals')}
       />
 

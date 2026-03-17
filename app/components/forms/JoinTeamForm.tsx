@@ -40,6 +40,9 @@ export function JoinTeamForm() {
     formState: { errors },
   } = useForm<JoinTeamFormValues>({
     resolver: zodResolver(joinTeamFormSchema),
+    mode: 'onChange',
+    reValidateMode: 'onChange',
+    criteriaMode: 'firstError',
     defaultValues: {
       firstName: '',
       lastName: '',
@@ -92,6 +95,7 @@ export function JoinTeamForm() {
           required
           error={errors.firstName?.message}
           aria-invalid={Boolean(errors.firstName)}
+          maxLength={50}
           {...register('firstName')}
         />
         <TextInputField
@@ -101,6 +105,7 @@ export function JoinTeamForm() {
           required
           error={errors.lastName?.message}
           aria-invalid={Boolean(errors.lastName)}
+          maxLength={50}
           {...register('lastName')}
         />
       </div>
@@ -114,6 +119,7 @@ export function JoinTeamForm() {
           required
           error={errors.emailAddress?.message}
           aria-invalid={Boolean(errors.emailAddress)}
+          maxLength={254}
           {...register('emailAddress')}
         />
         <Controller
@@ -146,7 +152,11 @@ export function JoinTeamForm() {
           required: true,
           onChange: (event) => {
             const target = event.target as HTMLInputElement;
-            setValue('resumeUpload', target.files ?? new DataTransfer().files, { shouldValidate: true });
+            setValue('resumeUpload', target.files ?? new DataTransfer().files, {
+              shouldValidate: true,
+              shouldDirty: true,
+              shouldTouch: true,
+            });
           },
         }}
       />
@@ -154,17 +164,20 @@ export function JoinTeamForm() {
       <div className='grid gap-5 sm:grid-cols-2'>
         <TextInputField
           id='portfolioLink'
+          type='url'
           label='Portfolio / Work Sample Link'
           placeholder='https://...'
           required
           error={errors.portfolioLink?.message}
           aria-invalid={Boolean(errors.portfolioLink)}
+          maxLength={300}
           {...register('portfolioLink')}
         />
         <TextInputField
           id='socialHandle'
           label='Provide any of your social handles'
           placeholder='https://...'
+          maxLength={300}
           {...register('socialHandle')}
         />
       </div>
@@ -177,6 +190,7 @@ export function JoinTeamForm() {
         required
         error={errors.inspiration?.message}
         aria-invalid={Boolean(errors.inspiration)}
+        maxLength={1200}
         {...register('inspiration')}
       />
       <TextareaField
@@ -187,6 +201,7 @@ export function JoinTeamForm() {
         required
         error={errors.deadlines?.message}
         aria-invalid={Boolean(errors.deadlines)}
+        maxLength={1200}
         {...register('deadlines')}
       />
       <TextareaField
@@ -197,6 +212,7 @@ export function JoinTeamForm() {
         required
         error={errors.perfectFit?.message}
         aria-invalid={Boolean(errors.perfectFit)}
+        maxLength={1200}
         {...register('perfectFit')}
       />
 
@@ -208,6 +224,7 @@ export function JoinTeamForm() {
           required
           error={errors.expectedIncome?.message}
           aria-invalid={Boolean(errors.expectedIncome)}
+          maxLength={40}
           {...register('expectedIncome')}
         />
         <Controller
@@ -234,6 +251,7 @@ export function JoinTeamForm() {
         label='Any addition note?'
         rows={4}
         placeholder='Anything else you want us to know'
+        maxLength={1200}
         {...register('additionalNote')}
       />
 

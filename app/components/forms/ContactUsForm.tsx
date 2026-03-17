@@ -22,6 +22,9 @@ export function ContactUsForm() {
     formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
+    mode: 'onChange',
+    reValidateMode: 'onChange',
+    criteriaMode: 'firstError',
     defaultValues: {
       fullName: '',
       emailAddress: '',
@@ -63,6 +66,7 @@ export function ContactUsForm() {
           required
           error={errors.fullName?.message}
           aria-invalid={Boolean(errors.fullName)}
+          maxLength={80}
           {...register('fullName')}
         />
         <TextInputField
@@ -73,6 +77,7 @@ export function ContactUsForm() {
           required
           error={errors.emailAddress?.message}
           aria-invalid={Boolean(errors.emailAddress)}
+          maxLength={254}
           {...register('emailAddress')}
         />
       </div>
@@ -85,6 +90,7 @@ export function ContactUsForm() {
         required
         error={errors.message?.message}
         aria-invalid={Boolean(errors.message)}
+        maxLength={1200}
         {...register('message')}
       />
 
