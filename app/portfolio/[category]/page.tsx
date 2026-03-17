@@ -11,6 +11,7 @@ import {
 } from '@/lib/constants/portfolio-content';
 import { createPageMetadata } from '@/lib/seo';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 
 interface PortfolioCategoryPageProps {
   params: Promise<{ category: string }>;
@@ -59,11 +60,11 @@ export default async function PortfolioCategoryPage({
   const items = getPortfolioItemsByCategory(category.slug);
 
   return (
-    <main className='container-px pb-20 pt-32 md:pt-36'>
-      <section className='mx-auto max-w-7xl space-y-10'>
+    <main className={cn('container-px pb-20 pt-32 md:pt-36')}>
+      <section className={cn('mx-auto max-w-7xl space-y-10')}>
         <AnimatedSection animation='slideUp' duration='normal'>
-          <div className='space-y-4'>
-            <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
+          <div className={cn('space-y-4')}>
+            <div className={cn('flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between')}>
               <ArrowLinkButton href='/portfolio' direction='back'>
                 Back to Categories
               </ArrowLinkButton>
@@ -72,11 +73,11 @@ export default async function PortfolioCategoryPage({
               </ShimmerButton> */}
             </div>
 
-            <div className='space-y-3'>
-              <h1 className={`${typography.page.heroTitle} font-bold`}>
+            <div className={cn('space-y-3')}>
+              <h1 className={cn(typography.page.title, 'font-bold')}>
                 {category.title}
               </h1>
-              <p className='max-w-2xl text-muted-foreground'>
+              <p className={cn('max-w-2xl text-muted-foreground')}>
                 {category.description}
               </p>
             </div>

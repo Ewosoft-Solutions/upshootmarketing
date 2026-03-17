@@ -71,7 +71,7 @@ export function Carousel({
 
   return (
     <div className={cn('relative', className)}>
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div className={cn('overflow-hidden')} ref={emblaRef}>
         <div className={cn('flex', containerClassName)}>
           {Children.map(children, (child) => (
             <div className={cn('min-w-0', slideClassName ?? 'flex-[0_0_100%]')}>
@@ -86,24 +86,24 @@ export function Carousel({
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm"
+            className={cn('absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm')}
             onClick={scrollPrev}
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className={cn('h-4 w-4')} />
           </Button>
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm"
+            className={cn('absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm')}
             onClick={scrollNext}
           >
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className={cn('h-4 w-4')} />
           </Button>
         </>
       )}
 
       {showDots && (
-        <div className="flex justify-center gap-2 mt-4">
+        <div className={cn('flex justify-center gap-2 mt-4')}>
           {scrollSnaps.map((snap, index) => (
             <button
               key={`snap-${snap}`}

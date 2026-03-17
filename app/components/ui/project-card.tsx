@@ -26,18 +26,18 @@ export function ProjectCard({ title, description, imageUrl, href, className }: R
       )}
     >
       {/* Image */}
-      <div className='aspect-16/10 overflow-hidden bg-muted relative'>
+      <div className={cn('aspect-16/10 overflow-hidden bg-muted relative')}>
         {imageUrl ? (
           <Image
             src={imageUrl}
             alt={title}
             fill
-            className='object-cover rounded-xl '
+            className={cn('object-cover rounded-xl ')}
             sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
           />
         ) : (
-          <div className='w-full h-full flex items-center justify-center bg-linear-to-br from-primary/20 to-accent/20'>
-            <span className={`${typography.card.placeholderInitial} font-bold text-muted-foreground/20`}>
+          <div className={cn('w-full h-full flex items-center justify-center bg-linear-to-br from-primary/20 to-accent/20')}>
+            <span className={cn(typography.card.placeholderInitial, 'font-bold text-muted-foreground/20')}>
               {title[0]}
             </span>
           </div>
@@ -45,19 +45,19 @@ export function ProjectCard({ title, description, imageUrl, href, className }: R
       </div>
 
       {/* Content */}
-      <div className='mt-4'>
-        <div className='text-muted-foreground mb-2 group-hover:text-primary transition-colors flex items-center justify-between'>
+      <div className={cn('mt-4')}>
+        <div className={cn('text-muted-foreground mb-2 group-hover:text-primary transition-colors flex items-center justify-between')}>
           <h3>{title}</h3>
           {href && (
-            <Button variant='ghost' className='group/btn hover:bg-foreground' asChild>
+            <Button variant='ghost' className={cn('group/btn hover:bg-foreground')} asChild>
               <a href={href}>
                 View Project
-                <ArrowUpRight className='ml-0.5 h-4 w-4 transition-transform group-hover/btn:translate-x-1' />
+                <ArrowUpRight className={cn('ml-0.5 h-4 w-4 transition-transform group-hover/btn:translate-x-1')} />
               </a>
             </Button>
           )}
         </div>
-        <p className={`${typography.card.titleSmall} font-semibold mb-4 line-clamp-2`}>
+        <p className={cn(typography.card.titleSmall, 'font-semibold mb-4 line-clamp-2')}>
           {description}
         </p>
       </div>

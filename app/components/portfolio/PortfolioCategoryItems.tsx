@@ -5,6 +5,7 @@ import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { PortfolioItemCard } from '@/app/components/portfolio/PortfolioItemCard';
 import { PortfolioPreviewModal } from '@/app/components/portfolio/PortfolioPreviewModal';
 import type { PortfolioItem } from '@/lib/constants/portfolio-content';
+import { cn } from '@/lib/utils';
 
 interface PortfolioCategoryItemsProps {
   items: readonly PortfolioItem[];
@@ -66,7 +67,7 @@ export function PortfolioCategoryItems({ items }: Readonly<PortfolioCategoryItem
   return (
     <>
       <motion.div
-        className='grid gap-6 md:grid-cols-2 xl:grid-cols-3'
+        className={cn('grid gap-6 md:grid-cols-2 xl:grid-cols-3')}
         variants={gridVariants}
         initial={shouldReduceMotion ? undefined : 'hidden'}
         animate={shouldReduceMotion ? undefined : 'visible'}

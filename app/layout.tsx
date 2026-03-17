@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/app/components/providers/ThemeProvider";
 import { Navbar } from '@/app/components/layout/Navbar';
 import { Footer } from '@/app/components/layout/Footer';
 import { siteUrl, siteName } from '@/lib/seo';
+import { cn } from '@/lib/utils';
 import "./globals.css";
 
 const outfit = Outfit({
@@ -63,8 +64,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${outfit.variable} ${geistMono.variable}`}>
-      <body className="antialiased">
+    <html lang="en" suppressHydrationWarning className={cn(outfit.variable, geistMono.variable)}>
+      <body className={cn('antialiased')}>
 
         <ThemeProvider>
           <Navbar />

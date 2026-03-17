@@ -27,24 +27,24 @@ export function PortfolioItemCard({
     <button
       type='button'
       onClick={() => onOpen(item)}
-      className='group w-full overflow-hidden rounded-2xl border border-border bg-card text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-lg'
+      className={cn('group w-full overflow-hidden rounded-2xl border border-border bg-card text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-lg')}
     >
-      <div className='relative aspect-16/10 overflow-hidden bg-muted'>
+      <div className={cn('relative aspect-16/10 overflow-hidden bg-muted')}>
         {item.thumbnailUrl ? (
           <Image
             src={item.thumbnailUrl}
             alt={item.title}
             fill
-            className='object-cover transition-transform duration-300 group-hover:scale-105'
+            className={cn('object-cover transition-transform duration-300 group-hover:scale-105')}
             sizes='(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw'
           />
         ) : (
-          <div className='h-full w-full bg-linear-to-br from-primary/20 via-accent/10 to-primary/30' />
+          <div className={cn('h-full w-full bg-linear-to-br from-primary/20 via-accent/10 to-primary/30')} />
         )}
 
         {(item.mediaType === 'video' || item.mediaType === 'embed') ? (
-          <div className='absolute inset-0 grid place-items-center bg-black/20'>
-            <PlayCircle className='h-14 w-14 text-white/90' />
+          <div className={cn('absolute inset-0 grid place-items-center bg-black/20')}>
+            <PlayCircle className={cn('h-14 w-14 text-white/90')} />
           </div>
         ) : null}
 
@@ -56,9 +56,9 @@ export function PortfolioItemCard({
               : 'opacity-0 md:translate-y-2 md:group-hover:translate-y-0 md:group-hover:opacity-100',
           )}
         >
-          <h3 className={`${typography.card.titleSmall} font-semibold text-white`}>{item.title}</h3>
-          <p className={`line-clamp-2 ${typography.portfolio.overlayDescription} text-white/90`}>{item.description}</p>
-          <p className={`mt-3 ${typography.portfolio.overlayCta} font-medium tracking-wide text-white/85 uppercase`}>
+          <h3 className={cn(typography.card.titleSmall, 'font-semibold text-white')}>{item.title}</h3>
+          <p className={cn('line-clamp-2 text-white/90', typography.portfolio.description)}>{item.description}</p>
+          <p className={cn('mt-3 font-medium tracking-wide text-white/85 uppercase', typography.portfolio.cta)}>
             {ctaLabel}
           </p>
         </div>

@@ -64,20 +64,20 @@ export function Navbar() {
           : 'bg-nav-bg border-transparent',
       )}
     >
-      <div className='container-px'>
-        <div className='mx-auto flex h-20 max-w-7xl items-center justify-between'>
-          <Link href='/' className='inline-flex shrink-0'>
+      <div className={cn('container-px')}>
+        <div className={cn('mx-auto flex h-20 max-w-7xl items-center justify-between')}>
+          <Link href='/' className={cn('inline-flex shrink-0')}>
             <Image
               src={theme === 'dark' ? logos.dark : logos.light}
               alt='UpShoot Marketing'
               width={170}
               height={40}
-              className='h-10 w-auto max-w-[170px] object-contain'
+              className={cn('h-10 w-auto max-w-[170px] object-contain')}
               priority
             />
           </Link>
 
-          <div className='hidden items-center gap-8 lg:flex'>
+          <div className={cn('hidden items-center gap-8 lg:flex')}>
             {navLinks.map((link) => {
               const className = cn(
                 'cursor-pointer transition-colors',
@@ -100,8 +100,8 @@ export function Navbar() {
             })}
           </div>
 
-          <div className='flex items-center gap-3'>
-            <Button asChild variant={'outline'} className='hidden rounded-2xl lg:inline-flex'>
+          <div className={cn('flex items-center gap-3')}>
+            <Button asChild variant={'outline'} className={cn('hidden rounded-2xl lg:inline-flex')}>
               <Link href='/contact-us'>Contact Us</Link>
             </Button>
             <button
@@ -110,21 +110,21 @@ export function Navbar() {
               aria-expanded={isMobileMenuOpen}
               aria-controls='mobile-nav-menu'
               onClick={() => setIsMobileMenuOpen((previousValue) => !previousValue)}
-              className='relative inline-flex h-6 w-6 items-center justify-center text-nav-text-active transition-colors lg:hidden'
+              className={cn('relative inline-flex h-6 w-6 items-center justify-center text-nav-text-active transition-colors lg:hidden')}
             >
-              <span className='sr-only'>Toggle menu</span>
+              <span className={cn('sr-only')}>Toggle menu</span>
               <motion.span
-                className='absolute h-0.5 w-5 bg-current'
+                className={cn('absolute h-0.5 w-5 bg-current')}
                 animate={isMobileMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
                 transition={{ duration: 0.2 }}
               />
               <motion.span
-                className='absolute h-0.5 w-5 bg-current'
+                className={cn('absolute h-0.5 w-5 bg-current')}
                 animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
                 transition={{ duration: 0.2 }}
               />
               <motion.span
-                className='absolute h-0.5 w-5 bg-current'
+                className={cn('absolute h-0.5 w-5 bg-current')}
                 animate={isMobileMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
                 transition={{ duration: 0.2 }}
               />
@@ -136,13 +136,13 @@ export function Navbar() {
           {isMobileMenuOpen ? (
             <motion.div
               id='mobile-nav-menu'
-              className='pb-4 md:hidden'
+              className={cn('pb-4 md:hidden')}
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
             >
-              <ul className='flex flex-col gap-4 px-1'>
+              <ul className={cn('flex flex-col gap-4 px-1')}>
                 {navLinks.map((link) => {
                   const className = cn(
                     'cursor-pointer transition-colors',
@@ -166,7 +166,7 @@ export function Navbar() {
                   );
                 })}
               </ul>
-              <Button asChild variant={'outline'} className={`mt-4 w-full rounded-2xl ${typography.nav.mobileButton}`}>
+              <Button asChild variant={'outline'} className={cn('mt-4 w-full rounded-2xl', typography.nav.mobileButton)}>
                 <Link href='/contact-us' onClick={() => setIsMobileMenuOpen(false)}>
                   Contact Us
                 </Link>

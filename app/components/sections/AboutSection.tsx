@@ -4,19 +4,20 @@ import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { Play } from 'lucide-react';
 import Image from 'next/image';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 
 export function AboutSection() {
   return (
-    <section id='about' className='container-px bg-background'>
-      <div className='border-t border-border pt-16 md:pt-24'>
-        <div className='max-w-7xl mx-auto'>
-          <div className='grid lg:grid-cols-2 gap-12 items-center'>
+    <section id='about' className={cn('container-px bg-background')}>
+      <div className={cn('border-t border-border pt-16 md:pt-24')}>
+        <div className={cn('max-w-7xl mx-auto')}>
+          <div className={cn('grid lg:grid-cols-2 gap-12 items-center')}>
             {/* Left: Content */}
             <AnimatedSection animation='slideRight' duration='slow'>
-              <h2 className={`${typography.page.sectionTitle} font-bold mb-6`}>
+              <h2 className={cn(typography.section.title, 'font-bold mb-6')}>
                 About Upshoot Marketing
               </h2>
-              <div className='space-y-4 text-muted-foreground leading-relaxed'>
+              <div className={cn('space-y-4 text-muted-foreground leading-relaxed text-balance')}>
                 <p>
                   UpShoot Marketing is a B2B marketing agency helping brands
                   grow faster, through content that connects, converts and
@@ -40,14 +41,14 @@ export function AboutSection() {
 
             {/* Right: Video */}
             <AnimatedSection animation='slideLeft' duration='slow'>
-              <div className='relative aspect-video rounded-xl overflow-hidden bg-muted group cursor-pointer'>
+              <div className={cn('relative aspect-video rounded-xl overflow-hidden bg-muted group cursor-pointer')}>
                 {/* Video Placeholder */}
-                <div className='absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 flex items-center justify-center'>
-                  <div className='text-center'>
-                    <div className='w-20 h-20 mx-auto mb-4 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform'>
-                      <Play className='w-8 h-8 text-white fill-white ml-1' />
+                <div className={cn('absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 flex items-center justify-center')}>
+                  <div className={cn('text-center')}>
+                    <div className={cn('w-20 h-20 mx-auto mb-4 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform')}>
+                      <Play className={cn('w-8 h-8 text-white fill-white ml-1')} />
                     </div>
-                    <p className='text-white font-medium'>
+                    <p className={cn('text-white font-medium')}>
                       Video Explaining Upshoot
                     </p>
                   </div>
@@ -55,7 +56,7 @@ export function AboutSection() {
                 {/* Replace above with actual video embed when available */}
                 {/* <iframe
                   src="YOUR_VIDEO_URL"
-                  className="w-full h-full"
+                  className={cn('w-full h-full')}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 /> */}
@@ -63,13 +64,13 @@ export function AboutSection() {
             </AnimatedSection>
           </div>
         </div>
-        <div className='relative -mx-(--container-px) mt-20 md:mt-40'>
+        <div className={cn('relative -mx-(--container-px) mt-20 md:mt-40')}>
           <Image
             src='/assets/images/sections/about/divider.svg'
             alt='About Section Divider'
             width={0}
             height={0}
-            className='w-full h-auto'
+            className={cn('w-full h-auto')}
           />
         </div>
       </div>

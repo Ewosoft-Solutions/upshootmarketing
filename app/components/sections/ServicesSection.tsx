@@ -3,20 +3,21 @@
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 
 export function ServicesSection() {
   return (
-    <section id='services' className='py-16 md:py-24 container-px bg-muted/50'>
-      <div className='max-w-7xl mx-auto grid lg:grid-cols-2 gap-14'>
+    <section id='services' className={cn('py-16 md:py-24 container-px bg-muted/50')}>
+      <div className={cn('max-w-7xl mx-auto grid lg:grid-cols-2 gap-14')}>
         <AnimatedSection animation='slideRight' duration='slow'>
-          <h2 className={`${typography.page.sectionTitle} font-bold mb-8 text-balance lg:leading-14`}>
+          <h2 className={cn(typography.section.title, 'font-bold mb-8 text-balance lg:leading-14')}>
             We Build Brands brick by brick through good content.
           </h2>
           <ShimmerButton size='default'>Our Services</ShimmerButton>
         </AnimatedSection>
 
         <AnimatedSection animation='slideLeft' duration='slow' delay='short'>
-          <p className={`text-muted-foreground ${typography.page.lead}`}>
+          <p className={cn('text-muted-foreground', typography.section.description)}>
             We help our clients with the work beyond (and sometimes behind) the
             splashy ad campaigns and viral moments. We leverage content to help
             our clients consistently bring their unique perspective to the

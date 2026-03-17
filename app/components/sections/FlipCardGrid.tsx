@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
 interface HeroCard {
   front: string;
@@ -36,29 +37,29 @@ interface FlipCardProps extends HeroCard {
 
 function FlipCard({ front, back, alt, isFlipped, onFlip }: Readonly<FlipCardProps>) {
   return (
-    <button 
+    <button
       type='button'
-      className='flip-card aspect-4/3 cursor-pointer w-full'
+      className={cn('flip-card aspect-4/3 cursor-pointer w-full')}
       onClick={onFlip}
       aria-label={`Flip card for ${alt}`}
     >
-      <div className={`flip-card-inner relative w-full h-full ${isFlipped ? 'flip-card-flipped' : ''}`}>
-        <div className='flip-card-face flip-card-front absolute inset-0 rounded-[24px] overflow-hidden'>
+      <div className={cn('flip-card-inner relative w-full h-full', isFlipped && 'flip-card-flipped')}>
+        <div className={cn('flip-card-face flip-card-front absolute inset-0 rounded-[24px] overflow-hidden')}>
           <Image
             src={front}
             alt={alt}
             fill
             sizes='(min-width: 768px) 33vw, 100vw'
-            className='object-cover'
+            className={cn('object-cover')}
           />
         </div>
-        <div className='flip-card-face flip-card-back absolute inset-0 rounded-[24px] overflow-hidden'>
+        <div className={cn('flip-card-face flip-card-back absolute inset-0 rounded-[24px] overflow-hidden')}>
           <Image
             src={back}
             alt={`${alt} - back`}
             fill
             sizes='(min-width: 768px) 33vw, 100vw'
-            className='object-cover'
+            className={cn('object-cover')}
           />
         </div>
       </div>
@@ -78,12 +79,12 @@ export function FlipCardGrid() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className='mt-12 md:mt-20 w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto'
+      className={cn('mt-12 md:mt-20 w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto')}
     >
       {heroCards.map((card) => (
-        <FlipCard 
-          key={card.alt} 
-          {...card} 
+        <FlipCard
+          key={card.alt}
+          {...card}
           isFlipped={flippedCard === card.alt}
           onFlip={() => handleCardFlip(card.alt)}
         />

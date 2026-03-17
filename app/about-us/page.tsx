@@ -5,6 +5,7 @@ import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArrowLinkButton } from '../components/ui/arrow-link-button';
 import { createPageMetadata } from '@/lib/seo';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 
 const aboutParagraphs = [
   'UpShoot Marketing is a B2B marketing agency helping brands grow faster through content that connects, converts, and drives real results.',
@@ -77,12 +78,12 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function AboutUsPage() {
   return (
-    <main className='container-px pb-20 pt-32 md:pt-36'>
-      <section className='mx-auto max-w-7xl space-y-16'>
-        <div className='grid items-center gap-10 lg:grid-cols-2'>
+    <main className={cn('container-px pb-20 pt-32 md:pt-36')}>
+      <section className={cn('mx-auto max-w-7xl space-y-16')}>
+        <div className={cn('grid items-center gap-10 lg:grid-cols-2')}>
           <AnimatedSection animation='slideRight' duration='slow'>
-            <h1 className={`${typography.page.heroTitle} font-bold`}>About Us</h1>
-            <div className='mt-6 space-y-4 text-muted-foreground leading-relaxed'>
+            <h1 className={cn(typography.page.title, 'font-bold')}>About Us</h1>
+            <div className={cn('mt-6 space-y-4 text-muted-foreground leading-relaxed')}>
               {aboutParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -90,14 +91,14 @@ export default function AboutUsPage() {
           </AnimatedSection>
 
           <AnimatedSection animation='slideLeft' duration='slow'>
-            <div className='group relative aspect-video overflow-hidden rounded-xl bg-muted'>
-              <div className='absolute inset-0 bg-linear-to-br from-primary/25 to-accent/25' />
-              <div className='absolute inset-0 flex items-center justify-center px-6 text-center'>
+            <div className={cn('group relative aspect-video overflow-hidden rounded-xl bg-muted')}>
+              <div className={cn('absolute inset-0 bg-linear-to-br from-primary/25 to-accent/25')} />
+              <div className={cn('absolute inset-0 flex items-center justify-center px-6 text-center')}>
                 <div>
-                  <span className='mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110'>
-                    <Play className='ml-1 h-8 w-8 fill-white text-white' />
+                  <span className={cn('mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110')}>
+                    <Play className={cn('ml-1 h-8 w-8 fill-white text-white')} />
                   </span>
-                  <p className='font-medium text-white'>
+                  <p className={cn('font-medium text-white')}>
                     Video Explaining Upshoot
                   </p>
                 </div>
@@ -107,51 +108,51 @@ export default function AboutUsPage() {
         </div>
 
         <AnimatedSection animation='slideUp' duration='slow'>
-          <div className='relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-muted/50'>
-            <div className='container-px py-12 md:py-16'>
-              <div className='mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3'>
-                <article className='order-1 relative min-h-52 overflow-hidden rounded-2xl border border-border md:order-0 md:col-start-1 md:row-start-1 md:row-span-2'>
+          <div className={cn('relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-muted/50')}>
+            <div className={cn('container-px py-12 md:py-16')}>
+              <div className={cn('mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3')}>
+                <article className={cn('order-1 relative min-h-52 overflow-hidden rounded-2xl border border-border md:order-0 md:col-start-1 md:row-start-1 md:row-span-2')}>
                   <Image
                     src={aboutPhotoTiles[0].src}
                     alt={aboutPhotoTiles[0].alt}
                     fill
-                    className='object-cover transition-transform duration-500 hover:scale-105'
+                    className={cn('object-cover transition-transform duration-500 hover:scale-105')}
                     sizes='(min-width: 1024px) 20vw, 100vw'
                   />
                 </article>
 
-                <article className='order-3 relative min-h-52 overflow-hidden rounded-2xl border border-border md:order-0 md:col-start-2 md:row-start-1 md:row-span-3'>
+                <article className={cn('order-3 relative min-h-52 overflow-hidden rounded-2xl border border-border md:order-0 md:col-start-2 md:row-start-1 md:row-span-3')}>
                   <Image
                     src={aboutPhotoTiles[1].src}
                     alt={aboutPhotoTiles[1].alt}
                     fill
-                    className='object-cover transition-transform duration-500 hover:scale-105'
+                    className={cn('object-cover transition-transform duration-500 hover:scale-105')}
                     sizes='(min-width: 1024px) 20vw, 100vw'
                   />
                 </article>
 
-                <article className='order-4 rounded-2xl border border-border bg-brand-blue/25 p-8 text-left transition-transform duration-300 hover:-translate-y-1 md:order-0 md:col-start-3 md:row-start-1'>
-                  <p className={`${typography.card.statValue} font-semibold`}>
+                <article className={cn('order-4 rounded-2xl border border-border bg-brand-blue/25 p-8 text-left transition-transform duration-300 hover:-translate-y-1 md:order-0 md:col-start-3 md:row-start-1')}>
+                  <p className={cn(typography.card.statValue, 'font-semibold')}>
                     {stats[1].value}+
                   </p>
-                  <p className='mt-1 text-muted-foreground'>{stats[1].label}</p>
+                  <p className={cn('mt-1 text-muted-foreground')}>{stats[1].label}</p>
                 </article>
 
-                <article className='order-5 relative min-h-52 overflow-hidden rounded-2xl border border-border md:order-0 md:col-start-3 md:row-start-2 md:row-span-2'>
+                <article className={cn('order-5 relative min-h-52 overflow-hidden rounded-2xl border border-border md:order-0 md:col-start-3 md:row-start-2 md:row-span-2')}>
                   <Image
                     src={aboutPhotoTiles[2].src}
                     alt={aboutPhotoTiles[2].alt}
                     fill
-                    className='object-cover transition-transform duration-500 hover:scale-105'
+                    className={cn('object-cover transition-transform duration-500 hover:scale-105')}
                     sizes='(min-width: 1024px) 20vw, 100vw'
                   />
                 </article>
 
-                <article className='order-2 rounded-2xl border border-border bg-brand-green/25 p-8 text-left transition-transform duration-300 hover:-translate-y-1 md:order-0 md:col-start-1 md:row-start-3'>
-                  <p className={`${typography.card.statValue} font-semibold`}>
+                <article className={cn('order-2 rounded-2xl border border-border bg-brand-green/25 p-8 text-left transition-transform duration-300 hover:-translate-y-1 md:order-0 md:col-start-1 md:row-start-3')}>
+                  <p className={cn(typography.card.statValue, 'font-semibold')}>
                     {stats[0].value}+
                   </p>
-                  <p className='mt-1 text-muted-foreground'>{stats[0].label}</p>
+                  <p className={cn('mt-1 text-muted-foreground')}>{stats[0].label}</p>
                 </article>
               </div>
             </div>
@@ -159,9 +160,9 @@ export default function AboutUsPage() {
         </AnimatedSection>
 
         <AnimatedSection animation='slideUp' duration='normal' delay='short'>
-          <div className='space-y-8'>
-            <div className='flex flex-col items-start justify-between gap-4 rounded-2xl md:flex-row md:items-center'>
-              <h2 className={`${typography.page.subsectionTitle} font-semibold`}>
+          <div className={cn('space-y-8')}>
+            <div className={cn('flex flex-col items-start justify-between gap-4 rounded-2xl md:flex-row md:items-center')}>
+              <h2 className={cn(typography.section.subtitle, 'font-semibold')}>
                 Why our Clients choose us
               </h2>
 
@@ -169,14 +170,14 @@ export default function AboutUsPage() {
                 See our Packages
               </ArrowLinkButton>
             </div>
-            <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-3'>
+            <div className={cn('grid gap-4 md:grid-cols-2 xl:grid-cols-3')}>
               {clientReasons.map((reason, index) => (
                 <article
                   key={`${reason.title}-${index.toString()}`}
-                  className='rounded-2xl border border-card bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md'
+                  className={cn('rounded-2xl border border-card bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md')}
                 >
-                  <h2 className={`${typography.card.title} font-semibold`}>{reason.title}</h2>
-                  <p className='mt-3 text-muted-foreground'>
+                  <h2 className={cn(typography.card.title, 'font-semibold')}>{reason.title}</h2>
+                  <p className={cn('mt-3 text-muted-foreground')}>
                     {reason.description}
                   </p>
                 </article>

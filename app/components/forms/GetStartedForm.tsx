@@ -14,6 +14,7 @@ import {
   type FormOption,
 } from '@/app/components/forms/FormFields';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 import { getStartedFormSchema, type GetStartedFormValues } from '@/lib/validation/form-schemas';
 
 const serviceOptions: ReadonlyArray<FormOption> = [
@@ -190,14 +191,14 @@ export function GetStartedForm() {
   return (
     <FormContainer bottomSpacing={defaultResponsiveFormBottomSpacing} onSubmit={handleSubmit(onSubmit)}>
       {selectedPackageConfig ? (
-        <div className={`mb-5 rounded-xl border p-4 ${selectedPackageConfig.accentClassName}`}>
-          <p className={`${typography.form.field.submitFeedback} text-foreground`}>
+        <div className={cn('mb-5 rounded-xl border p-4', selectedPackageConfig.accentClassName)}>
+          <p className={cn(typography.form.field.submitFeedback, 'text-foreground')}>
             Selected package: <strong>{selectedPackageConfig.displayName}</strong> (starting at{' '}
             {selectedPackageConfig.budget}). Switch packages below to compare options.
           </p>
         </div>
       ) : null}
-      <div className='grid gap-5 sm:grid-cols-2'>
+      <div className={cn('grid gap-5 sm:grid-cols-2')}>
         <TextInputField
           id='firstName'
           label='First Name'
@@ -220,7 +221,7 @@ export function GetStartedForm() {
         />
       </div>
 
-      <div className='grid gap-5 sm:grid-cols-2'>
+      <div className={cn('grid gap-5 sm:grid-cols-2')}>
         <TextInputField
           id='emailAddress'
           type='email'
@@ -267,7 +268,7 @@ export function GetStartedForm() {
         )}
       </div>
 
-      <div className='grid gap-5 sm:grid-cols-2'>
+      <div className={cn('grid gap-5 sm:grid-cols-2')}>
         <TextInputField
           id='companyName'
           label='Company Name'
@@ -284,7 +285,7 @@ export function GetStartedForm() {
               required
               disabled
               readOnly
-              className='cursor-not-allowed'
+              className={cn('cursor-not-allowed')}
             />
             <input type='hidden' {...register('budget')} />
           </>
@@ -320,15 +321,15 @@ export function GetStartedForm() {
         {...register('goals')}
       />
 
-      <div className='flex items-center gap-3'>
+      <div className={cn('flex items-center gap-3')}>
         <FormSubmitButton disabled={submitState === 'submitting'}>
           {submitState === 'submitting' ? 'Submitting...' : submitButtonLabel}
         </FormSubmitButton>
         {submitState === 'success' ? (
-          <p className={`${typography.form.field.submitFeedback} text-green-600`}>Submitted successfully.</p>
+          <p className={cn(typography.form.field.submitFeedback, 'text-green-600')}>Submitted successfully.</p>
         ) : null}
         {submitState === 'error' ? (
-          <p className={`${typography.form.field.submitFeedback} text-destructive`}>
+          <p className={cn(typography.form.field.submitFeedback, 'text-destructive')}>
             Could not submit. Please try again.
           </p>
         ) : null}

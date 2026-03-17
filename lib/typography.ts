@@ -1,10 +1,22 @@
 export const typography = {
   page: {
-    heroTitle: 'text-4xl md:text-6xl',
-    sectionTitle: 'text-3xl md:text-5xl',
-    subsectionTitle: 'text-2xl md:text-3xl',
-    lead: 'text-lg leading-relaxed',
+    title: 'text-4xl md:text-6xl',
+    description: 'text-lg leading-relaxed',
     socialIconLabel: 'text-base leading-none',
+  },
+  section: {
+    title: 'text-3xl md:text-5xl',
+    subtitle: 'text-2xl md:text-3xl',
+    description: 'text-lg leading-relaxed',
+  },
+  hero: {
+    title: 'text-3xl md:text-5xl lg:text-6xl',
+    description: 'text-lg md:text-xl',
+  },
+  portfolio: {
+    title: 'text-xl group-hover:text-2xl',
+    description: 'text-sm',
+    cta: 'text-xs',
   },
   footer: {
     ctaTitle: 'text-2xl md:text-4xl',
@@ -25,15 +37,6 @@ export const typography = {
     placeholderInitial: 'text-4xl',
     price: 'text-5xl',
     statValue: 'text-3xl md:text-4xl',
-  },
-  hero: {
-    title: 'text-3xl md:text-5xl lg:text-6xl',
-    description: 'text-lg md:text-xl',
-  },
-  portfolio: {
-    overlayTitle: 'text-xl group-hover:text-2xl',
-    overlayDescription: 'text-sm',
-    overlayCta: 'text-xs',
   },
   faq: {
     question: 'text-lg',

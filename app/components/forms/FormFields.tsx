@@ -176,7 +176,7 @@ export function FormField({
     <div className={cn('flex flex-col', className)}>
       <label htmlFor={id} className={cn('font-medium', fieldTypography.label, spacingVariant, labelClassName)}>
         <span>{label}</span>
-        {isRequired ? <span className='ml-1 text-destructive'>*</span> : null}
+        {isRequired ? <span className={cn('ml-1 text-destructive')}>*</span> : null}
         {!isRequired && showOptionalHint ? (
           <span className={cn('ml-2 font-normal text-muted-foreground', typography.form.field.optionalHint)}>
             (optional)
@@ -378,16 +378,16 @@ export function FileUploadField({
           fieldTypography.uploadContainer,
         )}
       >
-        <FileText className='mb-2 size-5 text-muted-foreground' aria-hidden='true' />
+        <FileText className={cn('mb-2 size-5 text-muted-foreground')} aria-hidden='true' />
         <span className={fieldTypography.uploadHint}>{hintText}</span>
         <span className={cn('font-semibold text-foreground', fieldTypography.uploadBrowse)}>{browseText}</span>
       </label>
-      <input id={id} name={name} type='file' className='sr-only' {...inputProps} />
+      <input id={id} name={name} type='file' className={cn('sr-only')} {...inputProps} />
     </FormField>
   );
 }
 
-type FormSubmitButtonProps = Omit<ComponentProps<typeof Button>, 'type'>;
+type FormSubmitButtonProps = Readonly<Omit<ComponentProps<typeof Button>, 'type'>>;
 
 export function FormSubmitButton({ className, ...buttonProps }: FormSubmitButtonProps) {
   return <Button type='submit' className={cn(formSubmitButtonClassName, className)} {...buttonProps} />;

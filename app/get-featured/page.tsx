@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { createPageMetadata } from '@/lib/seo';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Get Featured',
@@ -12,10 +13,10 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function GetFeaturedPage() {
   return (
-    <main className='container-px pb-20 pt-32 md:pt-36'>
-      <section className='mx-auto max-w-4xl space-y-5'>
-        <h1 className={`${typography.page.heroTitle} font-bold`}>Get Featured</h1>
-        <p className='text-muted-foreground'>
+    <main className={cn('container-px pb-20 pt-32 md:pt-36')}>
+      <section className={cn('mx-auto max-w-4xl space-y-5')}>
+        <h1 className={cn(typography.page.title, 'font-bold')}>Get Featured</h1>
+        <p className={cn('text-muted-foreground')}>
           Want your work or brand story featured by Upshoot? Share your details and we will review.
         </p>
         <Button variant='outline'>Submit Request</Button>

@@ -4,6 +4,7 @@ import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { ArticleCard } from '@/app/components/ui/article-card';
 import { ArrowLinkButton } from '@/app/components/ui/arrow-link-button';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 
 const articles = [
   {
@@ -49,12 +50,12 @@ function getArticleDelay(index: number): 'none' | 'short' | 'medium' | 'long' {
 
 export function ArticlesSection() {
   return (
-    <section id='blog' className='container-px bg-background'>
-      <div className='border-t border-border py-16 md:py-24'>
-        <div className='max-w-7xl mx-auto'>
-          <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4'>
+    <section id='blog' className={cn('container-px bg-background')}>
+      <div className={cn('border-t border-border py-16 md:py-24')}>
+        <div className={cn('max-w-7xl mx-auto')}>
+          <div className={cn('flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4')}>
             <AnimatedSection animation='slideRight'>
-              <h2 className={`${typography.page.sectionTitle} font-bold`}>
+              <h2 className={cn(typography.section.title, 'font-bold')}>
                 Featured Articles
               </h2>
             </AnimatedSection>
@@ -64,7 +65,7 @@ export function ArticlesSection() {
             </AnimatedSection>
           </div>
 
-          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
+          <div className={cn('grid md:grid-cols-2 lg:grid-cols-4 gap-8')}>
             {articles.map((article, index) => (
               <AnimatedSection
                 key={article.id}

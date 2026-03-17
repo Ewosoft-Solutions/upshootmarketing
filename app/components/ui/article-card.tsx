@@ -26,41 +26,41 @@ export function ArticleCard({ title, date, tags, imageUrl, href, className }: Re
     >
       <Component
         {...(href && { href })}
-        className="flex h-full flex-col gap-4"
+        className={cn('flex h-full flex-col gap-4')}
       >
         {/* Image */}
-        <div className="aspect-8/7 overflow-hidden rounded-lg bg-muted relative">
+        <div className={cn('aspect-8/7 overflow-hidden rounded-lg bg-muted relative')}>
           {imageUrl ? (
             <Image
               src={imageUrl}
               alt={title}
               fill
-              className="object-cover transition-transform group-hover:scale-105"
+              className={cn('object-cover transition-transform group-hover:scale-105')}
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-primary/10 to-accent/10">
-              <span className={`${typography.card.placeholderInitial} font-bold text-muted-foreground/20`}>{title[0]}</span>
+            <div className={cn('w-full h-full flex items-center justify-center bg-linear-to-br from-primary/10 to-accent/10')}>
+              <span className={cn(typography.card.placeholderInitial, 'font-bold text-muted-foreground/20')}>{title[0]}</span>
             </div>
           )}
         </div>
 
         {/* Tags */}
-        <div className="flex gap-2 overflow-x-auto whitespace-nowrap">
+        <div className={cn('flex gap-2 overflow-x-auto whitespace-nowrap')}>
           {tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className={`shrink-0 ${typography.card.badge}`}>
+            <Badge key={tag} variant="secondary" className={cn('shrink-0', typography.card.badge)}>
               {tag}
             </Badge>
           ))}
         </div>
 
         {/* Title */}
-        <h3 className={`${typography.card.title} font-semibold leading-tight group-hover:text-primary transition-colors`}>
+        <h3 className={cn(typography.card.title, 'font-semibold leading-tight group-hover:text-primary transition-colors')}>
           {title}
         </h3>
 
         {/* Date */}
-        <p className={`mt-auto ${typography.card.description} text-muted-foreground`}>{date}</p>
+        <p className={cn('mt-auto text-muted-foreground', typography.card.description)}>{date}</p>
       </Component>
     </motion.div>
   );

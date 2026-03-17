@@ -70,7 +70,7 @@ function TeamMemberCircle({ src, alt, bg, className, delay = 0 }: Readonly<{
         src={src}
         alt={alt}
         fill
-        className='object-cover object-top'
+        className={cn('object-cover object-top')}
         sizes='(max-width: 768px) 80px, 192px'
       />
     </motion.div>
@@ -82,10 +82,10 @@ const bottomRow = teamMembers.slice(3);
 
 export function CTASection() {
   return (
-    <section className='py-16 md:py-24 container-px'>
-      <div className='relative max-w-6xl mx-auto'>
+    <section className={cn('py-16 md:py-24 container-px')}>
+      <div className={cn('relative max-w-6xl mx-auto')}>
         {/* Desktop: absolute positioned oblique circle */}
-        <div className='hidden lg:block'>
+        <div className={cn('hidden lg:block')}>
           {teamMembers.map((member, i) => (
             <TeamMemberCircle
               key={member.src}
@@ -97,7 +97,7 @@ export function CTASection() {
         </div>
 
         {/* Mobile: top row of 3 */}
-        <div className='flex lg:hidden justify-center items-end gap-4 mb-8'>
+        <div className={cn('flex lg:hidden justify-center items-end gap-4 mb-8')}>
           {topRow.map((member, i) => (
             <TeamMemberCircle
               key={member.src}
@@ -109,12 +109,12 @@ export function CTASection() {
         </div>
 
         {/* Centered content */}
-        <div className='relative z-10 max-w-xl mx-auto text-center lg:py-32'>
+        <div className={cn('relative z-10 max-w-xl mx-auto text-center lg:py-32')}>
           <AnimatedSection animation='slideUp'>
-            <h2 className={`${typography.page.sectionTitle} font-bold mb-6`}>
+            <h2 className={cn(typography.section.title, 'font-bold mb-6')}>
               Become Part of our Team
             </h2>
-            <p className={`text-muted-foreground ${typography.page.lead} mx-auto mb-10`}>
+            <p className={cn('text-muted-foreground mx-auto mb-10', typography.section.description)}>
               We help our clients with the work beyond (& sometimes behind) the
               splashy ad campaigns and viral moments. We leverage content to
               help our clients consistently bring their unique perspective to
@@ -128,7 +128,7 @@ export function CTASection() {
         </div>
 
         {/* Mobile: bottom row of 3 */}
-        <div className='flex lg:hidden justify-center items-start gap-4 mt-10'>
+        <div className={cn('flex lg:hidden justify-center items-start gap-4 mt-10')}>
           {bottomRow.map((member, i) => (
             <TeamMemberCircle
               key={member.src}

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { getStaggerContainer, staggerItem } from '@/lib/animations/config';
 import { typography } from '@/lib/typography';
 import { Lightbulb, Video, TrendingUp, Palette } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const services = [
   {
@@ -35,13 +36,13 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className='py-24 container-px bg-background'>
-      <div className='max-w-7xl mx-auto'>
-        <AnimatedSection animation="slideUp" className='text-center mb-16'>
-          <h2 className={`${typography.page.sectionTitle} font-bold mb-4`}>
+    <section id="services" className={cn('py-24 container-px bg-background')}>
+      <div className={cn('max-w-7xl mx-auto')}>
+        <AnimatedSection animation="slideUp" className={cn('text-center mb-16')}>
+          <h2 className={cn(typography.section.title, 'font-bold mb-4')}>
             Our Services
           </h2>
-          <p className={`text-muted-foreground ${typography.page.lead} max-w-2xl mx-auto`}>
+          <p className={cn('text-muted-foreground max-w-2xl mx-auto', typography.section.description)}>
             We offer comprehensive marketing solutions to help your business grow and succeed
           </p>
         </AnimatedSection>
@@ -51,19 +52,19 @@ export function ServicesSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'
+          className={cn('grid md:grid-cols-2 lg:grid-cols-4 gap-8')}
         >
           {services.map((service) => (
             <motion.div
               key={service.id}
               variants={staggerItem}
-              className='p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group'
+              className={cn('p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group')}
             >
-              <div className='w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors'>
-                <service.icon className='w-6 h-6 text-primary' />
+              <div className={cn('w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors')}>
+                <service.icon className={cn('w-6 h-6 text-primary')} />
               </div>
-              <h3 className={`${typography.card.title} font-semibold mb-2`}>{service.title}</h3>
-              <p className={`text-muted-foreground ${typography.card.description}`}>{service.description}</p>
+              <h3 className={cn(typography.card.title, 'font-semibold mb-2')}>{service.title}</h3>
+              <p className={cn('text-muted-foreground', typography.card.description)}>{service.description}</p>
             </motion.div>
           ))}
         </motion.div>

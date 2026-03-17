@@ -64,11 +64,11 @@ export function ShimmerButton({
 
   const defaultIcon = (
     <motion.span
-      className='inline-flex'
+      className={cn('inline-flex')}
       whileHover={{ x: 5 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
-      <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />
+      <ArrowRight className={cn('h-4 w-4 transition-transform group-hover:translate-x-1')} />
     </motion.span>
   );
   const trailingIcon = icon === undefined ? defaultIcon : icon;
@@ -99,7 +99,7 @@ export function ShimmerButton({
         ),
       },
       <>
-        <span className='pointer-events-none absolute inset-0 animate-shimmer'>
+        <span className={cn('pointer-events-none absolute inset-0 animate-shimmer')}>
           <span className={cn('absolute inset-0 -skew-x-12', colors.shimmer)} />
         </span>
         {childElement.props.children}
@@ -118,7 +118,7 @@ export function ShimmerButton({
         )}
         {...buttonProps}
       >
-        <span className='pointer-events-none absolute inset-0 animate-shimmer'>
+        <span className={cn('pointer-events-none absolute inset-0 animate-shimmer')}>
           <span className={cn('absolute inset-0 -skew-x-12', colors.shimmer)} />
         </span>
         {children}
@@ -142,7 +142,7 @@ export function ShimmerButton({
       }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.97 }}
-      className='rounded-4xl inline-block'
+      className={cn('rounded-4xl inline-block')}
     >
       {button}
     </motion.div>

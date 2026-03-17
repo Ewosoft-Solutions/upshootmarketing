@@ -14,6 +14,7 @@ import {
   type FormOption,
 } from '@/app/components/forms/FormFields';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 import { joinTeamFormSchema, type JoinTeamFormValues } from '@/lib/validation/form-schemas';
 
 const creativeFieldOptions: ReadonlyArray<FormOption> = [
@@ -88,7 +89,7 @@ export function JoinTeamForm() {
 
   return (
     <FormContainer bottomSpacing={defaultResponsiveFormBottomSpacing} onSubmit={handleSubmit(onSubmit)}>
-      <div className='grid gap-5 sm:grid-cols-2'>
+      <div className={cn('grid gap-5 sm:grid-cols-2')}>
         <TextInputField
           id='firstName'
           label='First Name'
@@ -111,7 +112,7 @@ export function JoinTeamForm() {
         />
       </div>
 
-      <div className='grid gap-5 sm:grid-cols-2'>
+      <div className={cn('grid gap-5 sm:grid-cols-2')}>
         <TextInputField
           id='emailAddress'
           type='email'
@@ -162,7 +163,7 @@ export function JoinTeamForm() {
         }}
       />
 
-      <div className='grid gap-5 sm:grid-cols-2'>
+      <div className={cn('grid gap-5 sm:grid-cols-2')}>
         <TextInputField
           id='portfolioLink'
           type='url'
@@ -217,7 +218,7 @@ export function JoinTeamForm() {
         {...register('perfectFit')}
       />
 
-      <div className='grid gap-5 sm:grid-cols-2'>
+      <div className={cn('grid gap-5 sm:grid-cols-2')}>
         <TextInputField
           id='expectedIncome'
           label='Expected Monthly Income'
@@ -256,15 +257,15 @@ export function JoinTeamForm() {
         {...register('additionalNote')}
       />
 
-      <div className='flex items-center gap-3'>
+      <div className={cn('flex items-center gap-3')}>
         <FormSubmitButton disabled={submitState === 'submitting'}>
           {submitState === 'submitting' ? 'Submitting...' : 'Submit'}
         </FormSubmitButton>
         {submitState === 'success' ? (
-          <p className={`${typography.form.field.submitFeedback} text-green-600`}>Submitted successfully.</p>
+          <p className={cn(typography.form.field.submitFeedback, 'text-green-600')}>Submitted successfully.</p>
         ) : null}
         {submitState === 'error' ? (
-          <p className={`${typography.form.field.submitFeedback} text-destructive`}>
+          <p className={cn(typography.form.field.submitFeedback, 'text-destructive')}>
             Could not submit. Please try again.
           </p>
         ) : null}

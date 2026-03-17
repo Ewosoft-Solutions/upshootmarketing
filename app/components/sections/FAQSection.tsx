@@ -7,6 +7,7 @@ import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 
 const faqs = [
   {
@@ -39,17 +40,17 @@ function FAQItem({
   onToggle: () => void;
 }>) {
   return (
-    <div className='border-b border-border'>
+    <div className={cn('border-b border-border')}>
       <button
         onClick={onToggle}
-        className='flex w-full items-center justify-between py-6 text-left cursor-pointer'
+        className={cn('flex w-full items-center justify-between py-6 text-left cursor-pointer')}
       >
-        <span className={`${typography.faq.question} font-medium pr-4`}>{faq.question}</span>
-        <span className='shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center transition-colors'>
+        <span className={cn(typography.faq.question, 'font-medium pr-4')}>{faq.question}</span>
+        <span className={cn('shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center transition-colors')}>
           {isOpen ? (
-            <Minus className='w-5 h-5' />
+            <Minus className={cn('w-5 h-5')} />
           ) : (
-            <Plus className='w-5 h-5' />
+            <Plus className={cn('w-5 h-5')} />
           )}
         </span>
       </button>
@@ -61,9 +62,9 @@ function FAQItem({
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className='overflow-hidden'
+            className={cn('overflow-hidden')}
           >
-            <p className='pb-6 text-muted-foreground leading-relaxed'>
+            <p className={cn('pb-6 text-muted-foreground leading-relaxed')}>
               {faq.answer}
             </p>
           </motion.div>
@@ -81,16 +82,16 @@ export function FAQSection() {
   }
 
   return (
-    <section id='faq' className='container-px bg-background'>
-      <div className='border-t border-border py-16 md:py-24'>
-        <div className='max-w-7xl mx-auto'>
-          <div className='grid lg:grid-cols-2 gap-12 lg:gap-20'>
+    <section id='faq' className={cn('container-px bg-background')}>
+      <div className={cn('border-t border-border py-16 md:py-24')}>
+        <div className={cn('max-w-7xl mx-auto')}>
+          <div className={cn('grid lg:grid-cols-2 gap-12 lg:gap-20')}>
             {/* Left column */}
             <AnimatedSection animation='slideRight' duration='slow'>
-              <h2 className={`${typography.page.sectionTitle} font-bold mb-6`}>
+              <h2 className={cn(typography.section.title, 'font-bold mb-6')}>
                 Frequently Asked Questions
               </h2>
-              <p className='text-muted-foreground mb-8 max-w-md'>
+              <p className={cn('text-muted-foreground mb-8 max-w-md')}>
                 Everything about Upshoot Marketing. Have more questions, contact
                 us.
               </p>

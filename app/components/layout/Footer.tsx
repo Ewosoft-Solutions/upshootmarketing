@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { logos } from '@/lib/constants/assets';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 
 type IconProps = Readonly<{ className?: string }>;
 
@@ -93,17 +94,17 @@ export function Footer() {
   return (
     <footer
       id='contact'
-      className='bg-footer-bg text-footer-text flex flex-col gap-12 md:gap-16 py-10 md:py-16'
+      className={cn('bg-footer-bg text-footer-text flex flex-col gap-12 md:gap-16 py-10 md:py-16')}
     >
       {/* Top row: CTA (left) + Links grid (right) */}
-      <div className='container-px'>
-        <div className='max-w-7xl mx-auto grid md:grid-cols-[3fr_2fr] gap-8 lg:gap-16'>
+      <div className={cn('container-px')}>
+        <div className={cn('max-w-7xl mx-auto grid md:grid-cols-[3fr_2fr] gap-8 lg:gap-16')}>
           {/* CTA Section */}
           <AnimatedSection animation='slideUp'>
-            <h2 className={`${typography.footer.ctaTitle} font-medium mb-2 md:mb-4`}>
+            <h2 className={cn(typography.footer.ctaTitle, 'font-medium mb-2 md:mb-4')}>
               Ready to get started?
             </h2>
-            <p className={`text-footer-muted ${typography.footer.ctaDescription} mb-5 md:mb-8`}>
+            <p className={cn('text-footer-muted', typography.footer.ctaDescription, 'mb-5 md:mb-8')}>
               Are you ready to take your Brand to the next level?
               <br />
               Contact us and lets talk about your brand
@@ -114,18 +115,18 @@ export function Footer() {
           </AnimatedSection>
 
           {/* Links + Newsletter grid */}
-          <div className='grid grid-cols-2 gap-5 md:gap-8 pt-4 md:pt-0'>
+          <div className={cn('grid grid-cols-2 gap-5 md:gap-8 pt-4 md:pt-0')}>
             {/* Company Links */}
             <div>
-              <h3 className={`font-semibold mb-2 md:mb-4 tracking-wide ${typography.footer.sectionHeading}`}>
+              <h3 className={cn('font-semibold mb-2 md:mb-4 tracking-wide', typography.footer.sectionHeading)}>
                 COMPANY
               </h3>
-              <ul className='space-y-1.5 md:space-y-2'>
+              <ul className={cn('space-y-1.5 md:space-y-2')}>
                 {companyLinks.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className={`text-footer-muted hover:text-footer-text transition-colors cursor-pointer ${typography.footer.sectionLink}`}
+                      className={cn('text-footer-muted hover:text-footer-text transition-colors cursor-pointer', typography.footer.sectionLink)}
                     >
                       {link.label}
                     </Link>
@@ -136,15 +137,15 @@ export function Footer() {
 
             {/* Resources - Column 1 */}
             <div>
-              <h3 className={`font-semibold mb-2 md:mb-4 tracking-wide ${typography.footer.sectionHeading}`}>
+              <h3 className={cn('font-semibold mb-2 md:mb-4 tracking-wide', typography.footer.sectionHeading)}>
                 RESOURCES
               </h3>
-              <ul className='space-y-1.5 md:space-y-2'>
+              <ul className={cn('space-y-1.5 md:space-y-2')}>
                 {resourceLinks.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className={`text-footer-muted hover:text-footer-text transition-colors cursor-pointer ${typography.footer.sectionLink}`}
+                      className={cn('text-footer-muted hover:text-footer-text transition-colors cursor-pointer', typography.footer.sectionLink)}
                     >
                       {link.label}
                     </Link>
@@ -157,34 +158,34 @@ export function Footer() {
       </div>
 
       {/* Middle row: Logo (left) + Be The First To Know (right) */}
-      <div className='container-px'>
-        <div className='max-w-7xl mx-auto grid md:grid-cols-5 gap-5 md:gap-8 items-start'>
-          <Link href='/' className={`${typography.footer.logoLabel} font-bold md:col-span-3`}>
+      <div className={cn('container-px')}>
+        <div className={cn('max-w-7xl mx-auto grid md:grid-cols-5 gap-5 md:gap-8 items-start')}>
+          <Link href='/' className={cn(typography.footer.logoLabel, 'font-bold md:col-span-3')}>
             <Image
               src={footerLogo}
               alt='UpShoot Marketing'
               width={0}
               height={0}
-              className='w-auto h-10 md:h-16 lg:h-24'
+              className={cn('w-auto h-10 md:h-16 lg:h-24')}
             />
           </Link>
 
-          <div className='md:col-span-2'>
-            <h3 className={`font-semibold mb-2 md:mb-4 tracking-wide ${typography.footer.sectionHeading}`}>
+          <div className={cn('md:col-span-2')}>
+            <h3 className={cn('font-semibold mb-2 md:mb-4 tracking-wide', typography.footer.sectionHeading)}>
               BE THE FIRST TO KNOW
             </h3>
-            <p className={`text-footer-muted ${typography.footer.newsletterDescription} mb-3 md:mb-4`}>
+            <p className={cn('text-footer-muted', typography.footer.newsletterDescription, 'mb-3 md:mb-4')}>
               Be the first to read our Articles and News Letter
             </p>
-            <div className='flex gap-2'>
+            <div className={cn('flex gap-2')}>
               <Input
                 type='email'
                 placeholder='Email address'
-                className='rounded-full py-4 md:py-5 px-4 md:px-5 flex-1 border-footer-border bg-footer-input-bg text-footer-input-text placeholder:text-footer-input-placeholder'
+                className={cn('rounded-full py-4 md:py-5 px-4 md:px-5 flex-1 border-footer-border bg-footer-input-bg text-footer-input-text placeholder:text-footer-input-placeholder')}
               />
               <Button
                 variant='secondary'
-                className='rounded-full py-4 md:py-5 px-6 md:px-8'
+                className={cn('rounded-full py-4 md:py-5 px-6 md:px-8')}
               >
                 Subscribe
               </Button>
@@ -194,13 +195,13 @@ export function Footer() {
       </div>
 
       {/* Bottom row: Copyright (left) + Social links (right) */}
-      <div className='border-t border-footer-border pt-6 md:pt-8 container-px'>
-        <div className='max-w-7xl mx-auto flex flex-col-reverse sm:flex-row items-center justify-between gap-4'>
-          <p className={`text-footer-muted ${typography.footer.copyright}`}>
+      <div className={cn('border-t border-footer-border pt-6 md:pt-8 container-px')}>
+        <div className={cn('max-w-7xl mx-auto flex flex-col-reverse sm:flex-row items-center justify-between gap-4')}>
+          <p className={cn('text-footer-muted', typography.footer.copyright)}>
             © 2025. All rights reserved
           </p>
 
-          <div className='flex items-center gap-4'>
+          <div className={cn('flex items-center gap-4')}>
             {socialLinks.map((link) => (
               <Link
                 key={link.label}
@@ -208,9 +209,9 @@ export function Footer() {
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label={link.label}
-                className='text-footer-social hover:text-footer-text transition-colors'
+                className={cn('text-footer-social hover:text-footer-text transition-colors')}
               >
-                <link.icon className='h-5 w-5' />
+                <link.icon className={cn('h-5 w-5')} />
               </Link>
             ))}
           </div>

@@ -18,7 +18,7 @@ export function ArrowLinkButton({
   direction = 'forward',
 }: Readonly<ArrowLinkButtonProps>) {
   const isBackDirection = direction === 'back';
-  let trailingIcon: ReactNode = <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />;
+  let trailingIcon: ReactNode = <ArrowRight className={cn('ml-2 h-4 w-4 transition-transform group-hover:translate-x-1')} />;
 
   if (isBackDirection) {
     trailingIcon = null;
@@ -28,7 +28,7 @@ export function ArrowLinkButton({
     <Button variant='ghost' className={cn('group', className)} asChild>
       <Link href={href}>
         {isBackDirection ? (
-          <ArrowLeft className='mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1' />
+          <ArrowLeft className={cn('mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1')} />
         ) : null}
         {children}
         {trailingIcon}

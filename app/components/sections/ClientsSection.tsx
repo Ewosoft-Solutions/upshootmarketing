@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 const clientLogos = [
   {
@@ -56,7 +57,7 @@ function TickerStrip({ copyIndex }: Readonly<{ copyIndex: number }>) {
             alt={item.name}
             width={0}
             height={72}
-            className='h-12 w-auto shrink-0 mr-6 md:mr-12 md:h-[72px]'
+            className={cn('h-12 w-auto shrink-0 mr-6 md:mr-12 md:h-[72px]')}
             style={{ width: 'auto' }}
           />
         ) : (
@@ -66,7 +67,7 @@ function TickerStrip({ copyIndex }: Readonly<{ copyIndex: number }>) {
             alt=''
             width={36}
             height={36}
-            className='h-6 w-6 shrink-0 mr-6 md:mr-12 md:h-9 md:w-9'
+            className={cn('h-6 w-6 shrink-0 mr-6 md:mr-12 md:h-9 md:w-9')}
           />
         ),
       )}
@@ -76,14 +77,14 @@ function TickerStrip({ copyIndex }: Readonly<{ copyIndex: number }>) {
 
 export function ClientsSection() {
   return (
-    <section id='clients' className='relative py-8 md:py-10 mt-10 md:mt-16 overflow-hidden'>
-      <div className='relative'>
+    <section id='clients' className={cn('relative py-8 md:py-10 mt-10 md:mt-16 overflow-hidden')}>
+      <div className={cn('relative')}>
         {/* Fade edges */}
-        <div className='pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-linear-to-r from-background to-transparent' />
-        <div className='pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-linear-to-l from-background to-transparent' />
+        <div className={cn('pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-linear-to-r from-background to-transparent')} />
+        <div className={cn('pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-linear-to-l from-background to-transparent')} />
 
         <div
-          className='flex w-max items-center'
+          className={cn('flex w-max items-center')}
           style={{ animation: 'marquee 30s linear infinite' }}
         >
           <TickerStrip copyIndex={0} />

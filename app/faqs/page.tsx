@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { FAQSection } from '@/app/components/sections/FAQSection';
 import { createPageMetadata } from '@/lib/seo';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Frequently Asked Questions',
@@ -11,7 +12,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function FaqsPage() {
   return (
-    <main className='pt-20'>
+    <main className={cn('pt-20')}>
       <FAQSection />
     </main>
   );

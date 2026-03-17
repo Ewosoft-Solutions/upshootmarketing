@@ -4,6 +4,7 @@ import { ContactUsForm } from '@/app/components/forms/ContactUsForm';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { createPageMetadata } from '@/lib/seo';
 import { typography } from '@/lib/typography';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Contact UpShoot Marketing',
@@ -25,14 +26,14 @@ export default function ContactUsPage() {
   ];
 
   return (
-    <main className='container-px pb-20 pt-32 md:pt-36'>
-      <section className='mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.2fr]'>
-        <AnimatedSection className='space-y-6' animation='slideRight' duration='slow'>
-          <h1 className={`${typography.page.sectionTitle} font-bold`}>Get in Touch</h1>
-          <p className={`2xl:max-w-md text-muted-foreground text-balance ${typography.page.lead}`}>
+    <main className={cn('container-px pb-20 pt-32 md:pt-36')}>
+      <section className={cn('mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.2fr]')}>
+        <AnimatedSection className={cn('space-y-6')} animation='slideRight' duration='slow'>
+          <h1 className={cn(typography.section.title, 'font-bold')}>Get in Touch</h1>
+          <p className={cn('2xl:max-w-md text-muted-foreground text-balance', typography.section.description)}>
             Send us a message or an email to upshootmarketing@gmail.com
           </p>
-          <div className='flex items-center gap-3 pt-2'>
+          <div className={cn('flex items-center gap-3 pt-2')}>
             {socialLinks.map((link) => (
               <Link
                 key={link.label}
@@ -40,9 +41,9 @@ export default function ContactUsPage() {
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label={link.label}
-                className='inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-accent'
+                className={cn('inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-accent')}
               >
-                <span className={`${typography.page.socialIconLabel} font-semibold`}>{link.text}</span>
+                <span className={cn(typography.page.socialIconLabel, 'font-semibold')}>{link.text}</span>
               </Link>
             ))}
           </div>
