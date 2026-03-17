@@ -52,9 +52,9 @@ export const metadata: Metadata = {
     images: ['/assets/images/pages/about/stats-pic-1.jpg'],
   },
   icons: {
-    icon: '/assets/logos/upshoot/upshoot.logo.darkmode.text.svg',
-    shortcut: '/assets/logos/upshoot/upshoot.logo.darkmode.text.svg',
-    apple: '/assets/logos/upshoot/upshoot.logo.darkmode.text.svg',
+    icon: '/assets/logos/upshoot/upshoot.logo.icon.svg',
+    shortcut: '/assets/logos/upshoot/upshoot.logo.icon.svg',
+    apple: '/assets/logos/upshoot/upshoot.logo.icon.svg',
   },
 };
 
