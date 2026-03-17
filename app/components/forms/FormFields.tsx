@@ -1,3 +1,5 @@
+'use client';
+
 import type { ComponentProps, ReactNode } from 'react';
 import { FileText } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -161,6 +163,9 @@ type FormFieldProps = Readonly<{
   labelClassName?: string;
   size?: FieldSize;
   spacing?: FieldSpacing;
+  error?: string;
+  isRequired?: boolean;
+  showOptionalHint?: boolean;
   children: ReactNode;
 }>;
 
@@ -171,6 +176,9 @@ export function FormField({
   labelClassName,
   size = 'default',
   spacing = 'tight',
+  error,
+  isRequired = false,
+  showOptionalHint = true,
   children,
 }: FormFieldProps) {
   const sizeVariant = fieldSizeVariants[size];
@@ -179,9 +187,14 @@ export function FormField({
   return (
     <div className={cn('flex flex-col', className)}>
       <label htmlFor={id} className={cn('font-medium', sizeVariant.label, spacingVariant, labelClassName)}>
-        {label}
+        <span>{label}</span>
+        {isRequired ? <span className='ml-1 text-destructive'>*</span> : null}
+        {!isRequired && showOptionalHint ? (
+          <span className='ml-2 text-sm font-normal text-muted-foreground'>(optional)</span>
+        ) : null}
       </label>
       {children}
+      {error ? <p className='mt-1 text-sm text-destructive'>{error}</p> : null}
     </div>
   );
 }
@@ -192,6 +205,7 @@ type TextInputFieldProps = Omit<ComponentProps<typeof Input>, 'id' | 'size'> & R
   wrapperClassName?: string;
   size?: FieldSize;
   spacing?: FieldSpacing;
+  error?: string;
 }>;
 
 export function TextInputField({
@@ -200,14 +214,29 @@ export function TextInputField({
   wrapperClassName,
   size = 'default',
   spacing = 'tight',
+  error,
+  required: requiredInput = false,
   className,
   ...inputProps
 }: TextInputFieldProps) {
   const sizeVariant = fieldSizeVariants[size];
 
   return (
-    <FormField id={id} label={label} className={wrapperClassName} size={size} spacing={spacing}>
-      <Input id={id} className={cn('rounded-xl bg-muted/30', sizeVariant.control, className)} {...inputProps} />
+    <FormField
+      id={id}
+      label={label}
+      className={wrapperClassName}
+      size={size}
+      spacing={spacing}
+      error={error}
+      isRequired={requiredInput}
+    >
+      <Input
+        id={id}
+        required={requiredInput}
+        className={cn('rounded-xl bg-muted/30', sizeVariant.control, className)}
+        {...inputProps}
+      />
     </FormField>
   );
 }
@@ -218,6 +247,7 @@ type TextareaFieldProps = ComponentProps<'textarea'> & Readonly<{
   wrapperClassName?: string;
   size?: FieldSize;
   spacing?: FieldSpacing;
+  error?: string;
 }>;
 
 export function TextareaField({
@@ -226,15 +256,26 @@ export function TextareaField({
   wrapperClassName,
   size = 'default',
   spacing = 'tight',
+  error,
+  required: requiredInput = false,
   className,
   ...textareaProps
 }: TextareaFieldProps) {
   const sizeVariant = fieldSizeVariants[size];
 
   return (
-    <FormField id={id} label={label} className={wrapperClassName} size={size} spacing={spacing}>
+    <FormField
+      id={id}
+      label={label}
+      className={wrapperClassName}
+      size={size}
+      spacing={spacing}
+      error={error}
+      isRequired={requiredInput}
+    >
       <textarea
         id={id}
+        required={requiredInput}
         className={cn(
           'w-full resize-none rounded-xl border border-input bg-muted/30 px-3 py-3 shadow-xs outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
           sizeVariant.textarea,
@@ -256,6 +297,12 @@ type SelectFieldProps = Readonly<{
   triggerClassName?: string;
   size?: FieldSize;
   spacing?: FieldSpacing;
+  value?: string;
+  defaultValue?: string;
+  onValueChange?: (value: string) => void;
+  error?: string;
+  isRequired?: boolean;
+  showOptionalHint?: boolean;
 }>;
 
 export function SelectField({
@@ -268,12 +315,27 @@ export function SelectField({
   triggerClassName,
   size = 'default',
   spacing = 'tight',
+  value,
+  defaultValue,
+  onValueChange,
+  error,
+  isRequired = false,
+  showOptionalHint = true,
 }: SelectFieldProps) {
   const sizeVariant = fieldSizeVariants[size];
 
   return (
-    <FormField id={id} label={label} className={wrapperClassName} size={size} spacing={spacing}>
-      <Select name={name}>
+    <FormField
+      id={id}
+      label={label}
+      className={wrapperClassName}
+      size={size}
+      spacing={spacing}
+      error={error}
+      isRequired={isRequired}
+      showOptionalHint={showOptionalHint}
+    >
+      <Select name={name} value={value} defaultValue={defaultValue} onValueChange={onValueChange}>
         <SelectTrigger
           id={id}
           className={cn(
@@ -281,6 +343,7 @@ export function SelectField({
             sizeVariant.control,
             triggerClassName,
           )}
+          aria-invalid={Boolean(error)}
         >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
@@ -305,6 +368,10 @@ type FileUploadFieldProps = Readonly<{
   wrapperClassName?: string;
   size?: FieldSize;
   spacing?: FieldSpacing;
+  error?: string;
+  inputProps?: Omit<ComponentProps<'input'>, 'id' | 'name' | 'type' | 'className'>;
+  isRequired?: boolean;
+  showOptionalHint?: boolean;
 }>;
 
 export function FileUploadField({
@@ -316,11 +383,24 @@ export function FileUploadField({
   wrapperClassName,
   size = 'default',
   spacing = 'tight',
+  error,
+  inputProps,
+  isRequired = false,
+  showOptionalHint = true,
 }: FileUploadFieldProps) {
   const sizeVariant = fieldSizeVariants[size];
 
   return (
-    <FormField id={id} label={label} className={wrapperClassName} size={size} spacing={spacing}>
+    <FormField
+      id={id}
+      label={label}
+      className={wrapperClassName}
+      size={size}
+      spacing={spacing}
+      error={error}
+      isRequired={isRequired}
+      showOptionalHint={showOptionalHint}
+    >
       <label
         htmlFor={id}
         className={cn(
@@ -332,7 +412,7 @@ export function FileUploadField({
         <span className={sizeVariant.uploadHint}>{hintText}</span>
         <span className={cn('font-semibold text-foreground', sizeVariant.uploadBrowse)}>{browseText}</span>
       </label>
-      <input id={id} name={name} type='file' className='sr-only' />
+      <input id={id} name={name} type='file' className='sr-only' {...inputProps} />
     </FormField>
   );
 }

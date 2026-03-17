@@ -1,11 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import {
-  defaultResponsiveFormBottomSpacing,
-  FormContainer,
-  TextInputField,
-  TextareaField,
-} from '@/app/components/forms/FormFields';
+import { ContactUsForm } from '@/app/components/forms/ContactUsForm';
+import { AnimatedSection } from '@/app/components/ui/animated-section';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createPageMetadata({
@@ -30,7 +26,7 @@ export default function ContactUsPage() {
   return (
     <main className='container-px pb-20 pt-32 md:pt-36'>
       <section className='mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.2fr]'>
-        <div className='space-y-6'>
+        <AnimatedSection className='space-y-6' animation='slideRight' duration='slow'>
           <h1 className='text-4xl font-bold md:text-6xl'>Get in Touch</h1>
           <p className='max-w-md text-xl leading-relaxed text-muted-foreground'>
             Send us a message or an email to upshootmarketing@gmail.com
@@ -49,18 +45,11 @@ export default function ContactUsPage() {
               </Link>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
 
-        <FormContainer
-          className='space-y-6 rounded-2xl'
-          bottomSpacing={defaultResponsiveFormBottomSpacing}
-        >
-          <div className='grid gap-5 sm:grid-cols-2'>
-            <TextInputField id='fullName' name='fullName' label='Full Name' />
-            <TextInputField id='emailAddress' name='emailAddress' type='email' label='Email Address' />
-          </div>
-          <TextareaField id='message' name='message' label='Message' rows={5} />
-        </FormContainer>
+        <AnimatedSection animation='slideLeft' duration='slow' delay='short'>
+          <ContactUsForm />
+        </AnimatedSection>
       </section>
     </main>
   );
