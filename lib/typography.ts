@@ -1,16 +1,16 @@
 export const typography = {
   page: {
-    title: 'text-4xl md:text-6xl',
+    title: 'text-2xl md:text-4xl',
     description: 'text-lg leading-relaxed',
     socialIconLabel: 'text-base leading-none',
   },
   section: {
-    title: 'text-3xl md:text-5xl',
+    title: 'text-2xl md:text-4xl',
     subtitle: 'text-2xl md:text-3xl',
     description: 'text-lg leading-relaxed',
   },
   hero: {
-    title: 'text-3xl md:text-5xl lg:text-6xl',
+    title: 'text-3xl md:text-5xl lg:text-6xl xl:text-7xl',
     description: 'text-lg md:text-xl',
   },
   portfolio: {
