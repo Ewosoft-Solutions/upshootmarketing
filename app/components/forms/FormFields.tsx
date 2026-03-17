@@ -2,6 +2,7 @@
 
 import type { ComponentProps, ReactNode } from 'react';
 import { FileText } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
   Select,
@@ -27,6 +28,8 @@ const fieldTypography = {
   uploadHint: typography.form.field.uploadHint,
   uploadBrowse: typography.form.field.uploadBrowse,
 } as const;
+
+const formSubmitButtonClassName = 'rounded-full px-6 py-4 md:px-8 md:py-5';
 
 const fieldSpacingVariants = {
   tight: 'mb-1',
@@ -382,4 +385,10 @@ export function FileUploadField({
       <input id={id} name={name} type='file' className='sr-only' {...inputProps} />
     </FormField>
   );
+}
+
+type FormSubmitButtonProps = Omit<ComponentProps<typeof Button>, 'type'>;
+
+export function FormSubmitButton({ className, ...buttonProps }: FormSubmitButtonProps) {
+  return <Button type='submit' className={cn(formSubmitButtonClassName, className)} {...buttonProps} />;
 }

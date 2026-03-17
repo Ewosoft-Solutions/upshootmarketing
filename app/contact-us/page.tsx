@@ -28,8 +28,8 @@ export default function ContactUsPage() {
     <main className='container-px pb-20 pt-32 md:pt-36'>
       <section className='mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.2fr]'>
         <AnimatedSection className='space-y-6' animation='slideRight' duration='slow'>
-          <h1 className={`${typography.page.heroTitle} font-bold`}>Get in Touch</h1>
-          <p className={`max-w-md text-muted-foreground ${typography.page.lead}`}>
+          <h1 className={`${typography.page.sectionTitle} font-bold`}>Get in Touch</h1>
+          <p className={`2xl:max-w-md text-muted-foreground text-balance ${typography.page.lead}`}>
             Send us a message or an email to upshootmarketing@gmail.com
           </p>
           <div className='flex items-center gap-3 pt-2'>

@@ -7,12 +7,12 @@ import {
   defaultResponsiveFormBottomSpacing,
   FileUploadField,
   FormContainer,
+  FormSubmitButton,
   SelectField,
   TextInputField,
   TextareaField,
   type FormOption,
 } from '@/app/components/forms/FormFields';
-import { Button } from '@/components/ui/button';
 import { typography } from '@/lib/typography';
 import { joinTeamFormSchema, type JoinTeamFormValues } from '@/lib/validation/form-schemas';
 
@@ -257,9 +257,9 @@ export function JoinTeamForm() {
       />
 
       <div className='flex items-center gap-3'>
-        <Button type='submit' disabled={submitState === 'submitting'} className='rounded-xl px-6'>
+        <FormSubmitButton disabled={submitState === 'submitting'}>
           {submitState === 'submitting' ? 'Submitting...' : 'Submit'}
-        </Button>
+        </FormSubmitButton>
         {submitState === 'success' ? (
           <p className={`${typography.form.field.submitFeedback} text-green-600`}>Submitted successfully.</p>
         ) : null}

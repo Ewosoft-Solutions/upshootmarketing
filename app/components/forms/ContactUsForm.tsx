@@ -6,10 +6,10 @@ import { useForm } from 'react-hook-form';
 import {
   defaultResponsiveFormBottomSpacing,
   FormContainer,
+  FormSubmitButton,
   TextInputField,
   TextareaField,
 } from '@/app/components/forms/FormFields';
-import { Button } from '@/components/ui/button';
 import { typography } from '@/lib/typography';
 import { contactFormSchema, type ContactFormValues } from '@/lib/validation/form-schemas';
 
@@ -96,9 +96,9 @@ export function ContactUsForm() {
       />
 
       <div className='flex items-center gap-3'>
-        <Button type='submit' disabled={submitState === 'submitting'} className='rounded-xl px-6'>
+        <FormSubmitButton disabled={submitState === 'submitting'}>
           {submitState === 'submitting' ? 'Submitting...' : 'Submit'}
-        </Button>
+        </FormSubmitButton>
         {submitState === 'success' ? (
           <p className={`${typography.form.field.submitFeedback} text-green-600`}>Submitted successfully.</p>
         ) : null}
