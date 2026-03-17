@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
+  defaultResponsiveFormBottomSpacing,
+  FormContainer,
   TextInputField,
   TextareaField,
 } from '@/app/components/forms/FormFields';
@@ -49,13 +51,16 @@ export default function ContactUsPage() {
           </div>
         </div>
 
-        <form className='space-y-6 rounded-2xl'>
+        <FormContainer
+          className='space-y-6 rounded-2xl'
+          bottomSpacing={defaultResponsiveFormBottomSpacing}
+        >
           <div className='grid gap-5 sm:grid-cols-2'>
             <TextInputField id='fullName' name='fullName' label='Full Name' />
             <TextInputField id='emailAddress' name='emailAddress' type='email' label='Email Address' />
           </div>
           <TextareaField id='message' name='message' label='Message' rows={5} />
-        </form>
+        </FormContainer>
       </section>
     </main>
   );

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import {
+  defaultResponsiveFormBottomSpacing,
+  FormContainer,
   SelectField,
   TextInputField,
   type FormOption,
@@ -34,7 +36,7 @@ export default function GetStartedPage() {
           </p>
         </div>
 
-        <form className='space-y-5'>
+        <FormContainer bottomSpacing={defaultResponsiveFormBottomSpacing}>
           <div className='grid gap-5 sm:grid-cols-2'>
             <TextInputField id='firstName' name='firstName' label='First Name' />
             <TextInputField id='lastName' name='lastName' label='Last Name' />
@@ -60,7 +62,7 @@ export default function GetStartedPage() {
             <TextInputField id='budget' name='budget' label='Budget' />
             <TextInputField id='goals' name='goals' label='What do you hope to achieve' />
           </div>
-        </form>
+        </FormContainer>
       </section>
     </main>
   );
