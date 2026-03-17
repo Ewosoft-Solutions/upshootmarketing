@@ -78,6 +78,9 @@ export const getStartedFormSchema = z.object({
     .trim()
     .min(10, 'Goals must be at least 10 characters.')
     .max(1200, 'Goals must be 1200 characters or fewer.'),
+  selectedPackage: z.enum(['foundation', 'growth', 'authority']).optional(),
+  sourcePage: z.string().trim().max(80, 'Source page must be 80 characters or fewer.').optional(),
+  cta: z.string().trim().max(80, 'CTA must be 80 characters or fewer.').optional(),
 });
 
 export type GetStartedFormValues = z.infer<typeof getStartedFormSchema>;

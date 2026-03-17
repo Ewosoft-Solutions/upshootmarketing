@@ -77,7 +77,6 @@ const socialLinks = [
 const companyLinks = [
   { label: 'Who We Are', href: '/about-us' },
   { label: 'Get In Touch', href: '/contact-us' },
-  { label: 'Get Featured', href: '/get-featured' },
   { label: 'Join The Team', href: '/join-team' },
 ];
 

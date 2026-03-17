@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { ShimmerButton } from '@/app/components/ui/shimmer-button';
 import { AnimatedSection } from '@/app/components/ui/animated-section';
@@ -7,9 +8,11 @@ import { createPageMetadata } from '@/lib/seo';
 import { typography } from '@/lib/typography';
 
 interface PricingPackage {
+  slug: 'foundation' | 'growth' | 'authority';
   name: string;
   description: string;
   priceLabel: string;
+  defaultService: 'content-strategy' | 'social-media' | 'paid-media';
   accentClassName: string;
   features: readonly string[];
   popular?: boolean;
@@ -17,10 +20,12 @@ interface PricingPackage {
 
 const pricingPackages: readonly PricingPackage[] = [
   {
+    slug: 'foundation',
     name: 'Foundation',
     description:
       'For brands building visibility and consistency. Ideal for businesses ready to show up professionally and communicate clearly online.',
     priceLabel: '$400',
+    defaultService: 'content-strategy',
     accentClassName: 'bg-brand-green/25',
     features: [
       'Content strategy and ideation',
@@ -31,11 +36,13 @@ const pricingPackages: readonly PricingPackage[] = [
     ],
   },
   {
+    slug: 'growth',
     name: 'Growth',
     popular: true,
     description:
       'For brands ready to attract leads and scale. Built for businesses that want content working actively for growth, not just presence.',
     priceLabel: '$800',
+    defaultService: 'social-media',
     accentClassName: 'bg-brand-blue/25',
     features: [
       'Everything in Foundation',
@@ -47,10 +54,12 @@ const pricingPackages: readonly PricingPackage[] = [
     ],
   },
   {
+    slug: 'authority',
     name: 'Authority',
     description:
       'For brands positioning as industry leaders. Designed for established brands looking to dominate their space and build long-term trust.',
     priceLabel: '$1500',
+    defaultService: 'paid-media',
     accentClassName: 'bg-brand-yellow/25',
     features: [
       'Everything in Growth',
@@ -145,11 +154,22 @@ export default function PricingPage() {
                   </ul>
 
                   <ShimmerButton
+                    asChild
                     icon={null}
                     pulse={false}
                     className='mt-auto w-full bg-black! text-white! hover:bg-black/90!'
                   >
-                    Request Package
+                    <Link
+                      href={{
+                        pathname: '/get-started',
+                        query: {
+                          package: entry.slug,
+                          service: entry.defaultService,
+                        },
+                      }}
+                    >
+                      Request Package
+                    </Link>
                   </ShimmerButton>
                 </div>
               </article>
