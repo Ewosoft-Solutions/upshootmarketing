@@ -52,8 +52,12 @@ export function ArticlesSection() {
   return (
     <section id='blog' className={cn('container-px bg-background')}>
       <div className={cn('border-t border-border py-16 md:py-24')}>
-        <div className={cn('max-w-7xl mx-auto')}>
-          <div className={cn('flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4')}>
+        <div className={cn('max-w-screen-2xl mx-auto')}>
+          <div
+            className={cn(
+              'flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-4',
+            )}
+          >
             <AnimatedSection animation='slideRight'>
               <h2 className={cn(typography.section.title, 'font-bold')}>
                 Featured Articles

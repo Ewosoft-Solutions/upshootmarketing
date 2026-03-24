@@ -53,7 +53,8 @@ export function Navbar() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
-  const isExternalLink = (href: string) => href.startsWith('http://') || href.startsWith('https://');
+  const isExternalLink = (href: string) =>
+    href.startsWith('http://') || href.startsWith('https://');
 
   return (
     <nav
@@ -65,7 +66,11 @@ export function Navbar() {
       )}
     >
       <div className={cn('container-px')}>
-        <div className={cn('mx-auto flex h-20 max-w-7xl items-center justify-between')}>
+        <div
+          className={cn(
+            'mx-auto flex h-20 max-w-screen-2xl items-center justify-between',
+          )}
+        >
           <Link href='/' className={cn('inline-flex shrink-0')}>
             <Image
               src={theme === 'dark' ? logos.dark : logos.light}
@@ -92,7 +97,11 @@ export function Navbar() {
                   href={link.href}
                   className={className}
                   target={isExternalLink(link.href) ? '_blank' : undefined}
-                  rel={isExternalLink(link.href) ? 'noopener noreferrer' : undefined}
+                  rel={
+                    isExternalLink(link.href)
+                      ? 'noopener noreferrer'
+                      : undefined
+                  }
                 >
                   {link.label}
                 </Link>
@@ -101,21 +110,35 @@ export function Navbar() {
           </div>
 
           <div className={cn('flex items-center gap-3')}>
-            <Button asChild variant={'outline'} className={cn('hidden rounded-2xl lg:inline-flex')}>
+            <Button
+              asChild
+              variant={'outline'}
+              className={cn('hidden rounded-2xl lg:inline-flex')}
+            >
               <Link href='/contact-us'>Contact Us</Link>
             </Button>
             <button
               type='button'
-              aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-label={
+                isMobileMenuOpen
+                  ? 'Close navigation menu'
+                  : 'Open navigation menu'
+              }
               aria-expanded={isMobileMenuOpen}
               aria-controls='mobile-nav-menu'
-              onClick={() => setIsMobileMenuOpen((previousValue) => !previousValue)}
-              className={cn('relative inline-flex h-6 w-6 items-center justify-center text-nav-text-active transition-colors lg:hidden')}
+              onClick={() =>
+                setIsMobileMenuOpen((previousValue) => !previousValue)
+              }
+              className={cn(
+                'relative inline-flex h-6 w-6 items-center justify-center text-nav-text-active transition-colors lg:hidden',
+              )}
             >
               <span className={cn('sr-only')}>Toggle menu</span>
               <motion.span
                 className={cn('absolute h-0.5 w-5 bg-current')}
-                animate={isMobileMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
+                animate={
+                  isMobileMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }
+                }
                 transition={{ duration: 0.2 }}
               />
               <motion.span
@@ -125,7 +148,9 @@ export function Navbar() {
               />
               <motion.span
                 className={cn('absolute h-0.5 w-5 bg-current')}
-                animate={isMobileMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
+                animate={
+                  isMobileMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }
+                }
                 transition={{ duration: 0.2 }}
               />
             </button>
@@ -156,8 +181,14 @@ export function Navbar() {
                       <Link
                         href={link.href}
                         className={className}
-                        target={isExternalLink(link.href) ? '_blank' : undefined}
-                        rel={isExternalLink(link.href) ? 'noopener noreferrer' : undefined}
+                        target={
+                          isExternalLink(link.href) ? '_blank' : undefined
+                        }
+                        rel={
+                          isExternalLink(link.href)
+                            ? 'noopener noreferrer'
+                            : undefined
+                        }
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {link.label}
@@ -166,8 +197,18 @@ export function Navbar() {
                   );
                 })}
               </ul>
-              <Button asChild variant={'outline'} className={cn('mt-4 w-full rounded-2xl', typography.nav.mobileButton)}>
-                <Link href='/contact-us' onClick={() => setIsMobileMenuOpen(false)}>
+              <Button
+                asChild
+                variant={'outline'}
+                className={cn(
+                  'mt-4 w-full rounded-2xl',
+                  typography.nav.mobileButton,
+                )}
+              >
+                <Link
+                  href='/contact-us'
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   Contact Us
                 </Link>
               </Button>

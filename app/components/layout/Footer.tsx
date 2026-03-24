@@ -94,17 +94,34 @@ export function Footer() {
   return (
     <footer
       id='contact'
-      className={cn('bg-footer-bg text-footer-text flex flex-col gap-12 md:gap-16 py-10 md:py-16')}
+      className={cn(
+        'bg-footer-bg text-footer-text flex flex-col gap-12 md:gap-16 py-10 md:py-16',
+      )}
     >
       {/* Top row: CTA (left) + Links grid (right) */}
       <div className={cn('container-px')}>
-        <div className={cn('max-w-7xl mx-auto grid md:grid-cols-[3fr_2fr] gap-8 lg:gap-16')}>
+        <div
+          className={cn(
+            'max-w-screen-2xl mx-auto grid md:grid-cols-[3fr_2fr] gap-8 lg:gap-16',
+          )}
+        >
           {/* CTA Section */}
           <AnimatedSection animation='slideUp'>
-            <h2 className={cn(typography.footer.ctaTitle, 'font-medium mb-2 md:mb-4')}>
+            <h2
+              className={cn(
+                typography.footer.ctaTitle,
+                'font-medium mb-2 md:mb-4',
+              )}
+            >
               Ready to get started?
             </h2>
-            <p className={cn('text-footer-muted', typography.footer.ctaDescription, 'mb-5 md:mb-8')}>
+            <p
+              className={cn(
+                'text-footer-muted',
+                typography.footer.ctaDescription,
+                'mb-5 md:mb-8',
+              )}
+            >
               Are you ready to take your Brand to the next level?
               <br />
               Contact us and lets talk about your brand
@@ -118,7 +135,12 @@ export function Footer() {
           <div className={cn('grid grid-cols-2 gap-5 md:gap-8 pt-4 md:pt-0')}>
             {/* Company Links */}
             <div>
-              <h3 className={cn('font-semibold mb-2 md:mb-4 tracking-wide', typography.footer.sectionHeading)}>
+              <h3
+                className={cn(
+                  'font-semibold mb-2 md:mb-4 tracking-wide',
+                  typography.footer.sectionHeading,
+                )}
+              >
                 COMPANY
               </h3>
               <ul className={cn('space-y-1.5 md:space-y-2')}>
@@ -126,7 +148,10 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className={cn('text-footer-muted hover:text-footer-text transition-colors cursor-pointer', typography.footer.sectionLink)}
+                      className={cn(
+                        'text-footer-muted hover:text-footer-text transition-colors cursor-pointer',
+                        typography.footer.sectionLink,
+                      )}
                     >
                       {link.label}
                     </Link>
@@ -137,7 +162,12 @@ export function Footer() {
 
             {/* Resources - Column 1 */}
             <div>
-              <h3 className={cn('font-semibold mb-2 md:mb-4 tracking-wide', typography.footer.sectionHeading)}>
+              <h3
+                className={cn(
+                  'font-semibold mb-2 md:mb-4 tracking-wide',
+                  typography.footer.sectionHeading,
+                )}
+              >
                 RESOURCES
               </h3>
               <ul className={cn('space-y-1.5 md:space-y-2')}>
@@ -145,7 +175,10 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className={cn('text-footer-muted hover:text-footer-text transition-colors cursor-pointer', typography.footer.sectionLink)}
+                      className={cn(
+                        'text-footer-muted hover:text-footer-text transition-colors cursor-pointer',
+                        typography.footer.sectionLink,
+                      )}
                     >
                       {link.label}
                     </Link>
@@ -159,8 +192,18 @@ export function Footer() {
 
       {/* Middle row: Logo (left) + Be The First To Know (right) */}
       <div className={cn('container-px')}>
-        <div className={cn('max-w-7xl mx-auto grid md:grid-cols-5 gap-5 md:gap-8 items-start')}>
-          <Link href='/' className={cn(typography.footer.logoLabel, 'font-bold md:col-span-3')}>
+        <div
+          className={cn(
+            'max-w-screen-2xl mx-auto grid md:grid-cols-5 gap-5 md:gap-8 items-start',
+          )}
+        >
+          <Link
+            href='/'
+            className={cn(
+              typography.footer.logoLabel,
+              'font-bold md:col-span-3',
+            )}
+          >
             <Image
               src={footerLogo}
               alt='UpShoot Marketing'
@@ -171,17 +214,30 @@ export function Footer() {
           </Link>
 
           <div className={cn('md:col-span-2')}>
-            <h3 className={cn('font-semibold mb-2 md:mb-4 tracking-wide', typography.footer.sectionHeading)}>
+            <h3
+              className={cn(
+                'font-semibold mb-2 md:mb-4 tracking-wide',
+                typography.footer.sectionHeading,
+              )}
+            >
               BE THE FIRST TO KNOW
             </h3>
-            <p className={cn('text-footer-muted', typography.footer.newsletterDescription, 'mb-3 md:mb-4')}>
+            <p
+              className={cn(
+                'text-footer-muted',
+                typography.footer.newsletterDescription,
+                'mb-3 md:mb-4',
+              )}
+            >
               Be the first to read our Articles and News Letter
             </p>
             <div className={cn('flex gap-2')}>
               <Input
                 type='email'
                 placeholder='Email address'
-                className={cn('rounded-full py-4 md:py-5 px-4 md:px-5 flex-1 border-footer-border bg-footer-input-bg text-footer-input-text placeholder:text-footer-input-placeholder')}
+                className={cn(
+                  'rounded-full py-4 md:py-5 px-4 md:px-5 flex-1 border-footer-border bg-footer-input-bg text-footer-input-text placeholder:text-footer-input-placeholder',
+                )}
               />
               <Button
                 variant='secondary'
@@ -195,8 +251,16 @@ export function Footer() {
       </div>
 
       {/* Bottom row: Copyright (left) + Social links (right) */}
-      <div className={cn('border-t border-footer-border pt-6 md:pt-8 container-px')}>
-        <div className={cn('max-w-7xl mx-auto flex flex-col-reverse sm:flex-row items-center justify-between gap-4')}>
+      <div
+        className={cn(
+          'border-t border-footer-border pt-6 md:pt-8 container-px',
+        )}
+      >
+        <div
+          className={cn(
+            'max-w-screen-2xl mx-auto flex flex-col-reverse sm:flex-row items-center justify-between gap-4',
+          )}
+        >
           <p className={cn('text-footer-muted', typography.footer.copyright)}>
             © 2025. All rights reserved
           </p>
@@ -209,7 +273,9 @@ export function Footer() {
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label={link.label}
-                className={cn('text-footer-social hover:text-footer-text transition-colors')}
+                className={cn(
+                  'text-footer-social hover:text-footer-text transition-colors',
+                )}
               >
                 <link.icon className={cn('h-5 w-5')} />
               </Link>

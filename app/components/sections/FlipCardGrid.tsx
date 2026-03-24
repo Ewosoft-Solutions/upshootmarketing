@@ -35,7 +35,13 @@ interface FlipCardProps extends HeroCard {
   onFlip: () => void;
 }
 
-function FlipCard({ front, back, alt, isFlipped, onFlip }: Readonly<FlipCardProps>) {
+function FlipCard({
+  front,
+  back,
+  alt,
+  isFlipped,
+  onFlip,
+}: Readonly<FlipCardProps>) {
   return (
     <button
       type='button'
@@ -43,8 +49,17 @@ function FlipCard({ front, back, alt, isFlipped, onFlip }: Readonly<FlipCardProp
       onClick={onFlip}
       aria-label={`Flip card for ${alt}`}
     >
-      <div className={cn('flip-card-inner relative w-full h-full', isFlipped && 'flip-card-flipped')}>
-        <div className={cn('flip-card-face flip-card-front absolute inset-0 rounded-[24px] overflow-hidden')}>
+      <div
+        className={cn(
+          'flip-card-inner relative w-full h-full',
+          isFlipped && 'flip-card-flipped',
+        )}
+      >
+        <div
+          className={cn(
+            'flip-card-face flip-card-front absolute inset-0 rounded-[24px] overflow-hidden',
+          )}
+        >
           <Image
             src={front}
             alt={alt}
@@ -53,7 +68,11 @@ function FlipCard({ front, back, alt, isFlipped, onFlip }: Readonly<FlipCardProp
             className={cn('object-cover')}
           />
         </div>
-        <div className={cn('flip-card-face flip-card-back absolute inset-0 rounded-[24px] overflow-hidden')}>
+        <div
+          className={cn(
+            'flip-card-face flip-card-back absolute inset-0 rounded-[24px] overflow-hidden',
+          )}
+        >
           <Image
             src={back}
             alt={`${alt} - back`}
@@ -79,7 +98,9 @@ export function FlipCardGrid() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className={cn('mt-12 md:mt-20 w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto')}
+      className={cn(
+        'mt-12 md:mt-20 w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-screen-2xl mx-auto',
+      )}
     >
       {heroCards.map((card) => (
         <FlipCard

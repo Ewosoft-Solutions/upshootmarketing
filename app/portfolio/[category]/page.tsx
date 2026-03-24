@@ -61,10 +61,14 @@ export default async function PortfolioCategoryPage({
 
   return (
     <main className={cn('container-px pb-20 pt-32 md:pt-36')}>
-      <section className={cn('mx-auto max-w-7xl space-y-10')}>
+      <section className={cn('mx-auto max-w-screen-2xl space-y-10')}>
         <AnimatedSection animation='slideUp' duration='normal'>
           <div className={cn('space-y-4')}>
-            <div className={cn('flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between')}>
+            <div
+              className={cn(
+                'flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between',
+              )}
+            >
               <ArrowLinkButton href='/portfolio' direction='back'>
                 Back to Categories
               </ArrowLinkButton>

@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { typography } from '@/lib/typography';
 import { cn } from '@/lib/utils';
 
-const AVATAR_FALLBACK = '/assets/images/sections/testimonials/avatar-placeholder.svg';
+const AVATAR_FALLBACK =
+  '/assets/images/sections/testimonials/avatar-placeholder.svg';
 
 interface Testimonial {
   id: string;
@@ -46,10 +47,21 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-function TestimonialCard({ testimonial }: Readonly<{ testimonial: Testimonial }>) {
+function TestimonialCard({
+  testimonial,
+}: Readonly<{ testimonial: Testimonial }>) {
   return (
-    <div className={cn('shrink-0 w-[min(340px,85vw)] rounded-xl bg-background p-6 mx-3')}>
-      <p className={cn(typography.card.description, 'leading-relaxed text-foreground mb-6')}>
+    <div
+      className={cn(
+        'shrink-0 w-[min(340px,85vw)] rounded-xl bg-background p-6 mx-3',
+      )}
+    >
+      <p
+        className={cn(
+          typography.card.description,
+          'leading-relaxed text-foreground mb-6',
+        )}
+      >
         {testimonial.quote}
       </p>
       <div className={cn('flex items-center gap-3')}>
@@ -61,8 +73,17 @@ function TestimonialCard({ testimonial }: Readonly<{ testimonial: Testimonial }>
           className={cn('rounded-full object-cover w-10 h-10')}
         />
         <div>
-          <p className={cn(typography.card.description, 'font-semibold')}>{testimonial.name}</p>
-          <p className={cn(typography.card.descriptionSmall, 'text-muted-foreground')}>{testimonial.role}</p>
+          <p className={cn(typography.card.description, 'font-semibold')}>
+            {testimonial.name}
+          </p>
+          <p
+            className={cn(
+              typography.card.descriptionSmall,
+              'text-muted-foreground',
+            )}
+          >
+            {testimonial.role}
+          </p>
         </div>
       </div>
     </div>
@@ -95,9 +116,12 @@ function MarqueeRow({
 
 export function TestimonialsSection() {
   return (
-    <section id='testimonials' className={cn('py-16 md:py-24 bg-muted/50 overflow-hidden')}>
+    <section
+      id='testimonials'
+      className={cn('py-16 md:py-24 bg-muted/50 overflow-hidden')}
+    >
       <div className={cn('container-px')}>
-        <div className={cn('max-w-7xl mx-auto mb-12')}>
+        <div className={cn('max-w-screen-2xl mx-auto mb-12')}>
           <AnimatedSection animation='slideUp'>
             <h2 className={cn(typography.section.title, 'font-bold')}>
               What our Clients say

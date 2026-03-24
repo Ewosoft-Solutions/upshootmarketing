@@ -43,10 +43,18 @@ function FAQItem({
     <div className={cn('border-b border-border')}>
       <button
         onClick={onToggle}
-        className={cn('flex w-full items-center justify-between py-6 text-left cursor-pointer')}
+        className={cn(
+          'flex w-full items-center justify-between py-6 text-left cursor-pointer',
+        )}
       >
-        <span className={cn(typography.faq.question, 'font-medium pr-4')}>{faq.question}</span>
-        <span className={cn('shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center transition-colors')}>
+        <span className={cn(typography.faq.question, 'font-medium pr-4')}>
+          {faq.question}
+        </span>
+        <span
+          className={cn(
+            'shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center transition-colors',
+          )}
+        >
           {isOpen ? (
             <Minus className={cn('w-5 h-5')} />
           ) : (
@@ -84,7 +92,7 @@ export function FAQSection() {
   return (
     <section id='faq' className={cn('container-px bg-background')}>
       <div className={cn('border-t border-border py-16 md:py-24')}>
-        <div className={cn('max-w-7xl mx-auto')}>
+        <div className={cn('max-w-screen-2xl mx-auto')}>
           <div className={cn('grid lg:grid-cols-2 gap-12 lg:gap-20')}>
             {/* Left column */}
             <AnimatedSection animation='slideRight' duration='slow'>

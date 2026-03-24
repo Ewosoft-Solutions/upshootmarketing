@@ -13,7 +13,7 @@ export const metadata: Metadata = createPageMetadata({
 const BlogPage = () => {
   return (
     <main className={cn('container-px pb-20 pt-32 md:pt-36')}>
-      <section className={cn('mx-auto max-w-7xl')}>
+      <section className={cn('mx-auto max-w-screen-2xl')}>
         <h1 className={cn(typography.page.title, 'font-bold')}>Blog</h1>
       </section>
     </main>

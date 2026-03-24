@@ -61,12 +61,20 @@ const projects = [
 export function PortfolioSection() {
   return (
     <section id='portfolio' className={cn('py-16 md:py-24 container-px')}>
-      <div className={cn('max-w-7xl mx-auto')}>
-        <AnimatedSection animation='slideUp' className={cn('text-center mb-16')}>
+      <div className={cn('max-w-screen-2xl mx-auto')}>
+        <AnimatedSection
+          animation='slideUp'
+          className={cn('text-center mb-16')}
+        >
           <h2 className={cn(typography.section.title, 'font-bold mb-4')}>
             Work that works
           </h2>
-          <p className={cn('text-muted-foreground', typography.section.description)}>
+          <p
+            className={cn(
+              'text-muted-foreground',
+              typography.section.description,
+            )}
+          >
             Some of our favorite work, for some of our favorite clients
           </p>
         </AnimatedSection>

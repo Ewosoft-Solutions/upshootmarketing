@@ -79,12 +79,16 @@ export const metadata: Metadata = createPageMetadata({
 export default function ServicesPage() {
   return (
     <main className={cn('container-px pb-20 pt-32 md:pt-36')}>
-      <section className={cn('mx-auto max-w-7xl space-y-14 md:space-y-16')}>
+      <section
+        className={cn('mx-auto max-w-screen-2xl space-y-14 md:space-y-16')}
+      >
         <div className={cn('grid gap-10 lg:grid-cols-2 lg:gap-12')}>
           <AnimatedSection animation='slideRight' duration='slow'>
             <div className={cn('space-y-6')}>
               <div className={cn('space-y-4')}>
-                <h1 className={cn(typography.page.title, 'font-bold')}>Our Services</h1>
+                <h1 className={cn(typography.page.title, 'font-bold')}>
+                  Our Services
+                </h1>
                 <p className={cn('max-w-xl text-muted-foreground')}>
                   We blend these areas of expertise to create brand storytelling
                   systems that earn attention, build trust, and drive leads
@@ -109,11 +113,21 @@ export default function ServicesPage() {
         </div>
 
         <AnimatedSection animation='slideUp' duration='slow'>
-          <div className={cn('relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-muted/50')}>
+          <div
+            className={cn(
+              'relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-muted/50',
+            )}
+          >
             <div className={cn('container-px py-12 md:py-16')}>
-              <div className={cn('mx-auto max-w-7xl space-y-6')}>
-                <div className={cn('flex flex-col items-start justify-between gap-4 md:flex-row md:items-center')}>
-                  <h2 className={cn(typography.section.title, 'font-semibold')}>What we do</h2>
+              <div className={cn('mx-auto max-w-screen-2xl space-y-6')}>
+                <div
+                  className={cn(
+                    'flex flex-col items-start justify-between gap-4 md:flex-row md:items-center',
+                  )}
+                >
+                  <h2 className={cn(typography.section.title, 'font-semibold')}>
+                    What we do
+                  </h2>
                   <ArrowLinkButton href='/portfolio'>
                     See our Portfolio
                   </ArrowLinkButton>
@@ -123,22 +137,33 @@ export default function ServicesPage() {
                   {serviceCards.map((service) => (
                     <article
                       key={service.title}
-                      className={cn('group overflow-hidden rounded-3xl border border-border/50 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg')}
+                      className={cn(
+                        'group overflow-hidden rounded-3xl border border-border/50 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg',
+                      )}
                     >
                       <div className={cn('relative h-48 overflow-hidden')}>
                         <Image
                           src={service.imageSrc}
                           alt={service.imageAlt}
                           fill
-                          className={cn('object-cover transition-transform duration-500 group-hover:scale-105')}
+                          className={cn(
+                            'object-cover transition-transform duration-500 group-hover:scale-105',
+                          )}
                           sizes='(min-width: 1280px) 23vw, (min-width: 768px) 48vw, 100vw'
                         />
                       </div>
                       <div className={cn('space-y-4 p-5')}>
-                        <h3 className={cn(typography.card.title, 'font-semibold')}>
+                        <h3
+                          className={cn(typography.card.title, 'font-semibold')}
+                        >
                           {service.title}
                         </h3>
-                        <p className={cn(typography.card.descriptionSmall, 'leading-relaxed text-muted-foreground')}>
+                        <p
+                          className={cn(
+                            typography.card.descriptionSmall,
+                            'leading-relaxed text-muted-foreground',
+                          )}
+                        >
                           {service.description}
                         </p>
                       </div>
@@ -152,14 +177,22 @@ export default function ServicesPage() {
 
         <AnimatedSection animation='slideUp' duration='slow' delay='short'>
           <div className={cn('space-y-6')}>
-            <h2 className={cn(typography.section.title, 'font-semibold')}>Our Approach</h2>
+            <h2 className={cn(typography.section.title, 'font-semibold')}>
+              Our Approach
+            </h2>
             <div className={cn('grid gap-4 md:grid-cols-3')}>
               {approachSteps.map((step) => (
                 <article
                   key={step.title}
-                  className={cn('rounded-2xl border border-muted bg-muted/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md')}
+                  className={cn(
+                    'rounded-2xl border border-muted bg-muted/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md',
+                  )}
                 >
-                  <h3 className={cn(typography.card.titleLarge, 'font-semibold')}>{step.title}</h3>
+                  <h3
+                    className={cn(typography.card.titleLarge, 'font-semibold')}
+                  >
+                    {step.title}
+                  </h3>
                   <p className={cn('mt-3 text-muted-foreground')}>
                     {step.description}
                   </p>

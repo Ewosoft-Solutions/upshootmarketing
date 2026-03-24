@@ -12,45 +12,58 @@ const services = [
     id: 'content-strategy',
     icon: Lightbulb,
     title: 'Content Strategy',
-    description: 'Strategic content planning that connects with your audience and drives meaningful engagement.',
+    description:
+      'Strategic content planning that connects with your audience and drives meaningful engagement.',
   },
   {
     id: 'video-production',
     icon: Video,
     title: 'Video Production',
-    description: 'High-quality video content that tells your story and captivates your target audience.',
+    description:
+      'High-quality video content that tells your story and captivates your target audience.',
   },
   {
     id: 'growth-marketing',
     icon: TrendingUp,
     title: 'Growth Marketing',
-    description: 'Data-driven campaigns designed to scale your business and maximize ROI.',
+    description:
+      'Data-driven campaigns designed to scale your business and maximize ROI.',
   },
   {
     id: 'brand-design',
     icon: Palette,
     title: 'Brand Design',
-    description: 'Creative design solutions that make your brand stand out in a crowded marketplace.',
+    description:
+      'Creative design solutions that make your brand stand out in a crowded marketplace.',
   },
 ];
 
 export function ServicesSection() {
   return (
-    <section id="services" className={cn('py-24 container-px bg-background')}>
-      <div className={cn('max-w-7xl mx-auto')}>
-        <AnimatedSection animation="slideUp" className={cn('text-center mb-16')}>
+    <section id='services' className={cn('py-24 container-px bg-background')}>
+      <div className={cn('max-w-screen-2xl mx-auto')}>
+        <AnimatedSection
+          animation='slideUp'
+          className={cn('text-center mb-16')}
+        >
           <h2 className={cn(typography.section.title, 'font-bold mb-4')}>
             Our Services
           </h2>
-          <p className={cn('text-muted-foreground max-w-2xl mx-auto', typography.section.description)}>
-            We offer comprehensive marketing solutions to help your business grow and succeed
+          <p
+            className={cn(
+              'text-muted-foreground max-w-2xl mx-auto',
+              typography.section.description,
+            )}
+          >
+            We offer comprehensive marketing solutions to help your business
+            grow and succeed
           </p>
         </AnimatedSection>
 
         <motion.div
           variants={getStaggerContainer('normal')}
-          initial="hidden"
-          whileInView="show"
+          initial='hidden'
+          whileInView='show'
           viewport={{ once: true, amount: 0.3 }}
           className={cn('grid md:grid-cols-2 lg:grid-cols-4 gap-8')}
         >
@@ -58,13 +71,28 @@ export function ServicesSection() {
             <motion.div
               key={service.id}
               variants={staggerItem}
-              className={cn('p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group')}
+              className={cn(
+                'p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group',
+              )}
             >
-              <div className={cn('w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors')}>
+              <div
+                className={cn(
+                  'w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors',
+                )}
+              >
                 <service.icon className={cn('w-6 h-6 text-primary')} />
               </div>
-              <h3 className={cn(typography.card.title, 'font-semibold mb-2')}>{service.title}</h3>
-              <p className={cn('text-muted-foreground', typography.card.description)}>{service.description}</p>
+              <h3 className={cn(typography.card.title, 'font-semibold mb-2')}>
+                {service.title}
+              </h3>
+              <p
+                className={cn(
+                  'text-muted-foreground',
+                  typography.card.description,
+                )}
+              >
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>

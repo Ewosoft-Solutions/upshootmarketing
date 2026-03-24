@@ -27,10 +27,25 @@ export default function ContactUsPage() {
 
   return (
     <main className={cn('container-px pb-20 pt-32 md:pt-36')}>
-      <section className={cn('mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.2fr]')}>
-        <AnimatedSection className={cn('space-y-6')} animation='slideRight' duration='slow'>
-          <h1 className={cn(typography.section.title, 'font-bold')}>Get in Touch</h1>
-          <p className={cn('2xl:max-w-md text-muted-foreground text-balance', typography.section.description)}>
+      <section
+        className={cn(
+          'mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-[1fr_1.2fr]',
+        )}
+      >
+        <AnimatedSection
+          className={cn('space-y-6')}
+          animation='slideRight'
+          duration='slow'
+        >
+          <h1 className={cn(typography.section.title, 'font-bold')}>
+            Get in Touch
+          </h1>
+          <p
+            className={cn(
+              '2xl:max-w-md text-muted-foreground text-balance',
+              typography.section.description,
+            )}
+          >
             Send us a message or an email to upshootmarketing@gmail.com
           </p>
           <div className={cn('flex items-center gap-3 pt-2')}>
@@ -41,9 +56,18 @@ export default function ContactUsPage() {
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label={link.label}
-                className={cn('inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-accent')}
+                className={cn(
+                  'inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-accent',
+                )}
               >
-                <span className={cn(typography.page.socialIconLabel, 'font-semibold')}>{link.text}</span>
+                <span
+                  className={cn(
+                    typography.page.socialIconLabel,
+                    'font-semibold',
+                  )}
+                >
+                  {link.text}
+                </span>
               </Link>
             ))}
           </div>

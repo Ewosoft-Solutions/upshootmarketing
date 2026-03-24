@@ -10,14 +10,18 @@ export function AboutSection() {
   return (
     <section id='about' className={cn('container-px bg-background')}>
       <div className={cn('border-t border-border pt-16 md:pt-24')}>
-        <div className={cn('max-w-7xl mx-auto')}>
+        <div className={cn('max-w-screen-2xl mx-auto')}>
           <div className={cn('grid lg:grid-cols-2 gap-12 items-center')}>
             {/* Left: Content */}
             <AnimatedSection animation='slideRight' duration='slow'>
               <h2 className={cn(typography.section.title, 'font-bold mb-6')}>
                 About Upshoot Marketing
               </h2>
-              <div className={cn('space-y-4 text-muted-foreground leading-relaxed text-balance')}>
+              <div
+                className={cn(
+                  'space-y-4 text-muted-foreground leading-relaxed text-balance',
+                )}
+              >
                 <p>
                   UpShoot Marketing is a B2B marketing agency helping brands
                   grow faster, through content that connects, converts and
@@ -41,12 +45,26 @@ export function AboutSection() {
 
             {/* Right: Video */}
             <AnimatedSection animation='slideLeft' duration='slow'>
-              <div className={cn('relative aspect-video rounded-xl overflow-hidden bg-muted group cursor-pointer')}>
+              <div
+                className={cn(
+                  'relative aspect-video rounded-xl overflow-hidden bg-muted group cursor-pointer',
+                )}
+              >
                 {/* Video Placeholder */}
-                <div className={cn('absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 flex items-center justify-center')}>
+                <div
+                  className={cn(
+                    'absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 flex items-center justify-center',
+                  )}
+                >
                   <div className={cn('text-center')}>
-                    <div className={cn('w-20 h-20 mx-auto mb-4 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform')}>
-                      <Play className={cn('w-8 h-8 text-white fill-white ml-1')} />
+                    <div
+                      className={cn(
+                        'w-20 h-20 mx-auto mb-4 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform',
+                      )}
+                    >
+                      <Play
+                        className={cn('w-8 h-8 text-white fill-white ml-1')}
+                      />
                     </div>
                     <p className={cn('text-white font-medium')}>
                       Video Explaining Upshoot
