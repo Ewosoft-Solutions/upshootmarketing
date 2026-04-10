@@ -65,11 +65,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={cn(outfit.variable, geistMono.variable)}>
-      <body className={cn('antialiased')}>
+      <body className={cn('antialiased min-h-screen flex flex-col')}>
 
         <ThemeProvider>
           <Navbar />
-          {children}
+          <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
